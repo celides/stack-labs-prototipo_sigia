@@ -487,9 +487,9 @@
         <p id="page-sub">Vista general del sistema de gestión</p>
       </div>
       <div class="topbar-user">
-        <div class="user-avatar">JC</div>
+        <div class="user-avatar">OO</div>
         <div class="user-info">
-          <div class="user-name">Juan Carlos Pérez</div>
+          <div class="user-name">Óscar Ordóñez</div>
           <div class="user-role">Consultor · SIGIA</div>
         </div>
       </div>
@@ -810,14 +810,17 @@ function switchView(el){
   el.classList.add('active');
   const view = el.dataset.view;
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  document.getElementById('view-'+view).classList.add('active');
-  const [title, sub] = viewTitles[view];
-  document.getElementById('page-title').textContent = title;
-  document.getElementById('page-sub').textContent = sub;
+  const targetView = document.getElementById('view-'+view);
+  if(targetView) targetView.classList.add('active');
+  
+  const [title, sub] = viewTitles[view] || ['Dashboard',''];
+  const titleEl = document.getElementById('page-title');
+  const subEl = document.getElementById('page-sub');
+  if(titleEl) titleEl.textContent = title;
+  if(subEl) subEl.textContent = sub;
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-/* ══════════════ SELECTOR DE ESQUEMA ══════════════ */
 function selectScheme(el){
   document.querySelectorAll('.scheme-card').forEach(c=>c.classList.remove('active'));
   el.classList.add('active');
@@ -877,8 +880,10 @@ function initRecognition(){
   
   r.onstart = () => {
     isRecording = true;
-    document.getElementById('mic-btn').classList.add('recording');
-    document.getElementById('voice-status').textContent = '🔴 Escuchando... habla ahora';
+    const micBtn = document.getElementById('mic-btn');
+    if(micBtn) micBtn.classList.add('recording');
+    const status = document.getElementById('voice-status');
+    if(status) status.textContent = '🔴 Escuchando... habla ahora';
   };
   
   r.onresult = (event) => {
@@ -893,22 +898,28 @@ function initRecognition(){
       }
     }
     const box = document.getElementById('transcript');
-    box.classList.remove('empty');
-    box.textContent = finalTranscript || interimTranscript;
+    if(box) {
+      box.classList.remove('empty');
+      box.textContent = finalTranscript || interimTranscript;
+    }
     if(finalTranscript){
       generarRespuesta(finalTranscript);
     }
   };
   
   r.onerror = (e) => {
-    document.getElementById('voice-status').textContent = 'Error: ' + e.error;
-    document.getElementById('mic-btn').classList.remove('recording');
+    const status = document.getElementById('voice-status');
+    if(status) status.textContent = 'Error: ' + e.error;
+    const micBtn = document.getElementById('mic-btn');
+    if(micBtn) micBtn.classList.remove('recording');
     isRecording = false;
   };
   
   r.onend = () => {
-    document.getElementById('mic-btn').classList.remove('recording');
-    document.getElementById('voice-status').textContent = 'Presiona el micrófono para otra pregunta';
+    const micBtn = document.getElementById('mic-btn');
+    if(micBtn) micBtn.classList.remove('recording');
+    const status = document.getElementById('voice-status');
+    if(status) status.textContent = 'Presiona el micrófono para otra pregunta';
     isRecording = false;
   };
   
@@ -952,7 +963,8 @@ function generarRespuesta(pregunta){
   else if(p.includes('trazabilidad') || p.includes('rastreo')) respuesta = respuestas.trazabilidad;
   else if(p.includes('limpieza') || p.includes('poes') || p.includes('sanitiz')) respuesta = respuestas.limpieza;
   
-  document.getElementById('answer-text').textContent = respuesta;
+  const answerEl = document.getElementById('answer-text');
+  if(answerEl) answerEl.textContent = respuesta;
 }
 
 /* ══════════════ TEXT TO SPEECH ══════════════ */
@@ -965,17 +977,22 @@ function playAnswer(){
   }
   window.speechSynthesis.cancel();
   
-  const texto = document.getElementById('answer-text').textContent;
+  const answerEl = document.getElementById('answer-text');
+  if(!answerEl) return;
+  
+  const texto = answerEl.textContent;
   utterance = new SpeechSynthesisUtterance(texto);
   utterance.lang = 'es-MX';
   utterance.rate = parseFloat(document.getElementById('speed').value);
   utterance.volume = parseFloat(document.getElementById('volume').value);
   
   utterance.onstart = () => {
-    document.getElementById('play-btn').textContent = '⏸';
+    const btn = document.getElementById('play-btn');
+    if(btn) btn.textContent = '⏸';
   };
   utterance.onend = () => {
-    document.getElementById('play-btn').textContent = '▶';
+    const btn = document.getElementById('play-btn');
+    if(btn) btn.textContent = '▶';
   };
   
   window.speechSynthesis.speak(utterance);
@@ -984,22 +1001,24 @@ function playAnswer(){
 function stopAnswer(){
   if('speechSynthesis' in window){
     window.speechSynthesis.cancel();
-    document.getElementById('play-btn').textContent = '▶';
+    const btn = document.getElementById('play-btn');
+    if(btn) btn.textContent = '▶';
   }
 }
 
 function updateSpeed(){
   const val = document.getElementById('speed').value;
-  document.getElementById('speed-val').textContent = parseFloat(val).toFixed(1) + 'x';
+  const label = document.getElementById('speed-val');
+  if(label) label.textContent = parseFloat(val).toFixed(1) + 'x';
   if(utterance) utterance.rate = parseFloat(val);
 }
 
 function updateVolume(){
   const val = document.getElementById('volume').value;
-  document.getElementById('volume-val').textContent = Math.round(val * 100) + '%';
+  const label = document.getElementById('volume-val');
+  if(label) label.textContent = Math.round(val * 100) + '%';
   if(utterance) utterance.volume = parseFloat(val);
 }
-
 </script>
 
 </body>
