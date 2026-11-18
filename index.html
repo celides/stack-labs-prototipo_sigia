@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIGIA — Sistema de Gestión de Inocuidad Alimentaria</title>
-<meta name="description" content="SIGIA · El traje a la medida para tu sistema de inocuidad alimentaria. Gestión de normas ISO 22000, FSSC 22000, SQF, BRCGS y AIB con consulta por voz y biblioteca oficial.">
+<title>SIGIA — Administración de Sistema de Calidad (SQF 10)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -37,8 +36,7 @@
   body{
     font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
     background:var(--bg);color:var(--text);line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    min-height:100vh;
+    -webkit-font-smoothing:antialiased;min-height:100vh;
   }
   h1,h2,h3,h4,h5{font-family:'Plus Jakarta Sans','Inter',sans-serif;letter-spacing:-0.02em;}
   a{color:var(--primary);text-decoration:none;}
@@ -49,7 +47,7 @@
 
   /* SIDEBAR */
   .sidebar{
-    width:260px;background:var(--bg-sidebar);color:#fff;
+    width:280px;background:var(--bg-sidebar);color:#fff;
     padding:24px 0;position:fixed;top:0;left:0;bottom:0;
     overflow-y:auto;z-index:50;display:flex;flex-direction:column;
   }
@@ -57,44 +55,33 @@
     padding:0 24px 24px;border-bottom:1px solid rgba(255,255,255,.1);
     margin-bottom:16px;
   }
-  .logo-mark{
-    display:flex;align-items:center;gap:10px;margin-bottom:8px;
-  }
+  .logo-mark{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
   .logo-icon{
     width:36px;height:36px;border-radius:10px;
     background:linear-gradient(135deg,#14b8a6,#0d9488);
     display:flex;align-items:center;justify-content:center;
     font-size:18px;font-weight:800;color:#fff;
-    font-family:'Plus Jakarta Sans',sans-serif;
   }
-  .logo-name{
-    font-family:'Plus Jakarta Sans',sans-serif;
-    font-size:20px;font-weight:800;letter-spacing:-0.02em;
-  }
-  .logo-tagline{
-    font-size:10.5px;opacity:.7;font-weight:500;
-    text-transform:uppercase;letter-spacing:.08em;
-  }
+  .logo-name{font-size:20px;font-weight:800;letter-spacing:-0.02em;}
+  .logo-tagline{font-size:10.5px;opacity:.7;font-weight:500;text-transform:uppercase;letter-spacing:.08em;}
+  
   .nav-section{
-    padding:0 12px;margin-bottom:8px;
+    padding:0 12px;margin:16px 0 8px;
     font-size:10.5px;font-weight:700;color:rgba(255,255,255,.4);
-    text-transform:uppercase;letter-spacing:.1em;
-    padding-left:24px;
+    text-transform:uppercase;letter-spacing:.1em;padding-left:24px;
   }
   .nav-item{
     display:flex;align-items:center;gap:12px;
     padding:11px 20px;margin:2px 8px;border-radius:8px;
-    color:rgba(255,255,255,.75);font-size:13.5px;font-weight:500;
+    color:rgba(255,255,255,.75);font-size:13px;font-weight:500;
     cursor:pointer;transition:all .15s;text-decoration:none;
   }
   .nav-item:hover{background:var(--bg-sidebar-hover);color:#fff;text-decoration:none;}
   .nav-item.active{
     background:linear-gradient(135deg,rgba(20,184,166,.25),rgba(13,148,136,.15));
-    color:#fff;font-weight:600;
-    border-left:3px solid #14b8a6;
+    color:#fff;font-weight:600;border-left:3px solid #14b8a6;
   }
   .nav-icon{font-size:16px;width:20px;text-align:center;}
-
   .sidebar-footer{
     margin-top:auto;padding:20px 20px 8px;
     border-top:1px solid rgba(255,255,255,.1);
@@ -102,25 +89,18 @@
   }
 
   /* MAIN */
-  .main{
-    flex:1;margin-left:260px;padding:28px 36px;
-    max-width:1400px;
-  }
+  .main{flex:1;margin-left:280px;padding:28px 36px;max-width:1400px;}
   .topbar{
     display:flex;align-items:center;justify-content:space-between;
     margin-bottom:28px;gap:16px;flex-wrap:wrap;
   }
-  .topbar-title h1{
-    font-size:24px;font-weight:700;margin-bottom:2px;
-  }
-  .topbar-title p{
-    font-size:13.5px;color:var(--text-muted);
-  }
+  .topbar-title h1{font-size:24px;font-weight:700;margin-bottom:2px;}
+  .topbar-title p{font-size:13.5px;color:var(--text-muted);}
+  
   .topbar-user{
     display:flex;align-items:center;gap:12px;
     background:var(--bg-card);padding:8px 14px 8px 8px;
-    border-radius:999px;border:1px solid var(--border);
-    box-shadow:var(--shadow-sm);
+    border-radius:999px;border:1px solid var(--border);box-shadow:var(--shadow-sm);
   }
   .user-avatar{
     width:36px;height:36px;border-radius:50%;
@@ -132,7 +112,10 @@
   .user-name{font-size:12.5px;font-weight:600;}
   .user-role{font-size:10.5px;color:var(--text-muted);}
 
-  /* ══════════════ CARDS Y SECCIONES ══════════════ */
+  /* ══════════════ CARDS Y VIEWS ══════════════ */
+  .view{display:none;}
+  .view.active{display:block;}
+
   .card{
     background:var(--bg-card);border:1px solid var(--border);
     border-radius:var(--radius);padding:24px;
@@ -142,196 +125,149 @@
     display:flex;align-items:center;justify-content:space-between;
     margin-bottom:18px;gap:12px;flex-wrap:wrap;
   }
-  .section-title{
-    font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;
-  }
-  .section-title .dot{
-    width:8px;height:8px;border-radius:50%;background:var(--primary);
-  }
+  .section-title{font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;}
+  .section-title .dot{width:8px;height:8px;border-radius:50%;background:var(--primary);}
   .section-sub{font-size:12.5px;color:var(--text-muted);margin-top:2px;}
 
-  /* VIEWS */
-  .view{display:none;}
-  .view.active{display:block;}
-
   /* ══════════════ DASHBOARD ══════════════ */
-  .stats-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
-    margin-bottom:24px;
-  }
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
   .stat-card{
     background:var(--bg-card);border:1px solid var(--border);
-    border-radius:var(--radius);padding:20px;
-    box-shadow:var(--shadow-sm);
+    border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-sm);
     position:relative;overflow:hidden;
   }
   .stat-card::before{
     content:'';position:absolute;top:0;left:0;right:0;height:3px;
     background:linear-gradient(90deg,var(--primary),var(--accent));
   }
-  .stat-label{
-    font-size:11px;color:var(--text-muted);font-weight:600;
-    text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;
-  }
-  .stat-value{
-    font-family:'Plus Jakarta Sans',sans-serif;
-    font-size:32px;font-weight:800;line-height:1;margin-bottom:4px;
-  }
+  .stat-label{font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+  .stat-value{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:800;line-height:1;margin-bottom:4px;}
   .stat-sub{font-size:11.5px;color:var(--text-muted);}
 
-  .schemes-row{
-    display:grid;grid-template-columns:repeat(5,1fr);gap:12px;
-    margin-bottom:24px;
+  /* ══════════════ LISTA DE CLÁUSULAS ══════════════ */
+  .clause-card {
+    background:var(--bg-card); border:1px solid var(--border);
+    border-radius:var(--radius); margin-bottom:16px; overflow:hidden;
   }
-  .scheme-card{
-    background:var(--bg-card);border:2px solid var(--border);
-    border-radius:10px;padding:14px 12px;text-align:center;
-    cursor:pointer;transition:all .15s;
+  .clause-header {
+    background:#f8fafc; padding:16px 20px; border-bottom:1px solid var(--border);
+    display:flex; justify-content:space-between; align-items:flex-start;
   }
-  .scheme-card:hover{border-color:var(--primary);transform:translateY(-2px);}
-  .scheme-card.active{
-    border-color:var(--primary);background:var(--primary-light);
-    box-shadow:0 4px 12px rgba(13,148,136,.15);
+  .clause-code {
+    font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--primary);
+    font-size:14px; margin-bottom:4px;
   }
-  .scheme-code{
-    font-family:'Plus Jakarta Sans',sans-serif;
-    font-size:14px;font-weight:800;margin-bottom:4px;color:var(--text);
+  .clause-title { font-size:15px; font-weight:700; color:var(--text); }
+  .clause-obs {
+    background:#fffbeb; border-left:3px solid var(--warning);
+    padding:12px 20px; font-size:12.5px; color:#92400e;
+    border-bottom:1px solid var(--border);
   }
-  .scheme-desc{font-size:10.5px;color:var(--text-muted);line-height:1.3;}
+  .clause-obs strong { color:#78350f; }
+  .clause-body { padding:20px; }
+  .docs-title { font-size:12px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:12px; letter-spacing:.05em; }
+  
+  .doc-list { display:flex; flex-direction:column; gap:8px; }
+  .doc-item {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 14px; background:#f8fafc; border:1px solid var(--border);
+    border-radius:8px; transition:all .15s;
+  }
+  .doc-item:hover { border-color:var(--primary); background:#fff; }
+  .doc-name { font-size:13px; font-weight:500; display:flex; align-items:center; gap:10px; }
+  .doc-icon { font-size:16px; }
+  .doc-actions { display:flex; gap:8px; }
+  
+  .btn-sm {
+    padding:6px 12px; border-radius:6px; font-size:11.5px; font-weight:600;
+    cursor:pointer; border:1px solid transparent; transition:all .15s;
+    display:inline-flex; align-items:center; gap:4px;
+  }
+  .btn-view { background:#e0f2fe; color:#0369a1; border-color:#bae6fd; }
+  .btn-view:hover { background:#bae6fd; }
+  .btn-upload { background:#f1f5f9; color:#475569; border-color:#e2e8f0; }
+  .btn-upload:hover { background:#e2e8f0; }
 
-  /* ══════════════ REQUISITOS ══════════════ */
-  .req-list{display:flex;flex-direction:column;gap:10px;}
-  .req-item{
-    display:flex;align-items:flex-start;gap:14px;
-    padding:16px;background:var(--bg-card);border:1px solid var(--border);
-    border-radius:10px;transition:all .15s;
+  /* ══════════════ MODAL VISOR PDF ══════════════ */
+  .modal-overlay {
+    position:fixed; top:0; left:0; right:0; bottom:0;
+    background:rgba(15,23,42,.6); backdrop-filter:blur(4px);
+    display:none; align-items:center; justify-content:center; z-index:1000;
+    padding:20px;
   }
-  .req-item:hover{border-color:var(--primary);box-shadow:var(--shadow-sm);}
-  .req-status{
-    width:22px;height:22px;border-radius:6px;flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;
-    font-size:12px;font-weight:700;margin-top:2px;
+  .modal-overlay.active { display:flex; }
+  .modal-content {
+    background:#fff; width:100%; max-width:800px; height:85vh;
+    border-radius:12px; display:flex; flex-direction:column;
+    box-shadow:var(--shadow-lg); overflow:hidden;
   }
-  .req-status.ok{background:#d1fae5;color:var(--success);}
-  .req-status.pending{background:#fef3c7;color:var(--warning);}
-  .req-status.empty{background:#fee2e2;color:var(--danger);}
-  .req-body{flex:1;}
-  .req-code{
-    font-family:'Plus Jakarta Sans',sans-serif;
-    font-size:12px;font-weight:700;color:var(--primary);
-    margin-bottom:2px;
+  .modal-header {
+    padding:16px 20px; border-bottom:1px solid var(--border);
+    display:flex; justify-content:space-between; align-items:center;
+    background:#f8fafc;
   }
-  .req-title{font-size:14px;font-weight:600;margin-bottom:4px;}
-  .req-desc{font-size:12.5px;color:var(--text-muted);line-height:1.5;}
-  .req-evidence{
-    font-size:11.5px;color:var(--text-muted);margin-top:6px;
-    padding-top:6px;border-top:1px dashed var(--border);
+  .modal-title { font-size:15px; font-weight:700; }
+  .modal-close {
+    background:none; border:none; font-size:24px; cursor:pointer; color:var(--text-muted);
   }
-  .req-evidence strong{color:var(--text);}
-
-  /* ══════════════ EVIDENCIAS ══════════════ */
-  .upload-zone{
-    border:2px dashed var(--border-strong);
-    border-radius:var(--radius);padding:36px 20px;text-align:center;
-    background:var(--bg-card);transition:all .2s;cursor:pointer;
-    margin-bottom:20px;
+  .modal-close:hover { color:var(--danger); }
+  .modal-body {
+    flex:1; background:#525659; display:flex; align-items:center; justify-content:center;
+    padding:20px; color:#fff; text-align:center; position:relative;
   }
-  .upload-zone:hover{border-color:var(--primary);background:var(--primary-light);}
-  .upload-icon{font-size:36px;margin-bottom:10px;}
-  .upload-title{font-size:15px;font-weight:600;margin-bottom:4px;}
-  .upload-sub{font-size:12.5px;color:var(--text-muted);}
-
-  .file-list{display:flex;flex-direction:column;gap:8px;}
-  .file-item{
-    display:flex;align-items:center;gap:12px;
-    padding:12px 14px;background:var(--bg-card);
-    border:1px solid var(--border);border-radius:8px;
+  .mock-pdf {
+    background:#fff; width:100%; height:100%; border-radius:4px;
+    padding:40px; color:#333; text-align:left; overflow-y:auto;
+    box-shadow:0 4px 12px rgba(0,0,0,.2);
   }
-  .file-icon{
-    width:34px;height:34px;background:#fee2e2;border-radius:6px;
-    display:flex;align-items:center;justify-content:center;
-    font-size:14px;color:var(--danger);font-weight:700;
-  }
-  .file-info{flex:1;}
-  .file-name{font-size:13px;font-weight:600;}
-  .file-meta{font-size:11.5px;color:var(--text-muted);}
-  .file-badge{
-    padding:3px 8px;border-radius:6px;font-size:10.5px;font-weight:700;
-    text-transform:uppercase;letter-spacing:.04em;
-  }
-  .file-badge.ok{background:#d1fae5;color:var(--success);}
-  .file-badge.pending{background:#fef3c7;color:var(--warning);}
+  .mock-pdf h2 { border-bottom:2px solid #333; padding-bottom:10px; margin-bottom:20px; font-family:serif; }
+  .mock-pdf p { margin-bottom:12px; font-family:serif; line-height:1.8; }
 
   /* ══════════════ CONSULTA (VOZ) ══════════════ */
-  .voice-panel{
-    display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;
-  }
+  .voice-panel{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
   .voice-box{
     background:var(--bg-card);border:1px solid var(--border);
     border-radius:var(--radius);padding:24px;text-align:center;
   }
-  .voice-box h3{
-    font-size:14px;font-weight:700;margin-bottom:6px;
-  }
+  .voice-box h3{font-size:14px;font-weight:700;margin-bottom:6px;}
   .voice-box p{font-size:12px;color:var(--text-muted);margin-bottom:18px;}
   .mic-btn{
     width:80px;height:80px;border-radius:50%;
     background:linear-gradient(135deg,var(--primary),var(--primary-dark));
     border:none;color:#fff;font-size:32px;cursor:pointer;
     box-shadow:0 6px 20px rgba(13,148,136,.35);
-    transition:all .2s;display:inline-flex;align-items:center;justify-content:center;
-    margin-bottom:12px;
+    transition:all .2s;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;
   }
   .mic-btn:hover{transform:scale(1.05);}
   .mic-btn.recording{
     background:linear-gradient(135deg,#dc2626,#b91c1c);
-    box-shadow:0 0 0 8px rgba(220,38,38,.15);
-    animation:pulse 1.5s infinite;
+    box-shadow:0 0 0 8px rgba(220,38,38,.15);animation:pulse 1.5s infinite;
   }
   @keyframes pulse{
     0%,100%{box-shadow:0 0 0 8px rgba(220,38,38,.15);}
     50%{box-shadow:0 0 0 16px rgba(220,38,38,.05);}
   }
   .voice-status{font-size:12px;color:var(--text-muted);min-height:20px;}
-
   .transcript-box{
     background:#f8fafc;border:1px solid var(--border);
     border-radius:8px;padding:16px;margin-top:16px;
-    font-size:13px;min-height:60px;color:var(--text);
-    text-align:left;
+    font-size:13px;min-height:60px;color:var(--text);text-align:left;
   }
-  .transcript-box.empty{
-    color:var(--text-dim);font-style:italic;
-  }
-
-  /* REPRODUCTOR */
-  .player-controls{
-    display:flex;align-items:center;gap:10px;margin-top:14px;
-    flex-wrap:wrap;justify-content:center;
-  }
+  .transcript-box.empty{color:var(--text-dim);font-style:italic;}
+  .player-controls{display:flex;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap;justify-content:center;}
   .player-btn{
-    width:44px;height:44px;border-radius:50%;
-    background:var(--primary);border:none;color:#fff;
-    font-size:16px;cursor:pointer;transition:all .15s;
+    width:44px;height:44px;border-radius:50%;background:var(--primary);
+    border:none;color:#fff;font-size:16px;cursor:pointer;transition:all .15s;
     display:inline-flex;align-items:center;justify-content:center;
   }
   .player-btn:hover{background:var(--primary-dark);transform:scale(1.05);}
-  .slider-group{
-    display:flex;align-items:center;gap:8px;font-size:11.5px;
-    color:var(--text-muted);
-  }
+  .slider-group{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--text-muted);}
   .slider-group label{font-weight:600;min-width:50px;}
-  .slider-group input[type=range]{
-    width:90px;accent-color:var(--primary);
-  }
-  .slider-value{
-    font-weight:700;color:var(--text);min-width:32px;text-align:right;
-  }
-
+  .slider-group input[type=range]{width:90px;accent-color:var(--primary);}
+  .slider-value{font-weight:700;color:var(--text);min-width:32px;text-align:right;}
   .answer-card{
     background:linear-gradient(135deg,rgba(13,148,136,.05),rgba(30,64,175,.05));
-    border:1px solid var(--primary);border-radius:var(--radius);
-    padding:20px;margin-top:16px;
+    border:1px solid var(--primary);border-radius:var(--radius);padding:20px;margin-top:16px;
   }
   .answer-label{
     display:inline-block;padding:3px 10px;border-radius:6px;
@@ -339,88 +275,35 @@
     text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;
   }
   .answer-text{font-size:13.5px;line-height:1.65;color:var(--text);}
-  .answer-disclaimer{
-    font-size:11px;color:var(--text-muted);font-style:italic;
-    margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);
-  }
+  .answer-disclaimer{font-size:11px;color:var(--text-muted);font-style:italic;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);}
 
   /* ══════════════ BIBLIOTECA ══════════════ */
-  .lib-grid{
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-    gap:14px;
-  }
+  .lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
   .lib-card{
     background:var(--bg-card);border:1px solid var(--border);
-    border-radius:10px;padding:18px;transition:all .15s;
-    display:flex;flex-direction:column;
+    border-radius:10px;padding:18px;transition:all .15s;display:flex;flex-direction:column;
   }
-  .lib-card:hover{
-    border-color:var(--primary);transform:translateY(-2px);
-    box-shadow:var(--shadow);
-  }
-  .lib-card-head{
-    display:flex;align-items:flex-start;justify-content:space-between;
-    gap:8px;margin-bottom:10px;
-  }
-  .lib-code{
-    font-family:'Plus Jakarta Sans',sans-serif;
-    font-size:15px;font-weight:800;color:var(--text);
-  }
-  .lib-badge{
-    padding:3px 8px;border-radius:6px;font-size:10px;font-weight:700;
-    text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;
-  }
+  .lib-card:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:var(--shadow);}
+  .lib-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:10px;}
+  .lib-code{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:800;color:var(--text);}
+  .lib-badge{padding:3px 8px;border-radius:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
   .lib-badge.free{background:#d1fae5;color:var(--success);}
   .lib-badge.paid{background:#fef3c7;color:var(--warning);}
-  .lib-badge.mixed{background:#dbeafe;color:var(--info);}
-  .lib-title{
-    font-size:12.5px;color:var(--text-muted);margin-bottom:12px;
-    line-height:1.45;flex:1;
-  }
+  .lib-title{font-size:12.5px;color:var(--text-muted);margin-bottom:12px;line-height:1.45;flex:1;}
   .lib-link{
-    display:inline-flex;align-items:center;gap:6px;
-    padding:8px 14px;background:var(--primary);color:#fff;
-    border-radius:8px;font-size:12px;font-weight:600;
-    transition:all .15s;align-self:flex-start;
+    display:inline-flex;align-items:center;gap:6px;padding:8px 14px;
+    background:var(--primary);color:#fff;border-radius:8px;
+    font-size:12px;font-weight:600;transition:all .15s;align-self:flex-start;
   }
   .lib-link:hover{background:var(--primary-dark);text-decoration:none;transform:translateX(2px);}
 
-  .notice{
-    background:#fff7ed;border-left:3px solid var(--warning);
-    padding:14px 16px;border-radius:6px;margin-bottom:18px;
-    font-size:12.5px;color:#78350f;line-height:1.55;
-  }
-  .notice strong{color:#451a03;}
-
-  /* ══════════════ AUDITORÍA ══════════════ */
-  .audit-header{
-    display:flex;align-items:center;justify-content:space-between;
-    margin-bottom:16px;flex-wrap:wrap;gap:10px;
-  }
-  .audit-score{
-    font-family:'Plus Jakarta Sans',sans-serif;
-    font-size:24px;font-weight:800;color:var(--primary);
-  }
-  .progress-bar{
-    height:10px;background:var(--border);border-radius:999px;
-    overflow:hidden;margin-top:8px;
-  }
-  .progress-fill{
-    height:100%;background:linear-gradient(90deg,var(--primary),#14b8a6);
-    border-radius:999px;transition:width .6s ease;
-  }
-
-  /* ══════════════ RESPONSIVE ══════════════ */
+  /* RESPONSIVE */
   @media (max-width:1024px){
     .stats-grid{grid-template-columns:repeat(2,1fr);}
-    .schemes-row{grid-template-columns:repeat(3,1fr);}
     .voice-panel{grid-template-columns:1fr;}
   }
   @media (max-width:768px){
-    .sidebar{
-      width:100%;position:relative;height:auto;
-      flex-direction:row;overflow-x:auto;padding:12px 0;
-    }
+    .sidebar{width:100%;position:relative;height:auto;flex-direction:row;overflow-x:auto;padding:12px 0;}
     .sidebar-logo{padding:0 16px;margin-bottom:0;border-bottom:none;border-right:1px solid rgba(255,255,255,.1);}
     .logo-tagline{display:none;}
     .nav-section{display:none;}
@@ -428,59 +311,52 @@
     .sidebar-footer{display:none;}
     .main{margin-left:0;padding:20px 16px;}
     .stats-grid{grid-template-columns:1fr 1fr;gap:10px;}
-    .schemes-row{grid-template-columns:repeat(2,1fr);}
-    .topbar-title h1{font-size:20px;}
   }
 </style>
 </head>
 <body>
 
 <div class="app">
-
-  <!-- ══════════════ SIDEBAR ══════════════ -->
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-logo">
       <div class="logo-mark">
         <div class="logo-icon">S</div>
-        <div>
-          <div class="logo-name">SIGIA</div>
-        </div>
+        <div><div class="logo-name">SIGIA</div></div>
       </div>
-      <div class="logo-tagline">Sistema de Gestión de Inocuidad</div>
+      <div class="logo-tagline">Administración de Calidad</div>
     </div>
 
     <div class="nav-section">Principal</div>
     <a class="nav-item active" data-view="dashboard" onclick="switchView(this)">
       <span class="nav-icon">📊</span> Dashboard
     </a>
-    <a class="nav-item" data-view="requisitos" onclick="switchView(this)">
-      <span class="nav-icon">✓</span> Requisitos
-    </a>
-    <a class="nav-item" data-view="evidencias" onclick="switchView(this)">
-      <span class="nav-icon">📁</span> Evidencias
-    </a>
-
-    <div class="nav-section">Consultoría</div>
     <a class="nav-item" data-view="consulta" onclick="switchView(this)">
       <span class="nav-icon">🎙️</span> Consulta por voz
     </a>
     <a class="nav-item" data-view="biblioteca" onclick="switchView(this)">
       <span class="nav-icon">📚</span> Biblioteca de normas
     </a>
-    <a class="nav-item" data-view="auditoria" onclick="switchView(this)">
-      <span class="nav-icon">🔍</span> Vista de auditoría
+
+    <div class="nav-section">SQF Edición 10</div>
+    <a class="nav-item" data-view="modulo2" onclick="switchView(this)">
+      <span class="nav-icon">📋</span> Mód. 2: Sistema de Calidad
+    </a>
+    <a class="nav-item" data-view="modulo11" onclick="switchView(this)">
+      <span class="nav-icon">🏭</span> Mód. 11: Producción
+    </a>
+    <a class="nav-item" style="opacity: 0.5; cursor: not-allowed;" onclick="alert('Módulo en desarrollo para la Fase 3 del proyecto.')">
+      <span class="nav-icon">🚚</span> Mód. 3: Logística
     </a>
 
     <div class="sidebar-footer">
-      SIGIA v0.1 · Prototipo<br>
+      SIGIA v0.2 · Basado en SQF 10<br>
       Stack Labs · 2026
     </div>
   </aside>
 
-  <!-- ══════════════ MAIN ══════════════ -->
+  <!-- MAIN -->
   <main class="main">
-
-    <!-- TOPBAR -->
     <div class="topbar">
       <div class="topbar-title">
         <h1 id="page-title">Dashboard</h1>
@@ -495,24 +371,23 @@
       </div>
     </div>
 
-    <!-- ══════════════ VIEW: DASHBOARD ══════════════ -->
+    <!-- VIEW: DASHBOARD -->
     <section class="view active" id="view-dashboard">
-
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-label">Esquema activo</div>
-          <div class="stat-value">FSSC</div>
-          <div class="stat-sub">FSSC 22000 v6</div>
+          <div class="stat-value">SQF 10</div>
+          <div class="stat-sub">Safe Quality Food</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Cumplimiento</div>
-          <div class="stat-value" style="color:var(--primary);">72%</div>
-          <div class="stat-sub">+8% vs. mes anterior</div>
+          <div class="stat-label">Cumplimiento Global</div>
+          <div class="stat-value" style="color:var(--primary);">68%</div>
+          <div class="stat-sub">Módulo 2 + Módulo 11</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Evidencias</div>
-          <div class="stat-value" style="color:var(--accent);">48/67</div>
-          <div class="stat-sub">19 pendientes</div>
+          <div class="stat-label">Documentos</div>
+          <div class="stat-value" style="color:var(--accent);">124/180</div>
+          <div class="stat-sub">56 pendientes</div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Próxima auditoría</div>
@@ -524,113 +399,228 @@
       <div class="card">
         <div class="section-head">
           <div>
-            <h2 class="section-title"><span class="dot"></span>Selecciona el esquema de certificación</h2>
-            <p class="section-sub">El "traje a la medida" se configura según el esquema que aplique</p>
+            <h2 class="section-title"><span class="dot"></span>Bienvenido a SIGIA</h2>
+            <p class="section-sub">Selecciona un módulo en el menú izquierdo para administrar los registros del SQF.</p>
           </div>
         </div>
-        <div class="schemes-row">
-          <div class="scheme-card active" onclick="selectScheme(this)">
-            <div class="scheme-code">FSSC 22000</div>
-            <div class="scheme-desc">Fabricación de alimentos</div>
-          </div>
-          <div class="scheme-card" onclick="selectScheme(this)">
-            <div class="scheme-code">SQF</div>
-            <div class="scheme-desc">Food Safety Code</div>
-          </div>
-          <div class="scheme-card" onclick="selectScheme(this)">
-            <div class="scheme-code">BRCGS</div>
-            <div class="scheme-desc">Food Safety Issue 9</div>
-          </div>
-          <div class="scheme-card" onclick="selectScheme(this)">
-            <div class="scheme-code">AIB</div>
-            <div class="scheme-desc">Auditoría consolidada</div>
-          </div>
-          <div class="scheme-card" onclick="selectScheme(this)">
-            <div class="scheme-code">ISO 22000</div>
-            <div class="scheme-desc">Norma internacional</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="section-head">
-          <div>
-            <h2 class="section-title"><span class="dot"></span>Requisitos prioritarios del esquema</h2>
-            <p class="section-sub">Vista de los primeros 5 requisitos de FSSC 22000</p>
-          </div>
-        </div>
-        <div class="req-list" id="req-list-dashboard"></div>
-      </div>
-
-    </section>
-
-    <!-- ══════════════ VIEW: REQUISITOS ══════════════ -->
-    <section class="view" id="view-requisitos">
-      <div class="card">
-        <div class="section-head">
-          <div>
-            <h2 class="section-title"><span class="dot"></span>Requisitos completos · FSSC 22000 v6</h2>
-            <p class="section-sub">67 requisitos · 48 cargados · 19 pendientes</p>
-          </div>
-        </div>
-        <div class="req-list" id="req-list-full"></div>
+        <p style="font-size:14px; color:var(--text-muted); line-height:1.7;">
+          El sistema está diseñado bajo la estructura del <strong>SQF Edición 10</strong>. 
+          Utiliza el <strong>Módulo 2</strong> para los documentos de gestión y el <strong>Módulo 11</strong> para el control operativo de la planta.
+          Recuerda que todos los registros pueden ser visualizados en formato PDF directamente desde la plataforma.
+        </p>
       </div>
     </section>
 
-    <!-- ══════════════ VIEW: EVIDENCIAS ══════════════ -->
-    <section class="view" id="view-evidencias">
-      <div class="card">
-        <div class="section-head">
+    <!-- VIEW: MODULO 2 (CALIDAD) -->
+    <section class="view" id="view-modulo2">
+      <div class="card" style="background:var(--primary-light); border-color:var(--primary);">
+        <div class="section-head" style="margin-bottom:0;">
           <div>
-            <h2 class="section-title"><span class="dot"></span>Repositorio de evidencias</h2>
-            <p class="section-sub">Carga de PDFs vinculados a requisitos del sistema</p>
+            <h2 class="section-title"><span class="dot"></span>Módulo 2: Sistema de Seguridad Alimentaria</h2>
+            <p class="section-sub">Registros, políticas y procedimientos del sistema de calidad.</p>
           </div>
         </div>
+      </div>
 
-        <div class="upload-zone" onclick="alert('En producción: selección de archivo PDF.\n\nEn este prototipo, los archivos de abajo son de ejemplo.')">
-          <div class="upload-icon">📄</div>
-          <div class="upload-title">Arrastra aquí tus evidencias en PDF</div>
-          <div class="upload-sub">o haz clic para seleccionar archivos · máx. 20 MB por archivo</div>
+      <!-- Cláusula 2.1 -->
+      <div class="clause-card">
+        <div class="clause-header">
+          <div>
+            <div class="clause-code">CLÁUSULA 2.1</div>
+            <div class="clause-title">Compromiso de la Gerencia</div>
+          </div>
+          <span style="font-size:12px; font-weight:600; color:var(--success);">✅ 7/7 Listos</span>
         </div>
+        <div class="clause-obs">
+          <strong>Observaciones:</strong> Firmada por el gerente. Ampliamente difundida. Mejora continua de la cultura de seguridad alimentaria.
+        </div>
+        <div class="clause-body">
+          <div class="docs-title">Entradas o Registros Requeridos</div>
+          <div class="doc-list">
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Manual de calidad</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" onclick="openPdf('Manual de calidad')">Ver</button>
+              </div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Política de Seguridad Alimentaria</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" onclick="openPdf('Política de Seguridad Alimentaria')">Ver</button>
+              </div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Especificaciones de los clientes</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" onclick="openPdf('Especificaciones de los clientes')">Ver</button>
+              </div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Descripción de puesto</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" onclick="openPdf('Descripción de puesto')">Ver</button>
+              </div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Organigrama de la empresa</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" onclick="openPdf('Organigrama de la empresa')">Ver</button>
+              </div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Plan de evaluación de la cultura de seguridad alimentaria</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" onclick="openPdf('Plan de evaluación de la cultura')">Ver</button>
+              </div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Programas de Capacitación</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" onclick="openPdf('Programas de Capacitación')">Ver</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <div class="file-list">
-          <div class="file-item">
-            <div class="file-icon">PDF</div>
-            <div class="file-info">
-              <div class="file-name">Manual_BPM_Planta_Norte_2026.pdf</div>
-              <div class="file-meta">2.4 MB · Cargado 15 nov 2026 · Requisito 2.1.1</div>
-            </div>
-            <span class="file-badge ok">Aprobado</span>
+      <!-- Cláusula 2.1.2 -->
+      <div class="clause-card">
+        <div class="clause-header">
+          <div>
+            <div class="clause-code">CLÁUSULA 2.1.2</div>
+            <div class="clause-title">Revisión por parte de la Gerencia</div>
           </div>
-          <div class="file-item">
-            <div class="file-icon">PDF</div>
-            <div class="file-info">
-              <div class="file-name">Procedimiento_Limpieza_Area_Produccion.pdf</div>
-              <div class="file-meta">1.8 MB · Cargado 12 nov 2026 · Requisito 2.2.3</div>
+          <span style="font-size:12px; font-weight:600; color:var(--warning);">⏳ 3/5 Cargados</span>
+        </div>
+        <div class="clause-obs">
+          <strong>Observaciones:</strong> Cambios al sistema. Resultados anuales de auditorías internas, de recalls, de reclamos, etc.
+        </div>
+        <div class="clause-body">
+          <div class="docs-title">Entradas o Registros Requeridos</div>
+          <div class="doc-list">
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Procedimiento de Revisión</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" onclick="openPdf('Procedimiento de Revisión')">Ver</button>
+              </div>
             </div>
-            <span class="file-badge ok">Aprobado</span>
-          </div>
-          <div class="file-item">
-            <div class="file-icon">PDF</div>
-            <div class="file-info">
-              <div class="file-name">Registro_Capacitacion_Octubre_2026.pdf</div>
-              <div class="file-meta">980 KB · Cargado 10 nov 2026 · Requisito 2.1.4</div>
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Programa de Revisión</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" onclick="openPdf('Programa de Revisión')">Ver</button>
+              </div>
             </div>
-            <span class="file-badge pending">Pendiente</span>
-          </div>
-          <div class="file-item">
-            <div class="file-icon">PDF</div>
-            <div class="file-info">
-              <div class="file-name">Analisis_Peligros_Linea_A.pdf</div>
-              <div class="file-meta">3.2 MB · Cargado 8 nov 2026 · Requisito 2.3.1</div>
+            <div class="doc-item" style="opacity: 0.6;">
+              <div class="doc-name"><span class="doc-icon">📄</span> Reporte de Avances</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" disabled style="opacity:0.5; cursor:not-allowed;">Ver</button>
+              </div>
             </div>
-            <span class="file-badge ok">Aprobado</span>
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Tendencia de reclamos</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" onclick="openPdf('Tendencia de reclamos')">Ver</button>
+              </div>
+            </div>
+            <div class="doc-item" style="opacity: 0.6;">
+              <div class="doc-name"><span class="doc-icon">📄</span> Medición General del Desempeño</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" disabled style="opacity:0.5; cursor:not-allowed;">Ver</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ══════════════ VIEW: CONSULTA POR VOZ ══════════════ -->
+    <!-- VIEW: MODULO 11 (PRODUCCIÓN) -->
+    <section class="view" id="view-modulo11">
+      <div class="card" style="background:var(--primary-light); border-color:var(--primary);">
+        <div class="section-head" style="margin-bottom:0;">
+          <div>
+            <h2 class="section-title"><span class="dot"></span>Módulo 11: Control de Producción</h2>
+            <p class="section-sub">Registros operativos, mantenimiento y planta.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cláusula 11.1.2 -->
+      <div class="clause-card">
+        <div class="clause-header">
+          <div>
+            <div class="clause-code">CLÁUSULA 11.1.2</div>
+            <div class="clause-title">Materiales de Construcción</div>
+          </div>
+          <span style="font-size:12px; font-weight:600; color:var(--success);">✅ 1/1 Listo</span>
+        </div>
+        <div class="clause-body">
+          <div class="docs-title">Entradas o Registros Requeridos</div>
+          <div class="doc-list">
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📐</span> Planos de las instalaciones</div>
+              <div class="doc-actions">
+                <button class="btn-sm btn-upload">Subir</button>
+                <button class="btn-sm btn-view" onclick="openPdf('Planos de las instalaciones')">Ver</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cláusula 11.2.4 -->
+      <div class="clause-card">
+        <div class="clause-header">
+          <div>
+            <div class="clause-code">CLÁUSULA 11.2.4</div>
+            <div class="clause-title">Prevención de Plagas</div>
+          </div>
+          <span style="font-size:12px; font-weight:600; color:var(--warning);">⏳ 4/10 Cargados</span>
+        </div>
+        <div class="clause-body">
+          <div class="docs-title">Entradas o Registros Requeridos</div>
+          <div class="doc-list">
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Procedimiento para control de plagas</div>
+              <div class="doc-actions"><button class="btn-sm btn-view" onclick="openPdf('Procedimiento de plagas')">Ver</button></div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Programa de Inspección</div>
+              <div class="doc-actions"><button class="btn-sm btn-view" onclick="openPdf('Programa de Inspección')">Ver</button></div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Contrato de proveedor</div>
+              <div class="doc-actions"><button class="btn-sm btn-view" onclick="openPdf('Contrato de proveedor')">Ver</button></div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><span class="doc-icon">📄</span> Entrenamiento del proveedor</div>
+              <div class="doc-actions"><button class="btn-sm btn-view" onclick="openPdf('Entrenamiento del proveedor')">Ver</button></div>
+            </div>
+            <div class="doc-item" style="opacity: 0.6;">
+              <div class="doc-name"><span class="doc-icon">📄</span> Lista de productos aprobados</div>
+              <div class="doc-actions"><button class="btn-sm btn-upload">Subir</button></div>
+            </div>
+            <div class="doc-item" style="opacity: 0.6;">
+              <div class="doc-name"><span class="doc-icon">📄</span> Licenciamiento del proveedor</div>
+              <div class="doc-actions"><button class="btn-sm btn-upload">Subir</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: CONSULTA POR VOZ -->
     <section class="view" id="view-consulta">
       <div class="card">
         <div class="section-head">
@@ -641,18 +631,14 @@
         </div>
 
         <div class="voice-panel">
-          <!-- MICRÓFONO -->
           <div class="voice-box">
             <h3>🎙️ Pregunta por voz</h3>
             <p>Presiona el micrófono y habla. Tu pregunta se transcribirá automáticamente.</p>
             <button class="mic-btn" id="mic-btn" onclick="toggleMic()">🎙️</button>
             <div class="voice-status" id="voice-status">Presiona el micrófono para comenzar</div>
-            <div class="transcript-box empty" id="transcript">
-              Tu pregunta aparecerá aquí...
-            </div>
+            <div class="transcript-box empty" id="transcript">Tu pregunta aparecerá aquí...</div>
           </div>
 
-          <!-- REPRODUCTOR -->
           <div class="voice-box">
             <h3>🔊 Respuesta por audio</h3>
             <p>Escucha la respuesta con control de velocidad y volumen.</p>
@@ -678,11 +664,10 @@
         </div>
 
         <div class="answer-card">
-          <div class="answer-label">Respuesta · FSSC 22000 v6</div>
+          <div class="answer-label">Respuesta · SQF Edición 10</div>
           <div class="answer-text" id="answer-text">
-            Bienvenido a SIGIA. Presiona el micrófono y pregunta lo que necesites sobre la norma. 
-            Por ejemplo: "¿Cuáles son los requisitos de higiene del personal?" o 
-            "¿Qué evidencia se necesita para el análisis de peligros?"
+            Bienvenido a SIGIA. Presiona el micrófono y pregunta lo que necesites sobre el SQF. 
+            Por ejemplo: "¿Qué registros pide la cláusula 2.1?" o "¿Qué necesito para prevención de plagas?"
           </div>
           <div class="answer-disclaimer">
             ⚠️ Las respuestas son una guía basada en las normas y no sustituyen el juicio de un profesional certificado.
@@ -691,7 +676,7 @@
       </div>
     </section>
 
-    <!-- ══════════════ VIEW: BIBLIOTECA ══════════════ -->
+    <!-- VIEW: BIBLIOTECA -->
     <section class="view" id="view-biblioteca">
       <div class="card">
         <div class="section-head">
@@ -700,31 +685,15 @@
             <p class="section-sub">Acceso directo a la documentación oficial de cada esquema</p>
           </div>
         </div>
-
-        <div class="notice">
-          <strong>Nota importante:</strong> Algunas normas son de descarga gratuita desde el sitio oficial del organismo emisor; otras requieren compra del documento completo. La plataforma enlaza directo a la fuente oficial para evitar intermediarios.
-        </div>
-
-        <div class="lib-grid">
-
+        <div class="lib-grid" style="margin-top:20px;">
           <div class="lib-card">
             <div class="lib-card-head">
-              <div class="lib-code">ISO 22000:2018</div>
-              <span class="lib-badge paid">Compra</span>
+              <div class="lib-code">SQF Edición 10</div>
+              <span class="lib-badge free">Gratis</span>
             </div>
-            <div class="lib-title">Sistema de gestión de inocuidad alimentaria. Requisitos para cualquier organización en la cadena alimentaria.</div>
-            <a href="https://www.iso.org/standard/65464.html" target="_blank" rel="noopener" class="lib-link">Ver en ISO.org →</a>
+            <div class="lib-title">Safe Quality Food Code. Código completo disponible para descarga incluyendo versión en español.</div>
+            <a href="https://www.sqfi.com/" target="_blank" rel="noopener" class="lib-link">Descargar de SQFI.com →</a>
           </div>
-
-          <div class="lib-card">
-            <div class="lib-card-head">
-              <div class="lib-code">ISO/TS 22002-1</div>
-              <span class="lib-badge paid">Compra</span>
-            </div>
-            <div class="lib-title">Programas de prerrequisitos para la fabricación de alimentos. BPM y control de higiene en planta.</div>
-            <a href="https://www.iso.org/standard/44649.html" target="_blank" rel="noopener" class="lib-link">Ver en ISO.org →</a>
-          </div>
-
           <div class="lib-card">
             <div class="lib-card-head">
               <div class="lib-code">FSSC 22000 v6</div>
@@ -733,16 +702,6 @@
             <div class="lib-title">Esquema de certificación reconocido por GFSI. Documentos oficiales descargables desde la fundación.</div>
             <a href="https://www.fssc.com/" target="_blank" rel="noopener" class="lib-link">Descargar de FSSC.com →</a>
           </div>
-
-          <div class="lib-card">
-            <div class="lib-card-head">
-              <div class="lib-code">SQF Edición 9</div>
-              <span class="lib-badge free">Gratis</span>
-            </div>
-            <div class="lib-title">Safe Quality Food Code. Código completo disponible para descarga incluyendo versión en español.</div>
-            <a href="https://www.sqfi.com/" target="_blank" rel="noopener" class="lib-link">Descargar de SQFI.com →</a>
-          </div>
-
           <div class="lib-card">
             <div class="lib-card-head">
               <div class="lib-code">BRCGS Issue 9</div>
@@ -751,7 +710,6 @@
             <div class="lib-title">Norma Global de Seguridad Alimentaria. Acceso gratuito a través de la tienda oficial de BRCGS.</div>
             <a href="https://www.brcgs.com/" target="_blank" rel="noopener" class="lib-link">Acceder en BRCGS.com →</a>
           </div>
-
           <div class="lib-card">
             <div class="lib-card-head">
               <div class="lib-code">AIB International</div>
@@ -760,49 +718,44 @@
             <div class="lib-title">Estándar consolidado de inocuidad alimentaria. Guías y estándares descargables gratuitamente.</div>
             <a href="https://www.aibinternational.com/" target="_blank" rel="noopener" class="lib-link">Acceder en AIB →</a>
           </div>
-
         </div>
-      </div>
-    </section>
-
-    <!-- ══════════════ VIEW: AUDITORÍA ══════════════ -->
-    <section class="view" id="view-auditoria">
-      <div class="card">
-        <div class="audit-header">
-          <div>
-            <h2 class="section-title"><span class="dot"></span>Vista de auditoría · FSSC 22000 v6</h2>
-            <p class="section-sub">Estado de preparación para la próxima auditoría</p>
-          </div>
-          <div class="audit-score">72%</div>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width:72%;"></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="section-head">
-          <div>
-            <h2 class="section-title">Checklist de evidencias para auditoría</h2>
-            <p class="section-sub">Verde = lista · Amarillo = pendiente · Rojo = falta</p>
-          </div>
-        </div>
-        <div class="req-list" id="req-list-audit"></div>
       </div>
     </section>
 
   </main>
 </div>
 
+<!-- MODAL PARA VISOR PDF -->
+<div class="modal-overlay" id="pdf-modal" onclick="closePdf(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title" id="pdf-title">Documento.pdf</div>
+      <button class="modal-close" onclick="closePdf(event)">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="mock-pdf">
+        <h2 id="pdf-mock-title">Título del Documento</h2>
+        <p><strong>Empresa:</strong> Alimentos Ejemplo S.A. de C.V.</p>
+        <p><strong>Fecha de Emisión:</strong> 15 de Noviembre de 2026</p>
+        <p><strong>Versión:</strong> 1.0</p>
+        <br>
+        <p>Este es un visor simulado. En la versión de producción, aquí se renderizaría el archivo PDF real que el cliente subió a la plataforma.</p>
+        <p>El objetivo de este visor es que el auditor pueda revisar la información sin salir del sistema SIGIA, cumpliendo con el requerimiento de "contar con una característica de visor".</p>
+        <br><br>
+        <p style="text-align:center; color:#666;">--- FIN DEL DOCUMENTO ---</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ══════════════ NAVEGACIÓN ══════════════ */
 const viewTitles = {
   dashboard: ['Dashboard','Vista general del sistema de gestión'],
-  requisitos: ['Requisitos','Checklist completo por esquema'],
-  evidencias: ['Evidencias','Repositorio de documentos PDF'],
+  modulo2: ['Módulo 2: Calidad','Sistema de Seguridad Alimentaria SQF'],
+  modulo11: ['Módulo 11: Producción','Control operativo de planta'],
   consulta: ['Consulta por voz','Dicta preguntas y escucha respuestas'],
-  biblioteca: ['Biblioteca de normas','Acceso a documentación oficial'],
-  auditoria: ['Vista de auditoría','Preparación para la próxima auditoría']
+  biblioteca: ['Biblioteca de normas','Acceso a documentación oficial']
 };
 
 function switchView(el){
@@ -814,64 +767,29 @@ function switchView(el){
   if(targetView) targetView.classList.add('active');
   
   const [title, sub] = viewTitles[view] || ['Dashboard',''];
-  const titleEl = document.getElementById('page-title');
-  const subEl = document.getElementById('page-sub');
-  if(titleEl) titleEl.textContent = title;
-  if(subEl) subEl.textContent = sub;
+  document.getElementById('page-title').textContent = title;
+  document.getElementById('page-sub').textContent = sub;
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function selectScheme(el){
-  document.querySelectorAll('.scheme-card').forEach(c=>c.classList.remove('active'));
-  el.classList.add('active');
+/* ══════════════ MODAL PDF ══════════════ */
+function openPdf(docName) {
+  document.getElementById('pdf-title').textContent = docName + '.pdf';
+  document.getElementById('pdf-mock-title').textContent = docName;
+  document.getElementById('pdf-modal').classList.add('active');
 }
 
-/* ══════════════ REQUISITOS DE EJEMPLO ══════════════ */
-const requisitos = [
-  {code:'2.1.1', title:'Programa de prerrequisitos (PRP)', desc:'La organización debe establecer, implementar y mantener programas de prerrequisitos para asistir en el control de peligros.', evidence:'Manual BPM documentado y aprobado', status:'ok'},
-  {code:'2.1.2', title:'Instalaciones y diseño sanitario', desc:'Diseño de planta que minimice la contaminación cruzada y facilite la limpieza y desinfección.', evidence:'Plano de flujo y layout aprobado', status:'ok'},
-  {code:'2.1.3', title:'Control de plagas', desc:'Programa documentado de control de plagas con monitoreo y registros.', evidence:'Registros mensuales del servicio de control de plagas', status:'ok'},
-  {code:'2.1.4', title:'Higiene del personal', desc:'Requisitos de higiene, indumentaria y capacitación del personal que manipula alimentos.', evidence:'Registro de capacitación y constancias médicas', status:'pending'},
-  {code:'2.2.1', title:'Análisis de peligros', desc:'Identificación, evaluación y control de peligros biológicos, químicos y físicos en cada etapa del proceso.', evidence:'Análisis de peligros documentado por línea', status:'ok'},
-  {code:'2.2.2', title:'Determinación de PCC', desc:'Puntos críticos de control identificados con límites críticos, monitoreo y acciones correctivas.', evidence:'Plan HACCP con PCC definidos y monitoreo', status:'pending'},
-  {code:'2.2.3', title:'Procedimientos de limpieza', desc:'POES documentados con frecuencias, productos y responsables por área.', evidence:'Procedimiento POES aprobado y registros de ejecución', status:'ok'},
-  {code:'2.3.1', title:'Trazabilidad', desc:'Sistema que permite identificar el origen y destino de los productos a través de la cadena.', evidence:'Procedimiento de trazabilidad y prueba documentada', status:'empty'},
-  {code:'2.3.2', title:'Control de producto no conforme', desc:'Procedimiento documentado para manejar producto fuera de especificación.', evidence:'Procedimiento y registros de producto no conforme', status:'pending'},
-  {code:'2.4.1', title:'Auditoría interna', desc:'Programa anual de auditorías internas con personal competente.', evidence:'Programa de auditorías y reportes de ejecución', status:'empty'}
-];
-
-function renderRequisitos(containerId, limit){
-  const container = document.getElementById(containerId);
-  if(!container) return;
-  const items = limit ? requisitos.slice(0, limit) : requisitos;
-  container.innerHTML = items.map(r => {
-    const icons = {ok:'✓', pending:'!', empty:'×'};
-    return `
-      <div class="req-item">
-        <div class="req-status ${r.status}">${icons[r.status]}</div>
-        <div class="req-body">
-          <div class="req-code">${r.code}</div>
-          <div class="req-title">${r.title}</div>
-          <div class="req-desc">${r.desc}</div>
-          <div class="req-evidence"><strong>Evidencia esperada:</strong> ${r.evidence}</div>
-        </div>
-      </div>
-    `;
-  }).join('');
+function closePdf(e) {
+  if(e) e.preventDefault();
+  document.getElementById('pdf-modal').classList.remove('active');
 }
-
-renderRequisitos('req-list-dashboard', 5);
-renderRequisitos('req-list-full');
-renderRequisitos('req-list-audit');
 
 /* ══════════════ DICTADO POR VOZ ══════════════ */
 let recognition = null;
 let isRecording = false;
 
 function initRecognition(){
-  if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)){
-    return null;
-  }
+  if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) return null;
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   const r = new SR();
   r.lang = 'es-MX';
@@ -880,120 +798,81 @@ function initRecognition(){
   
   r.onstart = () => {
     isRecording = true;
-    const micBtn = document.getElementById('mic-btn');
-    if(micBtn) micBtn.classList.add('recording');
-    const status = document.getElementById('voice-status');
-    if(status) status.textContent = '🔴 Escuchando... habla ahora';
+    document.getElementById('mic-btn').classList.add('recording');
+    document.getElementById('voice-status').textContent = '🔴 Escuchando... habla ahora';
   };
   
   r.onresult = (event) => {
-    let finalTranscript = '';
-    let interimTranscript = '';
+    let finalTranscript = '', interimTranscript = '';
     for(let i = event.resultIndex; i < event.results.length; i++){
       const transcript = event.results[i][0].transcript;
-      if(event.results[i].isFinal){
-        finalTranscript += transcript;
-      } else {
-        interimTranscript += transcript;
-      }
+      if(event.results[i].isFinal) finalTranscript += transcript;
+      else interimTranscript += transcript;
     }
     const box = document.getElementById('transcript');
-    if(box) {
-      box.classList.remove('empty');
-      box.textContent = finalTranscript || interimTranscript;
-    }
-    if(finalTranscript){
-      generarRespuesta(finalTranscript);
-    }
+    box.classList.remove('empty');
+    box.textContent = finalTranscript || interimTranscript;
+    if(finalTranscript) generarRespuesta(finalTranscript);
   };
   
   r.onerror = (e) => {
-    const status = document.getElementById('voice-status');
-    if(status) status.textContent = 'Error: ' + e.error;
-    const micBtn = document.getElementById('mic-btn');
-    if(micBtn) micBtn.classList.remove('recording');
+    document.getElementById('voice-status').textContent = 'Error: ' + e.error;
+    document.getElementById('mic-btn').classList.remove('recording');
     isRecording = false;
   };
   
   r.onend = () => {
-    const micBtn = document.getElementById('mic-btn');
-    if(micBtn) micBtn.classList.remove('recording');
-    const status = document.getElementById('voice-status');
-    if(status) status.textContent = 'Presiona el micrófono para otra pregunta';
+    document.getElementById('mic-btn').classList.remove('recording');
+    document.getElementById('voice-status').textContent = 'Presiona el micrófono para otra pregunta';
     isRecording = false;
   };
-  
   return r;
 }
 
 function toggleMic(){
   if(!recognition){
     recognition = initRecognition();
-    if(!recognition){
-      alert('Tu navegador no soporta dictado por voz. Usa Chrome, Edge o Safari actualizado.');
-      return;
-    }
+    if(!recognition) return alert('Tu navegador no soporta dictado por voz. Usa Chrome, Edge o Safari actualizado.');
   }
-  if(isRecording){
-    recognition.stop();
-  } else {
-    try {
-      recognition.start();
-    } catch(e){
-      recognition.stop();
-      setTimeout(()=>recognition.start(), 200);
-    }
+  if(isRecording) recognition.stop();
+  else {
+    try { recognition.start(); } catch(e) { recognition.stop(); setTimeout(()=>recognition.start(), 200); }
   }
 }
 
-/* ══════════════ RESPUESTA SIMULADA ══════════════ */
+/* ══════════════ RESPUESTAS IA (SIMULADAS) ══════════════ */
 const respuestas = {
-  higiene: 'Según FSSC 22000 v6 y la norma ISO/TS 22002-1, los requisitos de higiene del personal incluyen: indumentaria protectora limpia y adecuada, lavado de manos documentado, prohibición de accesorios y joyería en áreas de producción, capacitación inicial y anual en BPM, y constancias médicas vigentes. La evidencia esperada es el registro de capacitación firmado y las constancias médicas del personal.',
-  peligros: 'El análisis de peligros bajo FSSC 22000 v6 requiere identificar peligros biológicos, químicos y físicos en cada etapa del proceso, evaluar su severidad y probabilidad, y determinar las medidas de control. La evidencia esperada es un documento de análisis de peligros por línea de producción, firmado por el equipo HACCP, con la justificación de cada decisión.',
-  trazabilidad: 'El requisito de trazabilidad de FSSC 22000 v6 exige que la organización pueda identificar el origen y destino de los productos a través de toda la cadena. La evidencia es un procedimiento documentado de trazabilidad más al menos una prueba documentada al año (ejercicio de recall).',
-  limpieza: 'Los procedimientos de limpieza (POES) deben documentar: productos químicos utilizados con ficha técnica, concentraciones, temperaturas, frecuencias por área, responsables y método de verificación. La evidencia esperada son los POES aprobados más los registros de ejecución diarios.',
-  default: 'No tengo una respuesta específica para esa pregunta en este prototipo. En producción, SIGIA consultaría los documentos oficiales del esquema seleccionado y daría una respuesta basada en la norma específica, con la cita correspondiente. Recuerda que la respuesta es una guía y debe validarse con el profesional certificado.'
+  clausula21: 'La cláusula 2.1 de Compromiso de la Gerencia requiere 7 registros: Manual de calidad, Política de Seguridad Alimentaria, Especificaciones de los clientes, Descripción de puesto, Organigrama, Plan de cultura y Programas de Capacitación. Todos deben estar firmados por el gerente y ampliamente difundidos.',
+  plagas: 'Para la cláusula 11.2.4 de Prevención de Plagas, el SQF requiere el procedimiento de control, programa de inspección, contrato y entrenamiento del proveedor, lista de productos aprobados, licenciamiento, reportes de trabajo y tendencias de consumo.',
+  auditoria: 'Para preparar una auditoría, el sistema SIGIA permite generar un checklist automatizado. Puedes verificar en el Módulo 2 y Módulo 11 qué documentos tienen el estado verde (Aprobado) y cuáles están pendientes, para que no te tomen por sorpresa.',
+  default: 'Basado en el SQF Edición 10, esa cláusula requiere que el cliente suba los registros específicos al sistema. En producción, SIGIA buscaría en el documento de Oscar y daría la lista exacta de evidencias requeridas.'
 };
 
 function generarRespuesta(pregunta){
   const p = pregunta.toLowerCase();
   let respuesta = respuestas.default;
-  if(p.includes('higiene') || p.includes('personal')) respuesta = respuestas.higiene;
-  else if(p.includes('peligro') || p.includes('haccp') || p.includes('análisis')) respuesta = respuestas.peligros;
-  else if(p.includes('trazabilidad') || p.includes('rastreo')) respuesta = respuestas.trazabilidad;
-  else if(p.includes('limpieza') || p.includes('poes') || p.includes('sanitiz')) respuesta = respuestas.limpieza;
+  if(p.includes('2.1') || p.includes('gerencia') || p.includes('compromiso')) respuesta = respuestas.clausula21;
+  else if(p.includes('plaga') || p.includes('11.2')) respuesta = respuestas.plagas;
+  else if(p.includes('auditoría') || p.includes('auditoria')) respuesta = respuestas.auditoria;
   
-  const answerEl = document.getElementById('answer-text');
-  if(answerEl) answerEl.textContent = respuesta;
+  document.getElementById('answer-text').textContent = respuesta;
 }
 
 /* ══════════════ TEXT TO SPEECH ══════════════ */
 let utterance = null;
 
 function playAnswer(){
-  if(!('speechSynthesis' in window)){
-    alert('Tu navegador no soporta síntesis de voz.');
-    return;
-  }
+  if(!('speechSynthesis' in window)) return alert('Tu navegador no soporta síntesis de voz.');
   window.speechSynthesis.cancel();
   
-  const answerEl = document.getElementById('answer-text');
-  if(!answerEl) return;
-  
-  const texto = answerEl.textContent;
+  const texto = document.getElementById('answer-text').textContent;
   utterance = new SpeechSynthesisUtterance(texto);
   utterance.lang = 'es-MX';
   utterance.rate = parseFloat(document.getElementById('speed').value);
   utterance.volume = parseFloat(document.getElementById('volume').value);
   
-  utterance.onstart = () => {
-    const btn = document.getElementById('play-btn');
-    if(btn) btn.textContent = '⏸';
-  };
-  utterance.onend = () => {
-    const btn = document.getElementById('play-btn');
-    if(btn) btn.textContent = '▶';
-  };
+  utterance.onstart = () => document.getElementById('play-btn').textContent = '⏸';
+  utterance.onend = () => document.getElementById('play-btn').textContent = '▶';
   
   window.speechSynthesis.speak(utterance);
 }
@@ -1001,22 +880,19 @@ function playAnswer(){
 function stopAnswer(){
   if('speechSynthesis' in window){
     window.speechSynthesis.cancel();
-    const btn = document.getElementById('play-btn');
-    if(btn) btn.textContent = '▶';
+    document.getElementById('play-btn').textContent = '▶';
   }
 }
 
 function updateSpeed(){
   const val = document.getElementById('speed').value;
-  const label = document.getElementById('speed-val');
-  if(label) label.textContent = parseFloat(val).toFixed(1) + 'x';
+  document.getElementById('speed-val').textContent = parseFloat(val).toFixed(1) + 'x';
   if(utterance) utterance.rate = parseFloat(val);
 }
 
 function updateVolume(){
   const val = document.getElementById('volume').value;
-  const label = document.getElementById('volume-val');
-  if(label) label.textContent = Math.round(val * 100) + '%';
+  document.getElementById('volume-val').textContent = Math.round(val * 100) + '%';
   if(utterance) utterance.volume = parseFloat(val);
 }
 </script>
