@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%20role=%22img%22%20aria-label=%22SIGIA%22%3E%3Cpath%20d=%22M32%204%2055%2012v18C55%2045%2045%2055%2032%2060%2019%2055%209%2045%209%2030V12Z%22%20fill=%22%234fd1a1%22/%3E%3Cpath%20d=%22M32%2047C20%2040%2019%2027%2033%2017c12%209%2011%2023-1%2030Z%22%20fill=%22%230b3d2e%22/%3E%3Cpath%20d=%22M32%2044V25M32%2038l-6-5M32%2033l6-5%22%20stroke=%22%234fd1a1%22%20stroke-width=%222%22%20stroke-linecap=%22round%22%20fill=%22none%22/%3E%3C/svg%3E">
 <title>SIGIA · Sistema de gestión de inocuidad alimentaria</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +26,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .app{display:grid;grid-template-columns:360px 1fr;min-height:100dvh}
 .rail{background:var(--rail);color:#e6efeb;padding:20px 18px;position:sticky;top:0;height:100dvh;overflow-y:auto;display:flex;flex-direction:column;gap:18px}
 .brand{font:700 26px var(--f1);letter-spacing:-.02em}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;flex:none}
 .brand small{display:block;font:400 12px var(--f2);opacity:.65;letter-spacing:0}
 .rail nav{display:flex;gap:6px;flex-wrap:wrap}
 .rail nav a{color:#cfe0da;text-decoration:none;padding:6px 11px;border-radius:99px;font-size:13px;border:1px solid #ffffff26}
@@ -102,14 +104,52 @@ details.na{opacity:.55}
 .doc{width:100%;height:100%;overflow:auto;padding:16px;align-self:start;background:#fff;color:#111}
 .doc table{border-collapse:collapse}.doc td,.doc th{border:1px solid #ccc;padding:4px 8px}
 .imp{font-size:13px;margin-top:8px}
+.inf{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:16px;align-items:start}
+.ed{display:grid;gap:12px}.ed .card{margin:0}
+.ed label{font-size:13px;color:var(--mute);display:grid;gap:3px}
+.ed input,.ed select,.ed textarea{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.ed input[type=checkbox]{width:auto}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg{display:flex;gap:6px}.mbtn[aria-pressed=true]{background:var(--acc);color:var(--on-acc);border-color:var(--acc)}
+.chip{border:1px solid var(--acc);color:var(--acc);background:transparent;border-radius:99px;padding:4px 10px;font-size:12.5px;cursor:pointer;margin:0 4px 6px 0;text-align:left}
+.it{border:1px solid var(--line);border-radius:10px;padding:10px;display:grid;gap:8px;background:var(--panel)}
+.ith{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.ith select{width:auto}
+.paper-wrap{background:#0f3d33;border-radius:14px;padding:14px;position:sticky;top:12px;max-height:calc(100dvh - 24px);overflow:auto}
+.paper-wrap>.tools .mbtn{color:#fff;border-color:#ffffff55}
+.paper{background:#fff;color:#111;padding:28px;border-radius:4px;font:14px/1.55 'Instrument Sans',sans-serif}
+.paper h2{font:700 20px var(--f1);margin:0 0 4px}
+.paper h3{font:700 15px var(--f1);margin:18px 0 6px;border-bottom:2px solid #0b6b4d;padding-bottom:3px;color:#0b6b4d;display:flex}
+.paper table{border-collapse:collapse;width:100%;font-size:13px}.paper td,.paper th{border:1px solid #bbb;padding:5px 8px;text-align:left;vertical-align:top}
+.paper mark{background:#fde047;color:#111;padding:0 1px}
+.hal{margin:10px 0;padding:8px 0;border-bottom:1px solid #e5e5e5}.hal p{margin:4px 0}.hh{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.bd{color:#fff;font-size:11px;padding:2px 8px;border-radius:99px}
+.x{margin-left:auto;border:0;background:none;color:#b91c1c;cursor:pointer;font-size:12px}
+.phead{display:flex;gap:12px;align-items:center;border-bottom:3px solid #0b6b4d;padding-bottom:10px;margin-bottom:10px}
+@media(max-width:1000px){.inf{grid-template-columns:1fr}.paper-wrap{position:static;max-height:none}}
+@media print{.rail,.ed,main>h1,main>.sub,.paper-wrap>.tools,.noexp{display:none!important}.app{display:block}main{padding:0;max-width:none}.inf{display:block}.paper-wrap{background:none;padding:0;position:static;max-height:none;overflow:visible}.paper{padding:0}}
+.help{display:none;background:color-mix(in srgb,var(--acc) 12%,transparent);border-left:4px solid var(--acc);padding:10px 12px;border-radius:0 8px 8px 0;margin-bottom:14px}
+body.help-on .help{display:block}
+:root{--acc2:#4fd1a1}
+[data-skin=azul]{--acc:light-dark(#1d4e89,#7db4ff);--acc2:#7db4ff;--rail:#0f2a4a}
+[data-skin=vino]{--acc:light-dark(#8a1f3d,#ff8fa8);--acc2:#ff8fa8;--rail:#3a0f1c}
+[data-skin=grafito]{--acc:light-dark(#334155,#cbd5e1);--acc2:#cbd5e1;--rail:#111827}
+[data-skin=ambar]{--acc:light-dark(#b45309,#fbbf24);--acc2:#fbbf24;--rail:#3b2a0b}
+[data-skin=alto]{--bg:#000;--panel:#000;--ink:#fff;--mute:#e5e5e5;--line:#fff;--acc:#ffd400;--acc2:#ffd400;--on-acc:#000;--rail:#000}
+.mic:not(.on){background:var(--acc2)}.rail .btn.pri{background:var(--acc2)}
+.fmt{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px}.fmt button{min-width:34px;height:32px;border-radius:7px;border:1px solid #ffffff55;background:#ffffff18;color:#fff;cursor:pointer}
+.paper[contenteditable=true]{outline:3px solid var(--acc2)}
+.rows{display:grid;gap:6px}.four{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:6px}
+@media(max-width:700px){.four{grid-template-columns:1fr 1fr}}
+#ctl3{display:flex;gap:6px;flex-wrap:wrap}
 </style>
 </head>
 <body>
 <div class="app">
   <aside class="rail">
-    <div class="brand">SIGIA<small>Inocuidad alimentaria · SQF edición 10</small></div>
+    <div class="brand"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 55 12v18C55 45 45 55 32 60 19 55 9 45 9 30V12Z" fill="#4fd1a1"/><path d="M32 47C20 40 19 27 33 17c12 9 11 23-1 30Z" fill="#0b3d2e"/><path d="M32 44V25M32 38l-6-5M32 33l6-5" stroke="#4fd1a1" stroke-width="2" stroke-linecap="round" fill="none"/></svg><div>SIGIA<small>Inocuidad alimentaria · SQF edición 10</small></div></div>
     <nav id="nav">
-      <a href="#/inicio">Inicio</a><a href="#/m2">Calidad (M2)</a><a href="#/m11">Producción (M11)</a><a href="#/biblioteca">Biblioteca</a><a href="#/reporte">Reporte</a><a href="#/manejo">Manejando</a>
+      <a href="#/inicio">Inicio</a><a href="#/m2">Calidad (M2)</a><a href="#/m11">Producción (M11)</a><a href="#/biblioteca">Biblioteca</a><a href="#/informe">Informe</a><a href="#/reporte">Reporte</a><a href="#/manejo">Manejando</a>
     </nav>
     <section class="asst" aria-label="Asistente">
       <h2>Pregunta a la norma</h2>
@@ -255,11 +295,11 @@ const fGet=k=>tx('readonly',s=>s.get(k)),fPut=(k,v)=>tx('readwrite',s=>s.put(v,k
 
 /* ═══ UTILIDADES ═══ */
 const $=s=>document.querySelector(s);
-const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 let have=new Set(),openC=null,curId=null,curUrl=null;
 const cnt=c=>c.regs.filter((_,i)=>have.has(c.code+'#'+i)).length;
-const S=Object.assign({na:{},notes:{},rep:'',co:''},(()=>{try{return JSON.parse(localStorage.getItem('sigia')||'{}')}catch{return{}}})()),save=()=>{try{localStorage.setItem('sigia',JSON.stringify(S))}catch{}};
+const S=Object.assign({na:{},notes:{},rep:'',co:'',emp:[],aut:{n:'',c:''},inf:{tipo:'aud',emp:'',fecha:new Date().toLocaleDateString('sv-SE'),showF:1,folio:'',notas:'',it:[],sec:{dat:1,obj:1,res:1,hal:1,plan:1,con:1,fir:1}}},(()=>{try{return JSON.parse(localStorage.getItem('sigia')||'{}')}catch{return{}}})()),save=()=>{try{localStorage.setItem('sigia',JSON.stringify(S))}catch{}};
 const tot=m=>{const a=DATA[m].filter(c=>!S.na[c.code]),n=a.reduce((s,c)=>s+c.regs.length,0),k=a.reduce((s,c)=>s+cnt(c),0);return{n,k,p:n?Math.round(k/n*100):0}};
 const say$=t=>{$('#st').textContent=t;clearTimeout(say$.t);say$.t=setTimeout(()=>$('#st').textContent='',5000)};
 const modOf=c=>c.startsWith('11.')?11:2;
@@ -279,6 +319,7 @@ const views={
     <p class="sub">Módulo 3 (logística): segunda etapa.</p>`},
   m2:mod(2),m11:mod(11),
   biblioteca:()=>`<h1>Biblioteca de consulta</h1><p class="sub">Resúmenes orientativos con enlace a la fuente oficial. No son texto oficial. Lo que importes también responde desde el asistente.</p><div class="card"><h3>Importar al rack</h3><p class="sub" style="margin-bottom:8px">PDF, Word, Excel, HTML o TXT. El texto se procesa en este dispositivo.</p><label class="mbtn" for="imp">Elegir documento</label><input type="file" id="imp" accept=".pdf,.docx,.xlsx,.html,.htm,.txt,.md" hidden>${IMP.map(d=>`<p class="imp">${esc(d.name)} · ${d.chunks.length} fragmentos <button class="lnk" data-act="deldoc" data-id="${d.id}">Quitar</button></p>`).join('')}</div><input id="f" type="search" placeholder="Filtrar biblioteca…">${LIB.map(([t,x,u],i)=>`<details><summary><b style="grid-column:1/4">${t}</b></summary><div style="padding:12px 14px"><p>${x}</p><div class="tools o"><button class="mbtn" data-act="lib" data-i="${i}">🔊 Escuchar</button>${u?`<a class="mbtn" href="${u}" target="_blank" rel="noopener">Fuente oficial</a>`:''}</div></div></details>`).join('')}`,
+  informe:()=>informeView(),
   reporte:()=>`<h1>Reporte</h1><p class="sub">Dicta, pega o escanea. Se guarda solo en este dispositivo.</p><div class="tools o"><button class="mbtn" data-act="dict" data-t="rep">🎙 Dictar</button><label class="mbtn" for="ocr2">📷 Escanear (OCR)</label><input type="file" id="ocr2" accept="image/*" hidden><button class="mbtn" data-act="readrep">🔊 Escuchar</button><button class="mbtn" data-act="copy">Copiar</button><button class="mbtn" data-act="word">Descargar Word</button><button class="mbtn" data-act="clear">Limpiar</button></div><textarea id="rep" class="rep" placeholder="Escribe o dicta tu reporte…">${esc(S.rep)}</textarea>`,
   manejo:()=>{navigator.wakeLock?.request('screen').catch(()=>{});return`<h1>Modo manejando</h1><p class="sub">Toca, pregunta y escucha sin mirar la pantalla.</p><button class="drive" data-act="mic">Preguntar</button><div class="tools o"><button class="mbtn" data-act="again">Repetir</button><button class="mbtn" data-act="stop">Parar</button>${[1,1.5,2,2.5,3].map(r=>`<button class="mbtn" data-rate="${r}">${r}x</button>`).join('')}</div><p id="bigtxt" class="big2">${esc(last)||'…'}</p>`}
 };
@@ -357,6 +398,100 @@ $('#stop').onclick=()=>speechSynthesis.cancel();
 $('#rate').oninput=e=>{$('#ro').textContent=e.target.value+'x';if(speechSynthesis.speaking)say(last)};
 $('#vol').oninput=e=>{$('#vo').textContent=Math.round(e.target.value*100)+'%';if(speechSynthesis.speaking)say(last)};
 
+/* ═══ INFORMES ═══ */
+const ST={p:['Por evaluar','#94a3b8'],c:['Cumple','#059669'],m:['Menor','#d97706'],M:['Mayor','#dc2626'],C:['Crítica','#7f1d1d'],n:['No aplica','#64748b']};
+const SEC={dat:'Datos generales',obj:'Objetivo y alcance',res:'Resumen ejecutivo',hal:'Hallazgos y recomendaciones',plan:'Plan de acciones',con:'Conclusión',fir:'Firma'};
+let SUG=[],lastTA=null;
+document.addEventListener('focusin',e=>{if(e.target.tagName==='TEXTAREA')lastTA=e.target});
+const fmt=s=>esc(s||'').replace(/==(.+?)==/gs,'<mark>$1</mark>').replace(/\n/g,'<br>');
+const fdate=(d,en)=>d?new Date(d+'T12:00').toLocaleDateString(en?'en-US':'es-MX',{dateStyle:'long'}):'';
+const cl=code=>ALL.find(c=>c.code===code),emp=()=>S.emp.find(x=>x.id===S.inf.emp)||{};
+const mkItem=code=>{const c=cl(code),miss=c.regs.filter((_,i)=>!have.has(code+'#'+i));return{code,st:c.regs.length&&!miss.length?'c':'p',txt:c.regs.length?'Se revisó la evidencia requerida: '+c.regs.join('; ')+'.':'',rec:miss.length?'Elaborar o cargar: '+miss.join('; ')+'.':'',resp:'',lim:''}};
+const addIt=code=>{if(cl(code)&&!S.inf.it.some(i=>i.code===code))S.inf.it.push(mkItem(code))};
+const chips=l=>l.map(c=>`<button class="chip" data-act="add" data-code="${c.code}">+ ${c.code} ${c.title}</button>`).join('');
+function sugg(t){
+  const n=norm(t),cs=[...n.matchAll(/\b\d{1,2}(?:\.\d{1,2}){1,3}\b/g)].map(m=>m[0]),r=ALL.filter(c=>cs.includes(c.code));
+  const w=[...new Set(n.split(/\W+/).filter(w=>w.length>3&&!STOP.has(w)).map(w=>w.slice(0,5)))];
+  const sc=ALL.filter(c=>c.regs.length&&!r.includes(c)).map(c=>{const a=norm(c.title),b=norm(c.regs.join(' '));return{c,s:w.reduce((x,k)=>x+(a.includes(k)?3:0)+(b.includes(k)?1:0),0)}}).filter(x=>x.s>=4).sort((x,y)=>y.s-x.s).slice(0,8).map(x=>x.c);
+  return[...r,...sc].slice(0,10);
+}
+function rel(){
+  const h=new Set(S.inf.it.map(i=>i.code)),o=[];
+  S.inf.it.forEach(i=>{const p=i.code.split('.').slice(0,-1).join('.');ALL.forEach(c=>{if(!h.has(c.code)&&c.regs.length&&!o.includes(c)&&(c.code.startsWith(i.code+'.')||(p.includes('.')&&c.code.startsWith(p+'.'))))o.push(c)})});
+  return o.slice(0,8);
+}
+const LOGO=()=>$('.logo').outerHTML.replace('class="logo"','width="44" height="44" class="noword"');
+function doc(){
+  const I=S.inf;if(I.free)return I.free;
+  const e=emp(),a=S.aut,au=I.tipo==='aud',en=I.lang==='en',L=(x,y)=>en?y:x,on=k=>I.sec[k],it=I.it,n={};
+  it.forEach(x=>n[x.st]=(n[x.st]||0)+1);
+  const stl=k=>en?{p:'Pending',c:'Compliant',m:'Minor',M:'Major',C:'Critical',n:'N/A'}[k]:ST[k][0];
+  const nc=(n.m||0)+(n.M||0)+(n.C||0),f=I.showF?fdate(I.fecha,en):'';
+  const sec=(k,t,body)=>on(k)?`<h3>${t}<button class="noexp x" data-act="sec" data-k="${k}">${L('Quitar sección','Remove section')}</button></h3>${body}`:'';
+  const row=(k,v)=>v?`<tr><td style="width:32%"><b>${k}</b></td><td>${esc(v)}</td></tr>`:'';
+  const ct=(e.ct||[])[I.para===''||I.para==null?-1:+I.para],plan=it.filter(x=>['m','M','C'].includes(x.st));
+  const by=[[a.tit,a.n].filter(Boolean).join(' '),a.c,a.des].filter(Boolean).join(', ');
+  const contact=[a.dir,a.tel&&'Tel. '+a.tel,a.mail,a.web,a.cert].filter(Boolean).join(' · ');
+  const concl=au?(n.C?L('Se identificaron no conformidades críticas que comprometen la certificación y requieren atención inmediata.','Critical nonconformities were identified that jeopardize certification and require immediate attention.'):n.M?L('Se identificaron no conformidades mayores que deben corregirse y verificarse dentro del plazo que establece el código SQF vigente.','Major nonconformities were identified and must be corrected and verified within the deadline set by the current SQF code.'):n.m?L('Se identificaron no conformidades menores que deben corregirse dentro del plazo que establece el código SQF vigente.','Minor nonconformities were identified and must be corrected within the deadline set by the current SQF code.'):L('No se identificaron no conformidades en las cláusulas evaluadas.','No nonconformities were identified in the assessed clauses.')):(nc?L('Se identificaron brechas frente al código SQF edición 10. Se recomienda ejecutar el plan de acciones y programar una revisión de seguimiento.','Gaps against SQF code edition 10 were identified. It is recommended to carry out the action plan and schedule a follow-up review.'):L('No se identificaron brechas en las cláusulas evaluadas. Se recomienda mantener la evidencia actualizada.','No gaps were identified in the assessed clauses. Keep the evidence up to date.'));
+  return `<div class="phead">${LOGO()}<div><h2>${au?L('Informe de auditoría','Audit report'):L('Informe de consultoría','Consulting report')} · SQF ${L('edición','edition')} 10</h2><div>${esc(e.com||e.nom||L('Empresa sin seleccionar','No company selected'))}${I.folio?' · Folio '+esc(I.folio):''}${f?' · '+f:''}</div></div></div>`
+  +(ct||I.cc?`<p>${ct?`<b>${L('Atención','Attention')}:</b> ${esc(ct.n)}${ct.p?', '+esc(ct.p):''}${e.nom?' · '+esc(e.nom):''}`:''}${I.cc?`<br><b>${L('Con copia a','CC')}:</b> ${esc(I.cc)}`:''}</p>`:'')
+  +sec('dat',L('Datos generales','General data'),`<table>${row(L('Razón social','Legal name'),e.nom)}${row(L('Nombre comercial','Trade name'),e.com)}${row('RFC',e.rfc)}${row(L('Domicilio fiscal','Tax address'),e.domF)}${row(L('Domicilio de la planta','Plant address'),e.dir)}${row(L('Teléfono','Phone'),e.tel)}${row(L('Correo','Email'),e.mail)}${row(L('Sitio web','Website'),e.web)}${row(L('Giro','Industry'),e.giro)}${row(L('Productos','Products'),e.prod)}${row(L('Empleados','Employees'),e.num)}${row(L('Turnos','Shifts'),e.tur)}${row(L('Certificaciones','Certifications'),e.cer)}${(e.cf||[]).map(c=>row(c.k,c.v)).join('')}${row(L('Esquema','Scheme'),'SQF '+L('edición','edition')+' 10 · '+L('Módulos 2 y 11','Modules 2 and 11'))}${row(L('Elaborado por','Prepared by'),by)}${row(L('Contacto','Contact'),contact)}</table>`)
+  +sec('obj',L('Objetivo y alcance','Objective and scope'),`<p>${au?L('Evaluar el grado de cumplimiento del sistema de gestión de inocuidad frente al código SQF edición 10, Módulos 2 y 11, e identificar no conformidades menores, mayores y críticas que requieran acción correctiva.','Assess the compliance of the food safety management system against SQF code edition 10, Modules 2 and 11, and identify minor, major and critical nonconformities requiring corrective action.'):L('Diagnosticar el estado del sistema de gestión de inocuidad frente al código SQF edición 10, Módulos 2 y 11, identificar brechas y recomendar las acciones necesarias para su implementación y mantenimiento.','Diagnose the status of the food safety management system against SQF code edition 10, Modules 2 and 11, identify gaps and recommend the actions needed for implementation and maintenance.')}</p><p>${L('Metodología: revisión documental de los registros requeridos por cada cláusula, entrevistas con el personal y verificación en planta.','Methodology: documentary review of the records required by each clause, staff interviews and on-site verification.')}</p>`)
+  +sec('res',L('Resumen ejecutivo','Executive summary'),it.length?`<p>${L('Se evaluaron '+it.length+' cláusulas: ',it.length+' clauses were assessed: ')}${Object.entries(n).map(([k,v])=>v+' '+stl(k).toLowerCase()).join(', ')}.</p>`:`<p>${L('Aún no hay cláusulas agregadas.','No clauses added yet.')}</p>`)
+  +sec('hal',L('Hallazgos y recomendaciones','Findings and recommendations'),it.map(x=>{const c=cl(x.code);return`<div class="hal"><div class="hh"><b>${x.code} · ${c.title}</b><span class="bd" style="background:${ST[x.st][1]}">${stl(x.st)}</span><button class="noexp x" data-act="del" data-code="${x.code}">${L('Quitar','Remove')}</button></div>${c.regs.length?`<p><i>${L('Registros requeridos','Required records')}:</i> ${esc(c.regs.join('; '))}.</p>`:''}${x.txt?`<p>${fmt(x.txt)}</p>`:''}${x.rec?`<p><b>${L('Recomendación','Recommendation')}:</b> ${fmt(x.rec)}</p>`:''}</div>`}).join('')||`<p>${L('Agrega cláusulas desde las notas.','Add clauses from the notes.')}</p>`)
+  +(plan.length?sec('plan',L('Plan de acciones','Action plan'),`<table><tr><th>${L('Cláusula','Clause')}</th><th>${L('Acción','Action')}</th><th>${L('Responsable','Owner')}</th><th>${L('Fecha límite','Due date')}</th></tr>${plan.map(x=>`<tr><td>${x.code}</td><td>${fmt(x.rec||x.txt)}</td><td>${esc(x.resp)}</td><td>${fdate(x.lim,en)}</td></tr>`).join('')}</table>`):'')
+  +sec('con',L('Conclusión','Conclusion'),`<p>${concl}</p>`)
+  +sec('fir',L('Firma','Signature'),`<p style="margin-top:30px">${a.firma?`<img src="${a.firma}" style="max-height:60px"><br>`:''}______________________________<br><b>${esc([a.tit,a.n].filter(Boolean).join(' ')||L('Nombre','Name'))}</b><br>${esc(a.c)}${contact?'<br><small>'+esc(contact)+'</small>':''}</p><p style="font-size:11px;color:#666">${L('Guía técnica basada en el código aplicable; no sustituye el juicio de un auditor certificado.','Technical guidance based on the applicable code; it does not replace the judgment of a certified auditor.')}</p>`);
+}
+const itHTML=i=>{const c=cl(i.code),bad=['m','M','C'].includes(i.st);return`<div class="it"><div class="ith"><b>${i.code} · ${c.title}</b><span><select data-it="${i.code}" data-k="st">${Object.entries(ST).map(([k,v])=>`<option value="${k}" ${i.st===k?'selected':''}>${v[0]}</option>`).join('')}</select> <button class="mbtn" data-act="del" data-code="${i.code}">Quitar</button></span></div><textarea id="t-${i.code}" data-it="${i.code}" data-k="txt" placeholder="Hallazgo">${esc(i.txt)}</textarea><textarea data-it="${i.code}" data-k="rec" placeholder="Recomendación">${esc(i.rec)}</textarea><div class="tools o"><button class="mbtn" data-act="dict" data-t="t-${i.code}">🎙 Dictar hallazgo</button><button class="mbtn" data-act="hl">🖍 Resaltar</button></div>${bad?`<div class="two"><input data-it="${i.code}" data-k="resp" placeholder="Responsable" value="${esc(i.resp||'')}"><input type="date" data-it="${i.code}" data-k="lim" value="${i.lim||''}"></div>`:''}</div>`};
+function informeView(){
+  const I=S.inf,a=S.aut,e=emp(),au=I.tipo==='aud',rl=rel(),sg=SUG.filter(c=>!I.it.some(i=>i.code===c.code));
+  return`<h1>Informe</h1><p class="sub">Lo fijo se llena solo. Tú agregas o quitas cláusulas y secciones.</p><div class="inf"><div class="ed">
+  <div class="card"><div class="seg"><button class="mbtn" aria-pressed="${au}" data-act="tipo" data-v="aud">Auditoría</button><button class="mbtn" aria-pressed="${!au}" data-act="tipo" data-v="con">Consultoría</button></div></div>
+  <div class="card"><div class="two"><label>Idioma del documento<select data-f="inf.lang"><option value="es">Español</option><option value="en" ${I.lang==='en'?'selected':''}>English</option></select></label><label>Elabora<input value="${esc([S.aut.tit,S.aut.n].filter(Boolean).join(' '))}" placeholder="Llénalo en Ajustes" readonly></label></div></div>
+  <div class="card"><h3>Empresa</h3><label><select data-f="inf.emp"><option value="">— elegir —</option>${S.emp.map(x=>`<option value="${x.id}" ${x.id===I.emp?'selected':''}>${esc(x.nom||'Sin nombre')}</option>`).join('')}</select></label>${e.id?`<div class="two" style="margin-top:8px"><label>Dirigido a<select data-f="inf.para"><option value="">—</option>${(e.ct||[]).map((c,i)=>`<option value="${i}" ${String(I.para)===String(i)?'selected':''}>${esc(c.n||'Sin nombre')}${c.p?' · '+esc(c.p):''}</option>`).join('')}</select></label><label>Con copia a<input data-f="inf.cc" value="${esc(I.cc)}"></label></div>`:''}<div class="tools o" style="margin-top:8px"><a class="mbtn" href="#/empresas">Editar empresas y contactos</a></div></div>
+  <div class="card"><div class="two"><label>Fecha<input type="date" data-f="inf.fecha" value="${I.fecha}"></label><label>Folio<input data-f="inf.folio" value="${esc(I.folio)}" placeholder="Opcional"></label></div><label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" data-f="inf.showF" ${I.showF?'checked':''}> Mostrar fecha en el documento</label></div>
+  <div class="card"><h3>Notas de la visita</h3><textarea id="notas" data-f="inf.notas" style="min-height:110px" placeholder="Pega, dicta o escanea tus notas…">${esc(I.notas)}</textarea><div class="tools o" style="margin-top:8px"><button class="mbtn" data-act="dict" data-t="notas">🎙 Dictar</button><label class="mbtn" for="ocr3">📷 Escanear</label><input type="file" id="ocr3" accept="image/*" hidden><button class="mbtn" data-act="hl">🖍 Resaltar</button><button class="mbtn" data-act="sug">Sugerir cláusulas</button><button class="mbtn" data-act="addpend">Agregar pendientes</button></div>${sg.length?`<div style="margin-top:8px">${chips(sg)}</div>`:''}</div>
+  ${I.it.map(itHTML).join('')}
+  ${rl.length?`<div class="card"><h3>Podrían entrar también</h3>${chips(rl)}</div>`:''}
+  <div class="card"><h3>Secciones del documento</h3>${Object.entries(SEC).map(([k,v])=>`<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" data-sec="${k}" ${I.sec[k]?'checked':''}> ${v}</label>`).join('')}</div></div>
+  <div class="paper-wrap"><div class="tools o"><button class="mbtn" data-a2="docx">Descargar Word</button><button class="mbtn" data-a2="share2">Compartir</button><button class="mbtn" data-act="pdf">PDF</button><button class="mbtn" data-a2="free" aria-pressed="${!!I.free}">✏️ Editar libre</button><button class="mbtn" data-a2="newrep">Informe nuevo</button></div>${I.free?TB:''}<div id="paper" class="paper" ${I.free?'contenteditable="true"':''}>${doc()}</div></div></div>`;
+}
+document.addEventListener('input',e=>{
+  const t=e.target,d=t.dataset,I=S.inf,v=t.type==='checkbox'?(t.checked?1:0):t.value;
+  if(d.f){const[o,k]=d.f.split('.');S[o][k]=v;if(d.f==='inf.emp'){save();return route()}}
+  else if(d.e){const x=emp();if(x.id)x[d.e]=v}
+  else if(d.sec)I.sec[d.sec]=v;
+  else if(d.it){const x=I.it.find(i=>i.code===d.it);if(x){x[d.k]=v;if(d.k==='st'){save();return route()}}}
+  else return;
+  save();const p=$('#paper');if(p)p.innerHTML=doc();
+});
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act,I=S.inf,c=b.dataset.code;
+  const sort=()=>I.it.sort((x,y)=>ALL.findIndex(k=>k.code===x.code)-ALL.findIndex(k=>k.code===y.code)),redo=()=>{save();route()};
+  if(a==='tipo'){I.tipo=b.dataset.v;redo()}
+  else if(a==='empnew'){const id='e'+Date.now();S.emp.push({id,nom:'',ger:'',dir:'',prod:''});I.emp=id;redo()}
+  else if(a==='empdel'){if(confirm('¿Eliminar esta empresa?')){S.emp=S.emp.filter(x=>x.id!==I.emp);I.emp='';redo()}}
+  else if(a==='sug'){SUG=sugg(I.notas);if(!SUG.length)say$('No encontré cláusulas con esas notas. Agrega más detalle o el número de cláusula.');redo()}
+  else if(a==='add'){addIt(c);sort();redo()}
+  else if(a==='addpend'){ALL.filter(k=>k.regs.length&&!S.na[k.code]&&cnt(k)<k.regs.length).forEach(k=>addIt(k.code));sort();redo()}
+  else if(a==='del'){I.it=I.it.filter(i=>i.code!==c);redo()}
+  else if(a==='sec'){I.sec[b.dataset.k]=0;redo()}
+  else if(a==='hl'){
+    const t=lastTA;if(!t||t.selectionStart===t.selectionEnd)return say$('Selecciona texto en una nota o hallazgo y toca Resaltar.');
+    const s0=t.selectionStart,s1=t.selectionEnd,v=t.value,x=v.slice(s0,s1);
+    t.value=x.length>4&&x.startsWith('==')&&x.endsWith('==')?v.slice(0,s0)+x.slice(2,-2)+v.slice(s1):v.slice(s0-2,s0)==='=='&&v.slice(s1,s1+2)==='=='?v.slice(0,s0-2)+x+v.slice(s1+2):v.slice(0,s0)+'=='+x+'=='+v.slice(s1);
+    t.dispatchEvent(new Event('input',{bubbles:true}));
+  }
+  else if(a==='pdf')print();
+  else if(a==='word2'){
+    const p=$('#paper').cloneNode(true);p.querySelectorAll('.noexp,.noword').forEach(x=>x.remove());
+    const l=document.createElement('a');l.href=URL.createObjectURL(new Blob(['<html><head><meta charset="utf-8"><style>body{font-family:Calibri,Arial;font-size:11pt}h2{font-size:18pt}h3{color:#0b6b4d;border-bottom:2px solid #0b6b4d}table{border-collapse:collapse;width:100%}td,th{border:1px solid #999;padding:4px 6px}mark{background:#fde047}</style></head><body>'+p.innerHTML+'</body></html>'],{type:'application/msword'}));
+    l.download='Informe-'+(emp().nom||'SIGIA').replace(/[^\w]+/g,'_')+'.doc';l.click();
+  }
+  else if(a==='nuevo'){if(confirm('¿Empezar un informe nuevo? Se borran las cláusulas y notas de este.')){I.it=[];I.notas='';I.folio='';SUG=[];redo()}}
+});
+
 /* ═══ DICTADO CONTINUO (notas y reporte) ═══ */
 let dr=null;
 function dict(el,btn){
@@ -383,7 +518,7 @@ async function imp(f){
 document.addEventListener('change',async e=>{
   const i=e.target,f=i.files?.[0];if(!f)return;
   if(i.id==='imp')await imp(f);
-  if(i.id==='ocr2'){say$('Leyendo imagen…');try{const t=await ocrText(f);const r=$('#rep');r.value+=(r.value?'\n\n':'')+t;S.rep=r.value;save();say$('Texto agregado al reporte.')}catch{say$('No pude leer la imagen.')}}
+  if(i.id==='ocr2'||i.id==='ocr3'){say$('Leyendo imagen…');try{const t=await ocrText(f);const r=$(i.id==='ocr2'?'#rep':'#notas');r.value+=(r.value?'\n\n':'')+t;r.dispatchEvent(new Event('input',{bubbles:true}));say$('Texto agregado.')}catch{say$('No pude leer la imagen.')}}
   i.value='';
 });
 document.addEventListener('input',e=>{const t=e.target;if(t.dataset.note){S.notes[t.dataset.note]=t.value;save()}else if(t.id==='rep'){S.rep=t.value;save()}else if(t.id==='co'){S.co=t.value;save()}});
@@ -414,6 +549,174 @@ $('#ocr').onchange=async e=>{
 };
 
 /* ═══ ARRANQUE ═══ */
+
+/* ═══ V3: PERSISTENCIA, PAPELERA, EMPRESAS, DOCUMENTOS, VOZ, IDIOMAS, AJUSTES ═══ */
+const NAVS=[['inicio','Inicio'],['empresas','Empresas'],['informe','Informe'],['docs','Documentos'],['m2','Calidad (M2)'],['m11','Producción (M11)'],['biblioteca','Biblioteca'],['reporte','Reporte'],['manejo','Manejando'],['simulacro','Simulacro'],['ajustes','Ajustes']];
+$('#nav').innerHTML=NAVS.map(([k,l])=>`<a href="#/${k}">${l}</a>`).join('');
+$('#nav').insertAdjacentHTML('beforebegin','<div id="ctl3"><button class="btn" data-a2="fs-" aria-label="Letra más chica">A−</button><button class="btn" data-a2="fs+" aria-label="Letra más grande">A+</button><button class="btn" data-a2="theme">🌓</button><button class="btn" data-a2="help">? Ayuda</button><button class="btn" data-a2="readscr">🔊 Pantalla</button><button class="btn" data-a2="vcmd">🎤 Comando</button></div>');
+const LANGS2=[['es-MX','Español (México)'],['es-ES','Español (España)'],['en-US','English (US)'],['en-GB','English (UK)'],['pt-BR','Português'],['fr-FR','Français'],['de-DE','Deutsch'],['it-IT','Italiano']];
+const EN=Object.fromEntries(('Inicio=Home|Empresas=Companies|Informe=Report|Documentos=Documents|Calidad (M2)=Quality (M2)|Producción (M11)=Production (M11)|Biblioteca=Library|Reporte=Notes|Manejando=Driving|Simulacro=Drill|Ajustes=Settings|Pregunta a la norma=Ask the standard|Preguntar=Ask|Dictar=Dictate|Escanear (OCR)=Scan (OCR)|▶ Escuchar=▶ Listen|■ Parar=■ Stop|Leer solo=Auto-read|Velocidad=Speed|Volumen=Volume|Avance del sistema=System progress|Subir=Upload|Ver=View|Reemplazar=Replace|Quitar=Remove|Cerrar=Close|Eliminar=Delete|Descargar copia=Download copy|Marcar no aplica=Mark not applicable|Volver a aplicar=Apply again|🔊 Escuchar=🔊 Listen|🎙 Dictar nota=🎙 Dictate note|Auditoría=Audit|Consultoría=Consulting|Empresa=Company|Notas de la visita=Visit notes|Sugerir cláusulas=Suggest clauses|Agregar pendientes=Add pending|Descargar Word=Download Word|Compartir=Share|Secciones del documento=Document sections|Fecha=Date|Dirigido a=Addressed to|Con copia a=CC|Podrían entrar también=Could also apply|Biblioteca de consulta=Reference library|Importar al rack=Import to rack|Fuente oficial=Official source|Modo manejando=Driving mode|Repetir=Repeat|Papelera=Trash|Restaurar=Restore|Apariencia=Appearance|Mi perfil=My profile|+ Nueva empresa=+ New company|Contactos=Contacts|Campos personalizados=Custom fields|Voz=Voice|Pendientes=Pending|Datos y respaldo=Data and backup|Ajustes=Settings|Siguientes cláusulas por completar=Next clauses to complete|Informe nuevo=New report|✏️ Editar libre=✏️ Free edit|Respaldo completo (.zip)=Full backup (.zip)|Restaurar respaldo=Restore backup|Proteger mis datos=Protect my data|Sí=Yes|Iniciar (8 preguntas)=Start (8 questions)|Tamaño de letra=Font size|Letra más grande=Larger text').split('|').map(x=>x.split('=')));
+function trDOM(){
+  if(S.ui!=='en')return;
+  const w=document.createTreeWalker($('.app'),NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement.closest('#paper')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});let n;
+  while(n=w.nextNode()){const t=n.nodeValue.trim();if(EN[t])n.nodeValue=n.nodeValue.replace(t,EN[t])}
+  document.querySelectorAll('[placeholder]').forEach(e=>{const p=e.getAttribute('placeholder');if(EN[p])e.setAttribute('placeholder',EN[p])});
+}
+const HELP={inicio:['Aquí ves el avance y lo pendiente. Usa el menú de arriba para ir a cada parte.','Here you see progress and pending items. Use the top menu to move around.'],empresas:['Guarda una vez los datos de cada cliente y sus contactos. Lo que dejes vacío no aparece en los documentos.','Save each client and their contacts once. Empty fields never appear in documents.'],informe:['Elige empresa y a quién va dirigido, dicta tus notas y toca Sugerir cláusulas. Agrega o quita cláusulas y exporta a Word o PDF.','Pick the company and recipient, dictate notes and tap Suggest clauses. Add or remove clauses and export to Word or PDF.'],docs:['Tus informes se guardan solos. Desde aquí los abres, compartes o mandas a la papelera.','Your reports save automatically. Open, share or move them to trash from here.'],m2:['Cada cláusula muestra los registros que pide. Sube la evidencia, anota o dicta tus notas.','Each clause lists the records it requires. Upload evidence and take or dictate notes.'],m11:['Igual que el módulo 2, pero para el control de producción.','Same as module 2, but for production control.'],biblioteca:['Consulta resúmenes de normas y agrega tus propios documentos para buscarlos.','Browse standard summaries and add your own documents to search them.'],reporte:['Un cuaderno libre: dicta, pega o escanea y descárgalo en Word.','A free notebook: dictate, paste or scan and download as Word.'],manejo:['Toca el botón grande, haz tu pregunta y escucha la respuesta sin mirar.','Tap the big button, ask, and listen without looking.'],simulacro:['El sistema te pregunta por voz si existe cada registro. Sirve para practicar una auditoría.','The system asks by voice if each record exists. Use it to practice an audit.'],ajustes:['Aquí pones tu nombre y título, el tamaño de letra, el tema, el idioma y los respaldos.','Set your name and title, font size, theme, language and backups here.']};
+function applyUI(){const r=document.documentElement;r.style.zoom=S.fs||1;r.style.colorScheme=S.theme&&S.theme!=='auto'?S.theme:'light dark';r.dataset.skin=S.skin||'';document.body.classList.toggle('help-on',!!S.help);r.lang=S.ui||'es'}
+applyUI();navigator.storage?.persist?.();
+/* idioma de lectura */
+function say(t){
+  if(!('speechSynthesis' in window)||!t)return;speechSynthesis.cancel();
+  const vs=speechSynthesis.getVoices(),lg=S.rl||'es-MX',v=vs.find(x=>x.name===S.voice)||vs.find(x=>x.lang===lg)||vs.find(x=>x.lang.startsWith(lg.slice(0,2))),g=[];let b='';
+  for(const p of t.match(/[^.;:!?]+[.;:!?]?\s*/g)||[t]){if((b+p).length>180&&b){g.push(b);b=''}b+=p}if(b)g.push(b);
+  g.forEach(x=>{const u=new SpeechSynthesisUtterance(x);u.lang=lg;u.rate=+$('#rate').value;u.volume=+$('#vol').value;if(v)u.voice=v;speechSynthesis.speak(u)});
+}
+if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=()=>{if(location.hash==='#/ajustes')route()};
+/* comandos de voz */
+const sortIt=()=>S.inf.it.sort((x,y)=>ALL.findIndex(k=>k.code===x.code)-ALL.findIndex(k=>k.code===y.code));
+function cmd(t){
+  const n=norm(t).trim();let m;
+  if(m=n.match(/^(?:ve a|ir a|abre|abrir|ve al|ir al)\s+(?:la |el |los |las )?(inicio|empresas?|informe|documentos?|calidad|produccion|biblioteca|reporte|manejando|manejo|simulacro|ajustes|papelera)/)){location.hash='#/'+({empresa:'empresas',documento:'docs',documentos:'docs',calidad:'m2',produccion:'m11',manejando:'manejo'}[m[1]]||m[1]);return 1}
+  if(/letra (mas )?grande|aumenta(r)? (la )?letra/.test(n)){S.fs=Math.min(2,(S.fs||1)+.1);save();applyUI();return 1}
+  if(/letra (mas )?(chica|pequena)|reduce(r)? (la )?letra/.test(n)){S.fs=Math.max(.8,(S.fs||1)-.1);save();applyUI();return 1}
+  if(/modo oscuro/.test(n)){S.theme='dark';save();applyUI();return 1}
+  if(/modo claro/.test(n)){S.theme='light';save();applyUI();return 1}
+  if(/^(lee|leer|escucha|escuchar) (la )?(pantalla|todo)/.test(n)){say($('#main').innerText);return 1}
+  if(/^(para|parar|detener|silencio|alto)$/.test(n)){speechSynthesis.cancel();return 1}
+  if(m=n.match(/^(?:hallazgo|clausula)\s+(\d{1,2}(?:\.\d{1,3}){0,3})\s*(cumple|menor|mayor|critica|no aplica)?\s*(.*)$/)){
+    if(!cl(m[1])){say$('No existe la cláusula '+m[1]);return 1}
+    addIt(m[1]);const x=S.inf.it.find(i=>i.code===m[1]);if(m[2])x.st={cumple:'c',menor:'m',mayor:'M',critica:'C','no aplica':'n'}[m[2]];
+    const rest=t.trim().slice(t.trim().length-m[3].length);if(rest)x.txt=(x.txt?x.txt+' ':'')+rest;sortIt();save();say$('Hallazgo agregado a '+m[1]);location.hash==='#/informe'?route():location.hash='#/informe';return 1}
+  return 0;
+}
+const _ask=ask;ask=function(q){if(typeof q==='string'&&cmd(q))return;return _ask(q)};
+function listenCmd(){if(!SR)return say$('Este navegador no tiene dictado.');const r=new SR();r.lang=S.ui==='en'?'en-US':'es-MX';r.onresult=e=>{const t=e.results[0][0].transcript;say$('🎤 '+t);if(!cmd(t))ask(t)};r.start();say$('Escuchando… di, por ejemplo: «ve a informe» o «hallazgo 11.2.4 menor falta el contrato»')}
+/* papelera */
+async function toTrash(k){const v=await fGet(k);if(!v)return;await fPut('trash:'+Date.now()+':'+k,{...v,kind:k.startsWith('rep:')?'rep':'file',key:k,at:Date.now()});await fDel(k)}
+$('#vdel').onclick=async()=>{if(!curId||!confirm('¿Mover a la papelera? Podrás recuperarlo.'))return;await toTrash(curId);have.delete(curId);$('#v').close();route()};
+views.papelera=()=>`<h1>Papelera</h1><p class="sub">Nada se borra definitivamente hasta que tú lo decidas.</p><div id="tl">Cargando…</div>`;
+async function listTrash(){
+  const ks=(await fKeys()).filter(k=>String(k).startsWith('trash:')).sort().reverse(),el=$('#tl');if(!el)return;
+  const rs=await Promise.all(ks.map(async k=>({k,...await fGet(k)})));
+  el.innerHTML=rs.length?`<div class="tools o"><button class="mbtn" data-a2="trempty">Vaciar papelera</button></div>`+rs.map(r=>`<div class="card"><b>${esc(r.kind==='emp'?'Empresa: '+(r.emp.nom||'sin nombre'):r.kind==='rep'?r.title:r.name)}</b><br><span class="sub">${new Date(r.at).toLocaleString()}</span><div class="tools o"><button class="mbtn" data-a2="trrest" data-id="${r.k}">Restaurar</button><button class="mbtn" data-a2="trdel" data-id="${r.k}">Eliminar definitivamente</button></div></div>`).join(''):'<p class="sub">La papelera está vacía.</p>';
+}
+/* empresas y contactos */
+const fld=(k,l)=>`<label>${l}<input data-e="${k}" value="${esc(emp()[k])}"></label>`;
+views.empresas=()=>{const e=emp();return`<h1>Empresas</h1><p class="sub">Guarda todo lo que quieras de cada cliente. Lo que dejes vacío no aparece en los documentos.</p>
+<div class="card ed"><div class="two"><label>Empresa activa<select data-f="inf.emp"><option value="">— elegir —</option>${S.emp.map(x=>`<option value="${x.id}" ${x.id===S.inf.emp?'selected':''}>${esc(x.nom||'Sin nombre')}</option>`).join('')}</select></label><div class="tools o" style="align-items:end"><button class="mbtn" data-act="empnew">+ Nueva empresa</button></div></div></div>
+${e.id?`<div class="card ed"><h3>Datos</h3><div class="two">${[['nom','Razón social'],['com','Nombre comercial'],['rfc','RFC'],['domF','Domicilio fiscal'],['dir','Domicilio de la planta'],['tel','Teléfono'],['mail','Correo'],['web','Sitio web'],['giro','Giro'],['prod','Productos'],['num','Número de empleados'],['tur','Turnos'],['cer','Certificaciones / esquema']].map(([k,l])=>fld(k,l)).join('')}</div></div>
+<div class="card ed"><h3>Contactos</h3><p class="sub">Gerente, subgerente, recursos humanos, calidad… Al hacer un informe eliges a quién va dirigido.</p><div class="rows">${(e.ct||[]).map((c,i)=>`<div class="four">${['n:Nombre','p:Puesto','m:Correo','t:Teléfono'].map(x=>{const[k,l]=x.split(':');return`<input data-ct="${i}|${k}" placeholder="${l}" value="${esc(c[k])}">`}).join('')}<button class="mbtn" data-a2="ctdel" data-id="${i}">✕</button></div>`).join('')}</div><div class="tools o" style="margin-top:8px"><button class="mbtn" data-a2="ctadd">+ Agregar contacto</button></div></div>
+<div class="card ed"><h3>Campos personalizados</h3><div class="rows">${(e.cf||[]).map((c,i)=>`<div class="two" style="grid-template-columns:1fr 2fr auto"><input data-cf="${i}|k" placeholder="Nombre del campo" value="${esc(c.k)}"><input data-cf="${i}|v" placeholder="Valor" value="${esc(c.v)}"><button class="mbtn" data-a2="cfdel" data-id="${i}">✕</button></div>`).join('')}</div><div class="tools o" style="margin-top:8px"><button class="mbtn" data-a2="cfadd">+ Agregar campo</button><button class="mbtn" data-a2="empdel2">Mover empresa a la papelera</button></div></div>`:''}`};
+/* documentos guardados */
+let lastJ='';setInterval(()=>{const j=JSON.stringify(S.inf);if(j!==lastJ){lastJ=j;autosave()}},4000);
+let ast;function autosave(){clearTimeout(ast);ast=setTimeout(async()=>{const I=S.inf;if(!I.it.length&&!I.notas&&!I.free)return;if(!I.rid){I.rid='rep:'+Date.now();save()}await fPut(I.rid,{kind:'rep',title:(I.tipo==='aud'?'Auditoría':'Consultoría')+' · '+(emp().nom||'sin empresa'),at:Date.now(),inf:JSON.parse(JSON.stringify(I)),html:doc()})},900)}
+views.docs=()=>`<h1>Documentos</h1><p class="sub">Tus informes se guardan solos en este dispositivo.</p><div id="dl">Cargando…</div>`;
+async function listDocs(){
+  const ks=(await fKeys()).filter(k=>String(k).startsWith('rep:')).sort().reverse(),el=$('#dl');if(!el)return;
+  const rs=await Promise.all(ks.map(async k=>({k,...await fGet(k)})));
+  el.innerHTML=rs.length?rs.map(r=>`<div class="card"><b>${esc(r.title)}</b><br><span class="sub">${new Date(r.at).toLocaleString()}</span><div class="tools o"><button class="mbtn" data-a2="docopen" data-id="${r.k}">Abrir</button><button class="mbtn" data-a2="docshare" data-id="${r.k}">Compartir</button><button class="mbtn" data-a2="docdel" data-id="${r.k}">Eliminar</button></div></div>`).join(''):'<p class="sub">Aún no hay documentos.</p>';
+}
+/* exportar: Word real, compartir, zip */
+const TB='<div class="fmt">'+[['bold','<b>B</b>'],['italic','<i>I</i>'],['underline','<u>U</u>'],['hiliteColor','🖍','#fde047'],['hiliteColor','⌫','transparent'],['foreColor','A','#dc2626'],['fontSize','A+','5'],['fontSize','A−','2'],['justifyLeft','⬅'],['justifyFull','≡'],['insertUnorderedList','•'],['insertOrderedList','1.'],['insertHTML','▦','<table border="1" style="border-collapse:collapse;width:100%"><tr><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr></table><p></p>'],['undo','↶'],['redo','↷'],['removeFormat','✧']].map(([c,l,v])=>`<button data-a2="cmd|${c}|${esc(v||'')}">${l}</button>`).join('')+'</div>';
+document.addEventListener('mousedown',e=>{if(e.target.closest('.fmt button'))e.preventDefault()});
+const CSSD='body{font-family:Calibri,Arial;font-size:11pt}h2{font-size:18pt}h3{color:#0b6b4d;border-bottom:2px solid #0b6b4d}table{border-collapse:collapse;width:100%}td,th{border:1px solid #999;padding:4px 6px}mark{background:#fde047}';
+const clean=h=>{const d=document.createElement('div');d.innerHTML=h;d.querySelectorAll('.noexp,.noword').forEach(x=>x.remove());return d.innerHTML};
+const paperHTML=()=>clean($('#paper').innerHTML);
+const saveAs=(b,fn)=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),5000)};
+async function shareFile(b,fn){const f=new File([b],fn,{type:b.type});if(navigator.canShare?.({files:[f]})){try{await navigator.share({files:[f],title:fn});return}catch(e){if(e.name==='AbortError')return}}saveAs(b,fn);say$('Compartir no está disponible aquí; se descargó el archivo.')}
+async function outDoc(html,nm_,share){
+  const full='<!DOCTYPE html><html><head><meta charset="utf-8"><style>'+CSSD+'</style></head><body>'+html+'</body></html>';let b,fn;
+  try{await load('https://cdn.jsdelivr.net/npm/html-docx-js@0.3.1/dist/html-docx.js',()=>window.htmlDocx);b=htmlDocx.asBlob(full);fn=nm_+'.docx'}
+  catch{b=new Blob([full],{type:'application/msword'});fn=nm_+'.doc';say$('Sin internet para crear .docx; se generó .doc compatible con Word.')}
+  share?shareFile(b,fn):saveAs(b,fn);
+}
+const repName=()=>'Informe-'+(emp().nom||'SIGIA').replace(/[^\w]+/g,'_');
+const JSZ='https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';
+async function expZip(share){
+  await load(JSZ,()=>window.JSZip);const z=new JSZip(),man=[];let i=0;
+  for(const k of await fKeys()){const v=await fGet(k);if(v&&v.blob){z.file('blobs/'+i,v.blob);man.push({k,v:{...v,blob:'blobs/'+i}});i++}else man.push({k,v})}
+  z.file('sigia.json',JSON.stringify({v:2,at:Date.now(),S,man,mon:localStorage.getItem('sigia_mon')}));
+  const b=await z.generateAsync({type:'blob'}),fn='SIGIA_respaldo_'+new Date().toLocaleDateString('sv-SE')+'.zip';S.lastBak=Date.now();save();share?shareFile(b,fn):saveAs(b,fn);say$('Respaldo listo.');
+}
+async function impZip(f){
+  await load(JSZ,()=>window.JSZip);const z=await JSZip.loadAsync(f),j=JSON.parse(await z.file('sigia.json').async('string'));
+  for(const{k,v}of j.man){if(typeof v.blob==='string')v.blob=new Blob([await z.file(v.blob).async('arraybuffer')],{type:v.type||''});await fPut(k,v)}
+  Object.assign(S,j.S);save();location.reload();
+}
+/* simulacro */
+let SIM=null;const pick=a=>a[Math.floor(Math.random()*a.length)];
+views.simulacro=()=>`<h1>Simulacro de auditoría</h1><p class="sub">El sistema pregunta por voz si existe cada registro. Responde Sí o No.</p><div class="card" id="sim"><button class="mbtn" data-a2="simgo">Iniciar (8 preguntas)</button></div>`;
+function simQ(){const c=pick(ALL.filter(x=>x.regs.length)),r=pick(c.regs),q=`Cláusula ${c.code}, ${c.title}. ¿Cuenta con ${r}?`;SIM.cur={c,r};$('#sim').innerHTML=`<p><b>${SIM.n+1} / 8</b></p><p style="font-size:1.2em">${esc(q)}</p><div class="tools o"><button class="mbtn" data-a2="simy">Sí</button><button class="mbtn" data-a2="simn">No</button><button class="mbtn" data-a2="simr">🔊 Repetir</button></div>`;say(q)}
+function simEnd(){const g=[...new Set(SIM.gaps.map(x=>x.c.code))];$('#sim').innerHTML=`<h3>${SIM.si} de 8 con evidencia</h3>${SIM.gaps.map(x=>`<p>• ${x.c.code} · ${esc(x.r)}</p>`).join('')||'<p>Sin pendientes.</p>'}<div class="tools o">${g.length?'<button class="mbtn" data-a2="simadd">Agregar pendientes al informe</button>':''}<button class="mbtn" data-a2="simgo">Otra ronda</button></div>`;say(`Resultado: ${SIM.si} de 8 con evidencia.`)}
+/* ajustes */
+views.ajustes=()=>{const a=S.aut,vs=('speechSynthesis' in window?speechSynthesis.getVoices():[]).filter(v=>v.lang.startsWith((S.rl||'es-MX').slice(0,2))),au=(k,l,ph='')=>`<label>${l}<input data-au="${k}" value="${esc(a[k])}" placeholder="${ph}"></label>`;
+return`<h1>Ajustes</h1><p class="sub">Todo se guarda en este dispositivo.</p><div class="ed">
+<div class="card"><h3>Mi perfil</h3><p class="sub">Escribe tu nombre y título como quieras que salgan. Lo que dejes vacío no aparece en los documentos.</p><div class="two">${au('tit','Título o tratamiento','Ing., Lic., Auditor…')}${au('n','Nombre completo')}${au('c','Cargo')}${au('des','Despacho o empresa')}${au('dir','Dirección')}${au('tel','Teléfono')}${au('mail','Correo electrónico')}${au('web','Sitio web')}${au('cert','Certificaciones o registro')}</div><div class="tools o" style="margin-top:8px"><label class="mbtn" for="firma">🖊 Subir firma</label><input type="file" id="firma" accept="image/*" hidden>${a.firma?`<img src="${a.firma}" style="max-height:50px;background:#fff"><button class="mbtn" data-a2="firmadel">Quitar firma</button>`:''}</div></div>
+<div class="card"><h3>Apariencia</h3><label>Tamaño de letra: ${Math.round((S.fs||1)*100)}%<input type="range" min=".8" max="2" step=".1" value="${S.fs||1}" data-s="fs"></label><div class="two"><label>Tema<select data-s="theme">${[['auto','Automático'],['light','Claro'],['dark','Oscuro']].map(([k,l])=>`<option value="${k}" ${(S.theme||'auto')===k?'selected':''}>${l}</option>`).join('')}</select></label><label>Idioma de la pantalla<select data-s="ui"><option value="es">Español</option><option value="en" ${S.ui==='en'?'selected':''}>English</option></select></label></div><div style="margin-top:8px">${[['','Bosque'],['azul','Azul'],['vino','Vino'],['grafito','Grafito'],['ambar','Ámbar'],['alto','Alto contraste']].map(([k,l])=>`<button class="chip" data-a2="skin:${k}" ${(S.skin||'')===k?'style="background:var(--acc);color:var(--on-acc)"':''}>${l}</button>`).join('')}</div><label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" data-s="help" ${S.help?'checked':''}> Modo principiante (explica cada pantalla)</label></div>
+<div class="card"><h3>Voz</h3><div class="two"><label>Idioma de lectura<select data-s="rl">${LANGS2.map(([k,l])=>`<option value="${k}" ${(S.rl||'es-MX')===k?'selected':''}>${l}</option>`).join('')}</select></label><label>Voz<select data-s="voice"><option value="">Automática</option>${vs.map(v=>`<option ${S.voice===v.name?'selected':''}>${esc(v.name)}</option>`).join('')}</select></label></div><p class="sub">Las voces disponibles dependen de tu dispositivo.</p></div>
+<div class="card"><h3>Datos y respaldo</h3><p id="pst" class="sub"></p><div class="tools o"><button class="mbtn" data-a2="protect">🛡 Proteger mis datos</button><button class="mbtn" data-a2="zip">Respaldo completo (.zip)</button><button class="mbtn" data-a2="zips">Compartir respaldo</button><label class="mbtn" for="zipin">Restaurar respaldo</label><input type="file" id="zipin" accept=".zip" hidden><a class="mbtn" href="#/papelera">Papelera</a></div><p class="sub">Último respaldo: ${S.lastBak?new Date(S.lastBak).toLocaleString():'nunca'}</p></div></div>`};
+/* inicio: pendientes y respaldo */
+const _ini=views.inicio;
+views.inicio=()=>{
+  const hoy=new Date().toLocaleDateString('sv-SE'),p=S.inf.it.filter(x=>x.lim&&['m','M','C'].includes(x.st)).map(x=>({...x,d:Math.round((new Date(x.lim)-new Date(hoy))/864e5)})).filter(x=>x.d<=14).sort((a,b)=>a.d-b.d),bak=!S.lastBak||Date.now()-S.lastBak>6048e5;
+  return _ini()+`<div class="card"><h3>Pendientes</h3>${bak?'<p>⚠️ Hace más de 7 días sin respaldo. <button class="lnk" data-a2="zip">Respaldar ahora</button></p>':''}${p.length?p.map(x=>`<p>${x.d<0?'🔴 Vencida':'🟡 Por vencer'} · ${x.code} · ${esc(x.rec||x.txt).slice(0,90)} (${fdate(x.lim)})</p>`).join('')+'<button class="mbtn" data-a2="readvenc">🔊 Leer pendientes</button>':'<p>No hay acciones por vencer.</p>'}</div>`;
+};
+/* route con ayuda, listas asíncronas e idioma */
+removeEventListener('hashchange',route);
+const _route=route;
+route=function(){
+  _route();const id=location.hash.slice(2)||'inicio',m=$('#main');
+  if(HELP[id])m.insertAdjacentHTML('afterbegin',`<div class="help"><b>${S.ui==='en'?'How this works':'Cómo funciona'}:</b> ${HELP[id][S.ui==='en'?1:0]} <button class="mbtn" data-a2="readhelp">🔊</button></div>`);
+  if(id==='docs')listDocs();if(id==='papelera')listTrash();
+  if(id==='ajustes')navigator.storage?.persisted?.().then(p=>{const el=$('#pst');if(el)el.textContent=p?'🛡 Almacenamiento protegido por el navegador.':'⚠️ El navegador aún no protege tus datos. Toca «Proteger», instala la app en la pantalla de inicio y haz respaldos.'});
+  trDOM();
+};
+addEventListener('hashchange',()=>route());
+/* eventos */
+document.addEventListener('change',async e=>{
+  const i=e.target,f=i.files&&i.files[0];if(!f)return;
+  if(i.id==='firma'){const im=new Image();im.onload=()=>{const k=Math.min(1,400/im.width),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);S.aut.firma=c.toDataURL('image/png');save();route()};im.src=URL.createObjectURL(f)}
+  if(i.id==='zipin'){if(confirm('Se combinará el respaldo con los datos actuales y se reiniciará la pantalla. ¿Continuar?'))impZip(f).catch(()=>say$('No pude leer ese respaldo.'))}
+},true);
+document.addEventListener('input',e=>{
+  const t=e.target,d=t.dataset;
+  if(d.au!==undefined){S.aut[d.au]=t.value;save()}
+  else if(d.ct){const[i,k]=d.ct.split('|'),x=emp();if(x.ct&&x.ct[i]){x.ct[i][k]=t.value;save()}}
+  else if(d.cf){const[i,k]=d.cf.split('|'),x=emp();if(x.cf&&x.cf[i]){x.cf[i][k]=t.value;save()}}
+  else if(d.s){S[d.s]=d.s==='fs'?+t.value:t.type==='checkbox'?(t.checked?1:0):t.value;save();if(d.s==='ui')return location.reload();if(d.s==='rl')return route();applyUI()}
+  else if(t.id==='paper'&&S.inf.free){S.inf.free=t.innerHTML;save()}
+});
+document.addEventListener('click',async e=>{
+  const b=e.target.closest('[data-a2]');if(!b)return;const a=b.dataset.a2,id=b.dataset.id,I=S.inf,x=emp();
+  if(a.startsWith('cmd|')){const[,c,v]=a.split('|');document.execCommand(c,false,v||null);return}
+  if(a.startsWith('skin:')){S.skin=a.slice(5);save();applyUI();return route()}
+  const A={
+    'fs-':()=>{S.fs=Math.max(.8,(S.fs||1)-.1);save();applyUI()},'fs+':()=>{S.fs=Math.min(2,(S.fs||1)+.1);save();applyUI()},
+    theme:()=>{S.theme={auto:'dark',dark:'light',light:'auto'}[S.theme||'auto'];save();applyUI();say$('Tema: '+S.theme)},
+    help:()=>{S.help=S.help?0:1;save();applyUI()},readscr:()=>say($('#main').innerText),vcmd:listenCmd,
+    readhelp:()=>say(b.closest('.help').innerText),readvenc:()=>say(b.closest('.card').innerText),
+    ctadd:()=>{(x.ct=x.ct||[]).push({n:'',p:'',m:'',t:''});save();route()},ctdel:()=>{x.ct.splice(+id,1);save();route()},
+    cfadd:()=>{(x.cf=x.cf||[]).push({k:'',v:''});save();route()},cfdel:()=>{x.cf.splice(+id,1);save();route()},
+    empdel2:async()=>{if(!confirm('¿Mover esta empresa a la papelera?'))return;await fPut('trash:'+Date.now()+':emp',{kind:'emp',emp:x,at:Date.now()});S.emp=S.emp.filter(y=>y.id!==x.id);I.emp='';save();route()},
+    docopen:async()=>{const r=await fGet(id);S.inf=r.inf;S.inf.rid=id;save();location.hash='#/informe'},
+    docshare:async()=>outDoc(clean((await fGet(id)).html),'Informe-SIGIA',true),
+    docdel:async()=>{if(confirm('¿Mover a la papelera?')){await toTrash(id);route()}},
+    trrest:async()=>{const v=await fGet(id);if(v.kind==='emp')S.emp.push(v.emp),save();else{const{kind,key,at,...r}=v;await fPut(key,r);if(kind==='file')have.add(key)}await fDel(id);route()},
+    trdel:async()=>{if(confirm('Se eliminará para siempre. ¿Continuar?')){await fDel(id);route()}},
+    trempty:async()=>{if(!confirm('Se vaciará la papelera para siempre. ¿Continuar?'))return;for(const k of await fKeys())if(String(k).startsWith('trash:'))await fDel(k);route()},
+    docx:()=>outDoc(paperHTML(),repName(),false),share2:()=>outDoc(paperHTML(),repName(),true),
+    free:()=>{if(I.free){if(!confirm('Volver al modo automático borra tus ediciones libres. ¿Continuar?'))return;I.free=''}else I.free=paperHTML();save();route()},
+    newrep:()=>{if(!confirm('¿Empezar un informe nuevo? El actual queda guardado en Documentos.'))return;Object.assign(I,{it:[],notas:'',folio:'',para:'',cc:'',free:'',rid:''});SUG=[];save();route()},
+    zip:()=>expZip(false),zips:()=>expZip(true),
+    protect:async()=>{if(!navigator.storage?.persist)return say$('Este navegador no permite proteger el almacenamiento.');const ok=await navigator.storage.persist();say$(ok?'Almacenamiento protegido ✓':'El navegador no lo concedió. Instala la app (añadir a pantalla de inicio) y haz respaldos.');route()},
+    firmadel:()=>{S.aut.firma='';save();route()},
+    simgo:()=>{SIM={n:0,si:0,gaps:[]};simQ()},simr:()=>say(`Cláusula ${SIM.cur.c.code}, ${SIM.cur.c.title}. ¿Cuenta con ${SIM.cur.r}?`),
+    simy:()=>{SIM.si++;SIM.n++;SIM.n>=8?simEnd():simQ()},simn:()=>{SIM.gaps.push(SIM.cur);SIM.n++;SIM.n>=8?simEnd():simQ()},
+    simadd:()=>{SIM.gaps.forEach(g=>addIt(g.c.code));sortIt();save();location.hash='#/informe'}
+  };
+  if(A[a])A[a]();
+});
 fKeys().then(async k=>{const d=x=>String(x).startsWith('doc:');have=new Set(k.filter(x=>!d(x)));for(const x of k.filter(d))IMP.push(await fGet(x));route()}).catch(route);
 </script>
 </body>
