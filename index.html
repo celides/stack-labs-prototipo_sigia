@@ -2,722 +2,434 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="light dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%20role=%22img%22%20aria-label=%22SIGIA%22%3E%3Cpath%20d=%22M32%204%2055%2012v18C55%2045%2045%2055%2032%2060%2019%2055%209%2045%209%2030V12Z%22%20fill=%22%234fd1a1%22/%3E%3Cpath%20d=%22M32%2047C20%2040%2019%2027%2033%2017c12%209%2011%2023-1%2030Z%22%20fill=%22%230b3d2e%22/%3E%3Cpath%20d=%22M32%2044V25M32%2038l-6-5M32%2033l6-5%22%20stroke=%22%234fd1a1%22%20stroke-width=%222%22%20stroke-linecap=%22round%22%20fill=%22none%22/%3E%3C/svg%3E">
-<title>SIGIA · Sistema de gestión de inocuidad alimentaria</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stack Labs — Software que resuelve. Ingeniería que trasciende.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  color-scheme:light dark;
-  --bg:light-dark(#edf0ee,#0e1513);--panel:light-dark(#fff,#16201d);--ink:light-dark(#14211e,#e6efeb);
-  --mute:light-dark(#5b6b66,#93a39d);--line:light-dark(#d5dcd9,#25322e);
-  --acc:light-dark(#0b6b4d,#4fd1a1);--on-acc:light-dark(#fff,#06231a);--warn:light-dark(#b45309,#f2b24c);
-  --rail:#10302a;--r:10px;
-  --f1:'Familjen Grotesk',system-ui,sans-serif;--f2:'Instrument Sans',system-ui,sans-serif;
-}
-*{box-sizing:border-box;margin:0}
-body{font:400 15px/1.55 var(--f2);background:var(--bg);color:var(--ink);min-height:100dvh}
-h1,h2,h3,b{font-family:var(--f1)}
-button{font:inherit;cursor:pointer;color:inherit}
-:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
-.app{display:grid;grid-template-columns:360px 1fr;min-height:100dvh}
-.rail{background:var(--rail);color:#e6efeb;padding:20px 18px;position:sticky;top:0;height:100dvh;overflow-y:auto;display:flex;flex-direction:column;gap:18px}
-.brand{font:700 26px var(--f1);letter-spacing:-.02em}
-.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;flex:none}
-.brand small{display:block;font:400 12px var(--f2);opacity:.65;letter-spacing:0}
-.rail nav{display:flex;gap:6px;flex-wrap:wrap}
-.rail nav a{color:#cfe0da;text-decoration:none;padding:6px 11px;border-radius:99px;font-size:13px;border:1px solid #ffffff26}
-.rail nav a[aria-current=page]{background:#e6efeb;color:#10302a;border-color:transparent;font-weight:600}
-.asst{background:#0a211d;border:1px solid #ffffff1f;border-radius:14px;padding:14px;display:grid;gap:10px}
-.asst h2{font-size:15px}
-textarea{width:100%;min-height:74px;resize:vertical;border-radius:8px;border:1px solid #ffffff2e;background:#0e2b26;color:#fff;padding:10px;font:inherit}
-.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.mic{width:64px;height:64px;border-radius:50%;border:0;background:#4fd1a1;color:#06231a;font-weight:700;font-size:13px}
-.mic.on{background:#ef4444;color:#fff;animation:p 1.2s infinite}
-@keyframes p{50%{box-shadow:0 0 0 12px #ef444433}}
-@media(prefers-reduced-motion:reduce){.mic.on{animation:none}}
-.rail .btn{background:#ffffff14;border:1px solid #ffffff2e;color:#fff;padding:8px 12px;border-radius:8px;font-size:13px}
-.rail .btn.pri{background:#4fd1a1;color:#06231a;border-color:transparent;font-weight:600}
-.ans{font-size:13.5px;display:grid;gap:8px;max-height:34dvh;overflow-y:auto}
-.ans div{background:#ffffff0f;border-radius:8px;padding:9px 10px}
-.ans button{margin-top:6px}
-.ctl{display:grid;grid-template-columns:auto 1fr auto;gap:6px 8px;font-size:12px;align-items:center}
-.ctl input{accent-color:#4fd1a1;width:100%}
-.legal{font-size:11.5px;opacity:.7;margin-top:auto}
-#st{font-size:12px;min-height:16px;opacity:.85}
-main{padding:28px clamp(16px,3vw,40px);max-width:1000px;width:100%}
-main h1{font-size:30px;letter-spacing:-.02em;margin-bottom:4px}
-.sub{color:var(--mute);margin-bottom:22px}
-.big{font:700 clamp(56px,9vw,96px)/1 var(--f1);letter-spacing:-.04em;color:var(--acc)}
-.bar{height:8px;border-radius:9px;background:var(--line);overflow:hidden}
-.bar i{display:block;height:100%;background:var(--acc)}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-bottom:14px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.card h3{font-size:16px;margin-bottom:8px}
-.pend a,.card a{color:var(--acc)}
-.pend button,.lnk{background:none;border:0;color:var(--acc);text-decoration:underline;padding:0}
-.pend p{padding:6px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
-#f{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;margin-bottom:14px}
-details{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);margin-bottom:8px}
-summary{display:grid;grid-template-columns:76px 1fr auto;gap:10px;padding:12px 14px;cursor:pointer;list-style:none;align-items:center}
-summary::-webkit-details-marker{display:none}
-summary b{color:var(--acc)}
-summary em{font-style:normal;font-size:13px;color:var(--mute)}
-details[open] summary{border-bottom:1px solid var(--line)}
-.obs{margin:12px 14px 0;padding:8px 12px;border-left:3px solid var(--warn);background:color-mix(in srgb,var(--warn) 10%,transparent);font-size:13px}
-details ul{list-style:none;padding:8px 14px 12px}
-details li{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
-details li:last-child{border:0}
-li.ok>span:first-child::before{content:"✓ ";color:var(--acc);font-weight:700}
-li.none{color:var(--mute)}
-li button,.mbtn{border:1px solid var(--line);background:transparent;border-radius:7px;padding:5px 10px;font-size:12.5px;margin-left:6px}
-li button:hover{border-color:var(--acc)}
-dialog{width:min(900px,96vw);height:88dvh;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);padding:0;margin:auto}
-dialog::backdrop{background:#0008}
-dialog[open]{display:flex;flex-direction:column}
-.vh{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);gap:8px}
-#vb{flex:1;display:grid;place-items:center;overflow:auto;padding:8px}
-#vb iframe{width:100%;height:100%;border:0;background:#fff}
-#vb img{max-width:100%;max-height:100%}
-@media(max-width:860px){
-  .app{grid-template-columns:1fr}
-  .rail{position:static;height:auto}
-  .grid2{grid-template-columns:1fr}
-  summary{grid-template-columns:62px 1fr auto}
-  details li{flex-direction:column;align-items:flex-start}
-  li>span:last-child{margin-left:-6px}
-}
-.inp{padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;margin-bottom:12px;width:100%;max-width:420px}
-.tools{display:flex;gap:6px;flex-wrap:wrap;padding:10px 14px 0}
-.tools.o{padding:0 0 10px}
-.mbtn{cursor:pointer;color:var(--ink);text-decoration:none;display:inline-block}
-.mbtn.on{background:#ef4444;color:#fff;border-color:#ef4444}
-details.na{opacity:.55}
-.notes{padding:0 14px 14px;display:grid;gap:6px;justify-items:start}
-.notes textarea,.rep{width:100%;min-height:90px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:10px;font:inherit}
-.rep{min-height:55dvh}
-.drive{width:100%;height:34dvh;font:700 40px var(--f1);border:0;border-radius:20px;background:var(--acc);color:var(--on-acc);margin-bottom:12px}
-.big2{font-size:22px;line-height:1.5}
-.doc{width:100%;height:100%;overflow:auto;padding:16px;align-self:start;background:#fff;color:#111}
-.doc table{border-collapse:collapse}.doc td,.doc th{border:1px solid #ccc;padding:4px 8px}
-.imp{font-size:13px;margin-top:8px}
-.inf{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:16px;align-items:start}
-.ed{display:grid;gap:12px}.ed .card{margin:0}
-.ed label{font-size:13px;color:var(--mute);display:grid;gap:3px}
-.ed input,.ed select,.ed textarea{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
-.ed input[type=checkbox]{width:auto}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.seg{display:flex;gap:6px}.mbtn[aria-pressed=true]{background:var(--acc);color:var(--on-acc);border-color:var(--acc)}
-.chip{border:1px solid var(--acc);color:var(--acc);background:transparent;border-radius:99px;padding:4px 10px;font-size:12.5px;cursor:pointer;margin:0 4px 6px 0;text-align:left}
-.it{border:1px solid var(--line);border-radius:10px;padding:10px;display:grid;gap:8px;background:var(--panel)}
-.ith{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.ith select{width:auto}
-.paper-wrap{background:#0f3d33;border-radius:14px;padding:14px;position:sticky;top:12px;max-height:calc(100dvh - 24px);overflow:auto}
-.paper-wrap>.tools .mbtn{color:#fff;border-color:#ffffff55}
-.paper{background:#fff;color:#111;padding:28px;border-radius:4px;font:14px/1.55 'Instrument Sans',sans-serif}
-.paper h2{font:700 20px var(--f1);margin:0 0 4px}
-.paper h3{font:700 15px var(--f1);margin:18px 0 6px;border-bottom:2px solid #0b6b4d;padding-bottom:3px;color:#0b6b4d;display:flex}
-.paper table{border-collapse:collapse;width:100%;font-size:13px}.paper td,.paper th{border:1px solid #bbb;padding:5px 8px;text-align:left;vertical-align:top}
-.paper mark{background:#fde047;color:#111;padding:0 1px}
-.hal{margin:10px 0;padding:8px 0;border-bottom:1px solid #e5e5e5}.hal p{margin:4px 0}.hh{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.bd{color:#fff;font-size:11px;padding:2px 8px;border-radius:99px}
-.x{margin-left:auto;border:0;background:none;color:#b91c1c;cursor:pointer;font-size:12px}
-.phead{display:flex;gap:12px;align-items:center;border-bottom:3px solid #0b6b4d;padding-bottom:10px;margin-bottom:10px}
-@media(max-width:1000px){.inf{grid-template-columns:1fr}.paper-wrap{position:static;max-height:none}}
-@media print{.rail,.ed,main>h1,main>.sub,.paper-wrap>.tools,.noexp{display:none!important}.app{display:block}main{padding:0;max-width:none}.inf{display:block}.paper-wrap{background:none;padding:0;position:static;max-height:none;overflow:visible}.paper{padding:0}}
-.help{display:none;background:color-mix(in srgb,var(--acc) 12%,transparent);border-left:4px solid var(--acc);padding:10px 12px;border-radius:0 8px 8px 0;margin-bottom:14px}
-body.help-on .help{display:block}
-:root{--acc2:#4fd1a1}
-[data-skin=azul]{--acc:light-dark(#1d4e89,#7db4ff);--acc2:#7db4ff;--rail:#0f2a4a}
-[data-skin=vino]{--acc:light-dark(#8a1f3d,#ff8fa8);--acc2:#ff8fa8;--rail:#3a0f1c}
-[data-skin=grafito]{--acc:light-dark(#334155,#cbd5e1);--acc2:#cbd5e1;--rail:#111827}
-[data-skin=ambar]{--acc:light-dark(#b45309,#fbbf24);--acc2:#fbbf24;--rail:#3b2a0b}
-[data-skin=alto]{--bg:#000;--panel:#000;--ink:#fff;--mute:#e5e5e5;--line:#fff;--acc:#ffd400;--acc2:#ffd400;--on-acc:#000;--rail:#000}
-.mic:not(.on){background:var(--acc2)}.rail .btn.pri{background:var(--acc2)}
-.fmt{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px}.fmt button{min-width:34px;height:32px;border-radius:7px;border:1px solid #ffffff55;background:#ffffff18;color:#fff;cursor:pointer}
-.paper[contenteditable=true]{outline:3px solid var(--acc2)}
-.rows{display:grid;gap:6px}.four{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:6px}
-@media(max-width:700px){.four{grid-template-columns:1fr 1fr}}
-#ctl3{display:flex;gap:6px;flex-wrap:wrap}
+  /* ── VARIABLES DE LOS SKINS ── */
+  :root {
+    /* Tema Neo (Matrix) por defecto */
+    --bg: #050a05; --bg-2: #0a140a; --card: #0f1c0f; --border: #1a331a;
+    --text: #e8f4e8; --text-muted: #8ba88b; --accent: #00ff41; --accent-2: #008f11;
+    --radius: 12px; --font-base: 16px;
+  }
+  
+  /* Tema Contadores (Apple Minimalista) */
+  body.theme-contadores {
+    --bg: #f5f5f7; --bg-2: #ffffff; --card: #ffffff; --border: #d1d1d6;
+    --text: #1d1d1f; --text-muted: #86868b; --accent: #0071e3; --accent-2: #42a5f5;
+    --radius: 16px;
+  }
+
+  /* Tema Abogados (Elegancia) */
+  body.theme-abogados {
+    --bg: #0d1117; --bg-2: #161b22; --card: #161b22; --border: #30363d;
+    --text: #e6edf3; --text-muted: #8b949e; --accent: #d4af37; --accent-2: #b8860b;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif; background:var(--bg); color:var(--text);
+    line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+    transition: background 0.4s, color 0.4s, font-size 0.3s;
+    font-size: var(--font-base);
+  }
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif; letter-spacing:-0.02em; color:var(--text);}
+  a{color:var(--accent); text-decoration:none;}
+  
+  .grid-overlay{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image: linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    background-size:48px 48px; mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%);
+  }
+  body.theme-contadores .grid-overlay { display: none; /* Limpio para Apple */ }
+
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px; position:relative; z-index:1;}
+
+  /* ── TOPBAR ── */
+  .topbar{
+    position:sticky; top:0; z-index:100; background:rgba(10,14,26,.85);
+    backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:12px 0;
+  }
+  body.theme-contadores .topbar { background: rgba(255,255,255,0.85); border-bottom: 1px solid #e5e5ea; }
+  
+  .topbar-inner{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap: wrap;}
+  .brand-name{font-weight:700; font-size:18px; display:flex; align-items:center; gap:8px;}
+  .brand-name .labs{color: var(--accent);}
+  
+  .theme-selector { display: flex; gap: 6px; background: rgba(128,128,128,0.1); padding: 4px; border-radius: 20px; }
+  .theme-btn { background: transparent; border: none; color: var(--text-muted); cursor: pointer; padding: 6px 12px; border-radius: 16px; font-size: 12px; font-weight: 600; transition: all 0.2s; }
+  .theme-btn.active { background: var(--accent); color: #fff; }
+  
+  .accessibility-tools { display: flex; gap: 8px; }
+  .btn-access { background: var(--bg-2); border: 1px solid var(--border); color: var(--text); padding: 4px 10px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px;}
+
+  /* ── HERO ── */
+  .hero{padding:80px 0 60px; text-align:center;}
+  .hero h1 { font-size:clamp(32px,5vw,56px); font-weight:700; line-height:1.1; margin-bottom:24px; min-height: 140px;}
+  .hero h1 .highlight { color: var(--accent); }
+  .typewriter::after { content: '|'; animation: blink 1s step-end infinite; color: var(--accent); }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero p { font-size:1.1rem; color:var(--text-muted); max-width:700px; margin:0 auto 32px;}
+
+  /* ── FILTROS DE CATEGORÍA ── */
+  .category-filters { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+  .filter-btn { background: transparent; border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: 600; transition: 0.2s;}
+  .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); }
+
+  /* ── TARJETAS (CARDS) ── */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:24px;}
+  .card {
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px;
+    display:flex; flex-direction:column; transition: transform 0.3s, box-shadow 0.3s;
+  }
+  body.theme-contadores .card { box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: none; }
+  .card:hover { transform: translateY(-4px); }
+  
+  .card-head{display:flex; align-items:center; gap:16px; margin-bottom:16px;}
+  .card-icon {
+    width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    font-size:24px; background:rgba(128,128,128,0.1); color: var(--accent);
+  }
+  .card-title{font-size:20px; font-weight:600; margin-bottom:4px;}
+  
+  /* ── ACORDEÓN ── */
+  .btn-saber-mas {
+    background: transparent; border: 1px solid var(--border); color: var(--text);
+    padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 16px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .btn-saber-mas:hover { border-color: var(--accent); color: var(--accent); }
+  .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+  .accordion-inner { padding-top: 16px; font-size: 0.95rem; color: var(--text-muted); border-top: 1px dashed var(--border); margin-top: 16px;}
+  
+  /* ── SIMULADORES Y GRÁFICAS ── */
+  .sim-box { background: rgba(128,128,128,0.05); border: 1px solid var(--border); padding: 20px; border-radius: var(--radius); margin-top: 16px; }
+  .sim-box label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+  .sim-box input[type="range"] { width: 100%; margin-bottom: 16px; cursor: pointer; accent-color: var(--accent); }
+  
+  /* Gráfica de barras simple para el contador */
+  .chart-container { display: flex; align-items: flex-end; gap: 10px; height: 100px; margin-top: 16px; border-bottom: 2px solid var(--border); padding-bottom: 4px;}
+  .chart-bar { background: var(--accent); width: 40px; border-radius: 4px 4px 0 0; transition: height 0.4s ease; position: relative;}
+  .chart-bar::after { content: attr(data-label); position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: 700; color: var(--text);}
+
+  .resultado-texto { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-top: 16px; text-align: center;}
+
+  /* ── CONTROLES DE AUDIO PREMIUM ── */
+  .audio-player {
+    display: flex; align-items: center; gap: 8px; background: var(--bg-2); border: 1px solid var(--border);
+    padding: 8px; border-radius: 30px; margin-top: 16px; width: fit-content;
+  }
+  body.theme-contadores .audio-player { background: #f5f5f7; }
+  .btn-audio-ctrl {
+    background: var(--card); border: 1px solid var(--border); color: var(--text); width: 36px; height: 36px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;
+    transition: 0.2s; font-size: 14px;
+  }
+  .btn-audio-ctrl:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn-audio-ctrl.play { background: var(--accent); color: #fff; border: none; width: 42px; height: 42px;}
+  .speed-indicator { font-size: 11px; font-weight: 700; color: var(--text-muted); padding: 0 4px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:768px){
+    .topbar-inner { justify-content: center; text-align: center;}
+    .hero { padding: 40px 0; }
+  }
 </style>
 </head>
 <body>
-<div class="app">
-  <aside class="rail">
-    <div class="brand"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 55 12v18C55 45 45 55 32 60 19 55 9 45 9 30V12Z" fill="#4fd1a1"/><path d="M32 47C20 40 19 27 33 17c12 9 11 23-1 30Z" fill="#0b3d2e"/><path d="M32 44V25M32 38l-6-5M32 33l6-5" stroke="#4fd1a1" stroke-width="2" stroke-linecap="round" fill="none"/></svg><div>SIGIA<small>Inocuidad alimentaria · SQF edición 10</small></div></div>
-    <nav id="nav">
-      <a href="#/inicio">Inicio</a><a href="#/m2">Calidad (M2)</a><a href="#/m11">Producción (M11)</a><a href="#/biblioteca">Biblioteca</a><a href="#/informe">Informe</a><a href="#/reporte">Reporte</a><a href="#/manejo">Manejando</a>
-    </nav>
-    <section class="asst" aria-label="Asistente">
-      <h2>Pregunta a la norma</h2>
-      <textarea id="q" placeholder="Escribe, pega o dicta. Ej.: ¿qué pide la cláusula 11.2.4?"></textarea>
-      <div class="row">
-        <button class="mic" id="mic" aria-label="Dictar pregunta">Dictar</button>
-        <button class="btn pri" id="go">Preguntar</button>
-        <label class="btn" for="ocr">Escanear (OCR)</label>
-        <input type="file" id="ocr" accept="image/*" hidden>
-      </div>
-      <div id="st" role="status" aria-live="polite"></div>
-      <div class="ans" id="ans" aria-live="polite"></div>
-      <div class="row">
-        <button class="btn" id="play">▶ Escuchar</button>
-        <button class="btn" id="stop">■ Parar</button>
-        <label style="font-size:12px"><input type="checkbox" id="auto" checked> Leer solo</label>
-      </div>
-      <div class="ctl">
-        <span>Velocidad</span><input type="range" id="rate" min=".5" max="3" step=".25" value="1"><output id="ro">1x</output>
-        <span>Volumen</span><input type="range" id="vol" min="0" max="1" step=".1" value="1"><output id="vo">100%</output>
-      </div>
-    </section>
-    <p class="legal">Las respuestas del asistente son una guía basada en las normas y no sustituyen el juicio de un auditor certificado.</p>
-  </aside>
-  <main id="main"></main>
+
+<div class="grid-overlay"></div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand-name">Stack <span class="labs">Labs</span></div>
+    
+    <div class="theme-selector">
+      <button class="theme-btn active" onclick="setTheme('', this)">🟢 Neo</button>
+      <button class="theme-btn" onclick="setTheme('theme-contadores', this)">🔵 Contadores</button>
+      <button class="theme-btn" onclick="setTheme('theme-abogados', this)">🟡 Abogados</button>
+    </div>
+
+    <div class="accessibility-tools">
+      <button class="btn-access" onclick="changeFontSize(1)" title="Aumentar letra">A+</button>
+      <button class="btn-access" onclick="changeFontSize(-1)" title="Disminuir letra">A-</button>
+    </div>
+  </div>
 </div>
 
-<dialog id="v">
-  <div class="vh"><b id="vt"></b><span><a class="mbtn" id="vdl">Descargar copia</a><button class="mbtn" id="vdel">Eliminar</button><button class="mbtn" id="vx">Cerrar</button></span></div>
-  <div id="vb"></div>
-</dialog>
+<!-- HERO -->
+<header class="wrap hero">
+  <h1 id="typewriter" class="typewriter"></h1>
+  <p>Automatización, ciencia de datos e IA para contadores, abogados y despachos. Desarrollamos las herramientas del futuro con privacidad absoluta.</p>
+</header>
+
+<!-- FILTROS -->
+<div class="wrap">
+  <div class="category-filters">
+    <button class="filter-btn active">Ver Todo</button>
+    <button class="filter-btn">Contadores</button>
+    <button class="filter-btn">Abogados</button>
+    <button class="filter-btn">Geoespacial</button>
+    <button class="filter-btn">Ventas B2B</button>
+  </div>
+</div>
+
+<!-- CATÁLOGO -->
+<section class="wrap" style="padding-bottom: 80px;">
+  <div class="grid">
+
+    <!-- DCC TOOLBOX (Contadores) -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-icon">📊</div>
+        <div>
+          <h3 class="card-title">DCC Toolbox</h3>
+          <span style="font-size: 12px; color: var(--accent); font-weight: 700;">EN PRODUCCIÓN</span>
+        </div>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Automatiza capturas, cálculos y redacción de documentos. Cero nube, cero filtraciones.</p>
+      
+      <button class="btn-saber-mas" onclick="toggleAccordion('acc-dcc')">Saber más <span>↓</span></button>
+      
+      <div class="accordion-content" id="acc-dcc">
+        <div class="accordion-inner">
+          <p>Son las 8:00 PM. Llevas tres horas copiando datos. Un error de dedo y todo el documento se cae. <strong>DCC Toolbox</strong> lee capturas de pantalla con OCR, autorellena plantillas legales o contables y te entrega el documento listo. Todo corre en tu computadora; tus datos jamás salen a internet.</p>
+          
+          <!-- SIMULADOR CONTADOR -->
+          <div class="sim-box">
+            <label>Horas perdidas a la semana (captura manual):</label>
+            <input type="range" id="horas-cont" min="2" max="40" value="15" oninput="calcContador()">
+            
+            <div class="chart-container">
+              <div class="chart-bar" id="bar-horas" data-label="Horas" style="height: 50%;"></div>
+              <div class="chart-bar" id="bar-dinero" data-label="$ MXN" style="height: 80%; background: #ff4757;"></div>
+            </div>
+            <div class="resultado-texto" id="res-cont">Calculando...</div>
+          </div>
+
+          <!-- REPRODUCTOR DE AUDIO PREMIUM -->
+          <div class="audio-player">
+            <button class="btn-audio-ctrl" onclick="changeSpeed(0.8, this)" title="Más lento">🐢</button>
+            <button class="btn-audio-ctrl play" id="play-dcc" onclick="togglePlay('acc-dcc', 'play-dcc')">▶</button>
+            <button class="btn-audio-ctrl" onclick="pauseAudio(this)" title="Pausar">⏸</button>
+            <button class="btn-audio-ctrl" onclick="changeSpeed(1.2, this)" title="Más rápido">🐇</button>
+            <span class="speed-indicator" id="speed-dcc">1x</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ANALÍTICA FISCAL PREDICTIVA (Contadores) -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-icon">📈</div>
+        <div>
+          <h3 class="card-title">Analítica Fiscal Predictiva</h3>
+          <span style="font-size: 12px; color: var(--accent); font-weight: 700;">PROTOTIPO</span>
+        </div>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Ciencia de datos aplicada a la defensa de tu cartera. Detecta riesgos antes del SAT.</p>
+      
+      <button class="btn-saber-mas" onclick="toggleAccordion('acc-analitica')">Saber más <span>↓</span></button>
+      
+      <div class="accordion-content" id="acc-analitica">
+        <div class="accordion-inner">
+          <p>El SAT usa algoritmos predictivos. <strong>Analítica Fiscal Predictiva</strong> te da los mismos ojos. Analiza el histórico de tu cartera y te dice, con datos duros, qué cliente tiene alta probabilidad de recibir una carta invitación. Tú no reaccionas al susto; te anticipas con estrategia.</p>
+          
+          <div class="audio-player">
+            <button class="btn-audio-ctrl" onclick="changeSpeed(0.8, this)">🐢</button>
+            <button class="btn-audio-ctrl play" id="play-analitica" onclick="togglePlay('acc-analitica', 'play-analitica')">▶</button>
+            <button class="btn-audio-ctrl" onclick="pauseAudio(this)">⏸</button>
+            <button class="btn-audio-ctrl" onclick="changeSpeed(1.2, this)">🐇</button>
+            <span class="speed-indicator">1x</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- BUNKER LEGAL (Abogados) -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-icon">⚖️</div>
+        <div>
+          <h3 class="card-title">Bunker Legal</h3>
+          <span style="font-size: 12px; color: var(--accent); font-weight: 700;">PROTOTIPO</span>
+        </div>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">IA 100% local para revisión de contratos sin alucinaciones ni filtraciones.</p>
+      
+      <button class="btn-saber-mas" onclick="toggleAccordion('acc-bunker')">Saber más <span>↓</span></button>
+      
+      <div class="accordion-content" id="acc-bunker">
+        <div class="accordion-inner">
+          <p>El mayor temor de un abogado con la IA no es que falle, es que invente. <strong>Bunker Legal</strong> encierra la IA en una caja fuerte. Sin internet, sin nube. Solo tú, tus documentos y una IA que analiza contratos y encuentra precedentes reales, sin inventar una sola coma.</p>
+          
+          <!-- SIMULADOR ABOGADO -->
+          <div class="sim-box">
+            <label>Días de retraso por redactar escritos manualmente:</label>
+            <input type="range" id="dias-abo" min="1" max="15" value="3" oninput="calcAbogado()">
+            <div class="resultado-texto" id="res-abo">Calculando...</div>
+          </div>
+
+          <div class="audio-player">
+            <button class="btn-audio-ctrl" onclick="changeSpeed(0.8, this)">🐢</button>
+            <button class="btn-audio-ctrl play" id="play-bunker" onclick="togglePlay('acc-bunker', 'play-bunker')">▶</button>
+            <button class="btn-audio-ctrl" onclick="pauseAudio(this)">⏸</button>
+            <button class="btn-audio-ctrl" onclick="changeSpeed(1.2, this)">🐇</button>
+            <span class="speed-indicator">1x</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CRONOS (Abogados) -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-icon">⏳</div>
+        <div>
+          <h3 class="card-title">Cronos</h3>
+          <span style="font-size: 12px; color: var(--accent); font-weight: 700;">PROTOTIPO</span>
+        </div>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Gestión de plazos procesales y redacción de escritos automatizados.</p>
+      
+      <button class="btn-saber-mas" onclick="toggleAccordion('acc-cronos')">Saber más <span>↓</span></button>
+      
+      <div class="accordion-content" id="acc-cronos">
+        <div class="accordion-inner">
+          <p>El reloj corre. Cada minuto redactando un oficio es un minuto que no estás pensando en la estrategia. <strong>Cronos</strong> lee las notificaciones, calcula los plazos y redacta el borrador por ti. Tú solo revisas, ajustas el criterio jurídico y firmas.</p>
+          
+          <div class="audio-player">
+            <button class="btn-audio-ctrl" onclick="changeSpeed(0.8, this)">🐢</button>
+            <button class="btn-audio-ctrl play" id="play-cronos" onclick="togglePlay('acc-cronos', 'play-cronos')">▶</button>
+            <button class="btn-audio-ctrl" onclick="pauseAudio(this)">⏸</button>
+            <button class="btn-audio-ctrl" onclick="changeSpeed(1.2, this)">🐇</button>
+            <span class="speed-indicator">1x</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
 
 <script>
-/* ═══ DATOS: código | título | registros (;) | observaciones ═══ */
-const RAW={
-2:`2.1|Compromiso de la gerencia|Manual de calidad;Política de seguridad alimentaria;Especificaciones de los clientes;Descripción de puesto;Organigrama de la empresa;Plan de evaluación de la cultura de seguridad alimentaria;Programas de capacitación|Firmada por el gerente. Ampliamente difundida. Mejora continua de la cultura de seguridad alimentaria.
-2.1.2|Revisión por parte de la gerencia|Procedimiento de revisión;Programa de revisión;Reporte de avances;Tendencia de reclamos;Medición general del desempeño|Cambios al sistema. Resultados anuales de auditorías internas, de recalls, de reclamos, etc.
-2.1.3|Manejo de quejas|Procedimiento para manejo de quejas de los clientes;Análisis de causa raíz;Reporte de acciones preventivas y correctivas
-2.2|Control de documentos y registros|Procedimientos para control de documentos y registros
-2.2.1|Administración del sistema de seguridad alimentaria|Procedimiento de seguridad alimentaria;Manual de calidad
-2.3|Especificaciones, desarrollo de productos y proveedores aprobados|Especificación general del producto;Listado de proveedores aprobados
-2.3.1|Desarrollo de productos|Procedimiento para desarrollo de nuevos productos;Descripción de productos;Fórmulas de productos
-2.3.2|Especificaciones|Especificaciones de productos e ingredientes
-2.3.3|Control de maquiladores|Contrato de maquiladores;Auditorías a maquiladores;Reporte de auditorías a maquiladores
-2.3.4|Programa de aprobación de proveedores|Procedimiento para aprobación;Programa de evaluación;Auditorías a proveedores
-2.3.5|Administración del cambio|Procedimiento para gestión de cambios;Evaluación de riesgo por los cambios
-2.4|Sistema de seguridad alimentaria|
-2.4.1|Legislación alimentaria|Lista de normas aplicables al giro y tipo de empresa;Procedimiento para mantenerse informados sobre los cambios en la normatividad alimentaria
-2.4.2|Buenas prácticas industriales|
-2.4.2.1|Buenas prácticas de manufactura|Procedimiento BPM;Evaluación de riesgo
-2.4.3|Plan de seguridad alimentaria|Plan de seguridad alimentaria;Diagrama de flujo del proceso;Plan HACCP completo;Constancias de entrenamiento del equipo HACCP
-2.4.4|Muestreo, inspección y análisis|Procedimiento de muestreo;Procedimiento para análisis de productos;Procedimiento para liberación de productos;Acreditación EMA de laboratorios externos
-2.4.5|Productos y materiales no conformes|Procedimiento para manejo de productos y materiales no conformes
-2.4.6|Retrabajo de productos|Procedimiento para retrabajo y/o reproceso de productos;Procedimiento de trazabilidad de productos retrabajados
-2.4.7|Liberación de productos|Procedimiento para liberación de productos
-2.4.8|Monitoreo ambiental|Evaluación de riesgo ambiental;Procedimiento de monitoreo ambiental;Procedimientos de muestreo ambiental;Tendencias de resultados externos e internos
-2.5|Validación y verificación|
-2.5.1|Validación y efectividad|Procedimiento para validar el plan de seguridad alimentaria;Evaluación de buenas prácticas industriales
-2.5.2|Verificación|Plan de inspecciones de buenas prácticas industriales;Planes de verificación relevantes
-2.5.3|Correcciones y acciones preventivas y correctivas|Procedimiento para ejecutar correcciones, acciones preventivas y correctivas;Método de análisis de causa raíz;Tendencia de las desviaciones
-2.5.4|Auditorías internas|Procedimiento para auditorías internas;Plan anual de auditorías;Equipo auditor;Lista de verificación para auditoría interna;Evaluación de auditoría;Análisis de causa raíz de las desviaciones;Tendencias de los hallazgos;Comunicación de los resultados
-2.6|Trazabilidad de los productos y manejo de crisis|Evidencias de los ejercicios de trazabilidad;Formatos y registros de los ejercicios
-2.6.1|Identificación de los productos|Procedimiento para identificación de los productos;Procedimiento para cambios de formato
-2.6.2|Trazabilidad de productos|Procedimiento para trazabilidad de productos terminados, materiales e ingredientes;Procedimiento anual para ejercicio de trazabilidad de productos;Tendencias y resultados del ejercicio
-2.6.3|Retiro y retirada de productos|Procedimientos para retiro de productos;Ejercicio anual de retiro de producto;Resultados y tendencias
-2.6.4|Planeación y manejo de crisis|Evaluación de riesgos;Equipo para manejo de crisis;Procedimiento para manejo de crisis;Ejercicio anual para evaluar el plan;Resultados y tendencias
-2.7|Defensa alimentaria y fraude alimentario|
-2.7.1.1|Defensa alimentaria|Evaluación de riesgos;Plan de defensa alimentaria
-2.7.2.1|Fraude alimentario|Evaluación de vulnerabilidades;Plan de mitigación de amenazas;Procedimiento para evaluación del plan;Ejercicio anual de evaluación del plan;Resultados y tendencias
-2.8|Manejo de alérgenos|Procedimiento para manejo de alérgenos;Evaluación de riesgos de contaminación;Análisis de riesgos de contaminación por alérgenos;Plan de mitigación en caso de contaminación;Lista de alérgenos;Procedimiento de limpieza y sanitización
-2.9|Capacitación|Procedimiento para detectar necesidades de capacitación;Plan anual de capacitación;Evaluación del plan;Registros de la capacitación del personal`,
-11:`11.1|Ubicación de la planta e instalaciones|
-11.1.1|Evaluación de riesgos|Evaluación de riesgos
-11.1.2|Materiales de construcción|Planos de las instalaciones
-11.1.3|Iluminación y accesorios para iluminación|Estudio de iluminación de las instalaciones;Especificaciones técnicas de las lámparas
-11.1.4|Área de control de calidad e inspección|
-11.1.5|Ventilación|Especificación de filtros EPA;Planos de ubicación de los filtros
-11.1.6|Equipos y utensilios|Procedimiento de compra de equipos;Procedimiento para control y almacenamiento de equipos;Procedimiento para limpieza de utensilios
-11.1.7|Terrenos y vías|Procedimientos de inspección y limpieza;Procedimiento para mantenimiento de vías
-11.2|Operación de la planta|
-11.2.1|Reparaciones y mantenimiento|Procedimientos para mantenimiento preventivo;Procedimientos para mantenimiento correctivo;Estadística y tendencias de las fallas;Especificación técnica de lubricantes grado alimenticio;Estadística y tendencias del cumplimiento al programa de mantenimiento;Procedimientos de trabajo de buenas prácticas industriales
-11.2.2|Contratistas y personal de mantenimiento|Procedimiento para control de contratistas;Procedimientos de trabajo para contratistas;Procedimientos de trabajo de buenas prácticas industriales
-11.2.3|Calibración|Procedimientos para calibración de equipos;Procedimientos de verificación de equipos;Programa de calibración de equipos;Proveedor designado para calibración;Acreditación del proveedor designado para calibración;Registros de calibración de equipos
-11.2.4|Prevención de plagas|Procedimiento para control de plagas;Programa de inspección;Contrato de proveedor;Entrenamiento del proveedor;Lista de productos aprobados;Información técnica de los productos utilizados;Licenciamiento del proveedor;Reporte de trabajo o aplicaciones;Tendencias de usos y consumo de producto;Reporte de hallazgos del proveedor
-11.2.5|Limpieza y saneamiento|Procedimientos para limpieza de equipos y superficies;Programa maestro de limpieza;Programa de validación de la limpieza;Lista de productos químicos aprobados para limpieza;Diagrama de flujo de estación de CIP
-11.3|Bienestar e higiene personal|Procedimiento para control de enfermedades o heridas;Plan de buenas prácticas industriales
-11.3.2|Lavado de manos|Layout de estaciones para lavado de manos;Procedimientos para limpieza de manos;Lista de productos químicos utilizados para lavado de manos
-11.3.3|Vestimenta y efectos personales|Procedimiento para control de uniformes y efectos personales;Procedimiento para lavado de uniformes;Procedimiento para validación de limpieza de uniformes
-11.3.4|Visitantes|Procedimiento para control de acceso de visitantes
-11.3.5|Servicios para el personal (vestidores, baños, comedor)|Programa de limpieza de instalaciones al personal;Plano de las instalaciones para el personal
-11.4|Prácticas del personal de proceso|
-11.5|Suministro de agua, hielo y aire|Diagrama de flujo línea de suministro de agua potable;Planos del área de almacenamiento de agua potable;Programa de limpieza del área de almacenamiento de agua
-11.5.2|Tratamiento del agua|Procedimiento para tratamiento del agua potable;Diagrama de flujo de los equipos para tratamiento de agua;Programa de monitoreo y validación de la efectividad del tratamiento del agua
-11.5.3|Calidad del agua|Programa de análisis microbiológicos del agua;Resultados y tendencias de los análisis;Proveedor aprobado para los análisis microbiológicos;Acreditación del proveedor aprobado;Normatividad local para cumplir la calidad del agua
-11.5.4|Suministro de hielo|Procedimiento para compra de hielo;Procedimiento para manejo de hielo;Programa de mantenimiento para el área de almacenamiento de hielo
-11.5.5|Aire y otros gases|
-11.6|Recepción, almacenamiento y transporte|Procedimiento para almacenar productos;Análisis de riesgos
-11.6.2|Almacenamiento en frío, congelamiento y enfriamiento de alimentos|Planos de construcción;Layout de las cámaras;Diagrama de flujo de los equipos;Capacidad instalada de los equipos;Procedimiento de monitoreo de temperatura
-11.6.3|Almacenamiento de ingredientes secos y empaques que no necesitan refrigeración|Layout del almacén
-11.6.4|Almacenamiento de productos químicos peligrosos y tóxicos|Lista de productos químicos;Programa de entrenamiento para el personal involucrado;Procedimiento para manejo y almacenamiento;Procedimiento para manejo de derrames
-11.6.5|Prácticas para carga, transporte y descarga|Procedimientos para carga, descarga y transporte;Procedimiento para inspección de vehículos antes de la carga;Procedimiento para monitoreo de temperatura;Registros de temperatura
-11.7|Separación de funciones|Organigrama;Descripciones de puesto
-11.7.1|Procesos de alto riesgo|Diagrama de flujo;Layout del área;Plan anual de monitoreo del aire;Organigrama del personal involucrado;Procedimiento para manejo de uniformes;Procedimiento para control de acceso
-11.7.2|Descongelación de alimentos|Diagrama de flujo;Layout del área;Procedimiento para descongelamiento
-11.7.3|Control de la contaminación con materia extraña|Procedimiento para control de la materia extraña;Programa de inspección de los equipos involucrados;Programa de control de los utensilios metálicos involucrados;Procedimiento para manejo de vidrio quebrado
-11.7.4|Detección de materia extraña|Procedimiento para control de materia extraña;Plan de monitoreo de productos;Procedimientos para manejo de productos contaminados
-11.8|Eliminación de desechos|Procedimientos para manejo de desechos;Layout del área;Programa de limpieza`};
-const LIB=[
-['ISO 22000:2018 · Qué es','Norma internacional de sistemas de gestión de la inocuidad alimentaria para cualquier organización de la cadena alimentaria. Sigue la estructura de alto nivel (cláusulas 4 a 10) y combina el ciclo PHVA con los principios HACCP del Codex.','https://www.iso.org/standard/65464.html'],
-['ISO 22000:2018 · Cláusulas 4 a 7','Cláusula 4, contexto de la organización: partes interesadas y alcance del sistema. Cláusula 5, liderazgo: compromiso, política de inocuidad y roles. Cláusula 6, planificación: riesgos y oportunidades, objetivos y cambios. Cláusula 7, apoyo: recursos, competencia, comunicación e información documentada.'],
-['ISO 22000:2018 · Cláusula 8 Operación','8.2 programas de prerrequisitos. 8.3 sistema de trazabilidad. 8.4 preparación y respuesta ante emergencias. 8.5 control de peligros: análisis de peligros, validación de medidas de control y plan de control de peligros con PCC y PPRO. 8.6 a 8.9 actualización de información, control de monitoreo y medición, verificación y control de producto y proceso no conformes.'],
-['ISO 22000:2018 · Cláusulas 9 y 10','Cláusula 9, evaluación del desempeño: seguimiento y medición, auditoría interna y revisión por la dirección. Cláusula 10, mejora: no conformidad y acción correctiva, mejora continua y actualización del sistema.'],
-['ISO 22000:2018 · Dos ciclos y comunicación','Maneja dos ciclos PHVA: el del sistema de gestión y el de los principios HACCP en la operación. Exige comunicación interactiva a lo largo de la cadena alimentaria y con las partes interesadas.'],
-['ISO/TS 22002-1 · Qué es','Especificación técnica de programas de prerrequisitos para la fabricación de alimentos. Complementa a ISO 22000 y es la base de buenas prácticas de manufactura en FSSC 22000. Verifica en ISO qué edición está vigente.','https://www.iso.org'],
-['ISO/TS 22002-1 · Temas que cubre','Construcción y distribución de edificios, servicios de aire, agua y energía, desechos, idoneidad y mantenimiento de equipos, compras, prevención de contaminación cruzada, limpieza y sanitización, control de plagas, higiene del personal, retrabajo, retiro de producto, almacenamiento, información al consumidor y defensa alimentaria.'],
-['FSSC 22000 · Qué es','Esquema de certificación reconocido por GFSI. Se compone de ISO 22000, el programa de prerrequisitos sectorial (por ejemplo ISO/TS 22002-1 para manufactura de alimentos) y requisitos adicionales propios del esquema. Verifica la versión vigente en fssc.com.','https://www.fssc.com'],
-['FSSC 22000 · Requisitos adicionales','Incluyen gestión de servicios y compras, etiquetado y alérgenos, defensa alimentaria, prevención del fraude alimentario, monitoreo ambiental, formulación de producto, transporte y entrega, y control de peligros y prevención de contaminación cruzada. Revisa el documento oficial para el detalle exacto.'],
-['SQF · Qué es','Safe Quality Food, esquema reconocido por GFSI y administrado por SQFI. En manufactura de alimentos, el Módulo 2 cubre los elementos del sistema y el Módulo 11 las buenas prácticas de manufactura del proceso.','https://www.sqfi.com'],
-['SQF Módulo 2 · Sistema de calidad','Compromiso de la gerencia y revisión, control de documentos y registros, especificaciones y proveedores aprobados, plan de seguridad alimentaria con HACCP, validación y verificación, trazabilidad y retiro, defensa y fraude alimentario, alérgenos y capacitación.'],
-['SQF Módulo 11 · Control de producción','Ubicación e instalaciones, operación de la planta con mantenimiento, calibración, plagas y limpieza, higiene del personal, suministro de agua, hielo y aire, recepción y almacenamiento, separación de funciones, control de materia extraña y desechos.'],
-['BRCGS Food Safety · Qué es','Norma global reconocida por GFSI, Issue 9. Siete secciones: 1 compromiso de la alta dirección, 2 plan de inocuidad HACCP, 3 sistema de gestión de inocuidad y calidad, 4 estándares del sitio, 5 control de producto, 6 control de proceso y 7 personal. Califica de AA a D. Verifica la edición vigente.','https://www.brcgs.com'],
-['AIB International · Qué es','Organización con estándares y auditorías centradas en buenas prácticas y programas de prerrequisitos. Evalúa categorías como métodos operativos y prácticas del personal, mantenimiento, limpieza, manejo integrado de plagas y programas de inocuidad, con puntaje. Confirma en su sitio qué estándar aplica y su reconocimiento.','https://www.aibinternational.com'],
-['Equivalencias · Dirección y mejora','SQF 2.1 compromiso de la gerencia equivale aproximadamente a ISO 22000 cláusula 5 y BRCGS sección 1. SQF 2.1.2 revisión de la gerencia, a ISO 22000 9.3. SQF 2.5.4 auditorías internas, a ISO 22000 9.2 y BRCGS 3.4. Orientativo.'],
-['Equivalencias · Plan de inocuidad','SQF 2.4.3 plan de seguridad alimentaria con HACCP equivale aproximadamente a ISO 22000 8.5, BRCGS sección 2 y los principios del Codex. Orientativo.'],
-['Equivalencias · Prerrequisitos','SQF Módulo 11 equivale aproximadamente a ISO/TS 22002-1, a los programas de prerrequisitos de FSSC 22000, a BRCGS secciones 4 y 6 y a las categorías de AIB. Orientativo.'],
-['Equivalencias · Trazabilidad, alérgenos y capacitación','SQF 2.6 trazabilidad y retiro equivale aproximadamente a ISO 22000 8.3 y BRCGS 3.9. SQF 2.8 alérgenos, a la contaminación cruzada de ISO/TS 22002-1 y BRCGS 5.3. SQF 2.9 capacitación, a ISO 22000 7.2 y BRCGS 7.1. Orientativo.'],
-['Codex Alimentarius · HACCP','Los Principios Generales de Higiene de los Alimentos del Codex incluyen HACCP con siete principios: análisis de peligros, puntos críticos de control, límites críticos, monitoreo, acciones correctivas, verificación y documentación. Son de acceso gratuito.','https://www.fao.org/fao-who-codexalimentarius'],
-['México · NOM-251-SSA1-2009','Prácticas de higiene para el proceso de alimentos, bebidas o suplementos alimenticios. Es la norma sanitaria mexicana de referencia para plantas procesadoras. Consulta el texto oficial en el Diario Oficial de la Federación y en Cofepris.','https://www.gob.mx/cofepris'],
-['Estados Unidos · FSMA','Ley de Modernización de la Inocuidad de los Alimentos de la FDA. Su regla de controles preventivos exige un plan de inocuidad con análisis de peligros, preparado por un individuo calificado (PCQI). Aplica a plantas que exportan a Estados Unidos.','https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/food-safety-modernization-act-fsma'],
-['GFSI · Qué es','Iniciativa Global de Inocuidad Alimentaria. No certifica: reconoce esquemas como SQF, BRCGS y FSSC 22000 para que los clientes acepten una sola certificación.','https://www.mygfsi.com'],
-['Conceptos · PPR, PCC y PPRO','PPR: condiciones y actividades básicas de higiene. PCC: punto crítico de control con límite crítico, para peligros significativos. PPRO: programa de prerrequisito operativo, medida de control con criterios de acción en lugar de límite crítico.'],
-['Conceptos · Validación y verificación','Validación: demostrar que las medidas de control logran el resultado previsto antes de aplicarse. Verificación: confirmar que el sistema se cumple y funciona mediante auditorías, inspecciones, análisis y revisión de registros.']];
-let IMP=[];
-const MAM='https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js',XL='https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js',PDF='https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/';
-const parse=t=>t.split('\n').map(l=>{const[code,title,r='',obs='']=l.split('|');return{code,title,regs:r?r.split(';'):[],obs}});
-const DATA={2:parse(RAW[2]),11:parse(RAW[11])},ALL=[...DATA[2],...DATA[11]];
-const TITLES={m2:'Módulo 2 · Sistema de calidad',m11:'Módulo 11 · Control de producción'};
-
-/* ═══ ARCHIVOS: IndexedDB (quedan en este navegador) ═══ */
-const db=new Promise((ok,ko)=>{const r=indexedDB.open('sigia',1);r.onupgradeneeded=()=>r.result.createObjectStore('f');r.onsuccess=()=>ok(r.result);r.onerror=()=>ko(r.error)});
-const tx=async(m,fn)=>{const d=await db;return new Promise((ok,ko)=>{const q=fn(d.transaction('f',m).objectStore('f'));q.onsuccess=()=>ok(q.result);q.onerror=()=>ko(q.error)})};
-const fGet=k=>tx('readonly',s=>s.get(k)),fPut=(k,v)=>tx('readwrite',s=>s.put(v,k)),fDel=k=>tx('readwrite',s=>s.delete(k)),fKeys=()=>tx('readonly',s=>s.getAllKeys());
-
-/* ═══ UTILIDADES ═══ */
-const $=s=>document.querySelector(s);
-const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-let have=new Set(),openC=null,curId=null,curUrl=null;
-const cnt=c=>c.regs.filter((_,i)=>have.has(c.code+'#'+i)).length;
-const S=Object.assign({na:{},notes:{},rep:'',co:'',emp:[],aut:{n:'',c:''},inf:{tipo:'aud',emp:'',fecha:new Date().toLocaleDateString('sv-SE'),showF:1,folio:'',notas:'',it:[],sec:{dat:1,obj:1,res:1,hal:1,plan:1,con:1,fir:1}}},(()=>{try{return JSON.parse(localStorage.getItem('sigia')||'{}')}catch{return{}}})()),save=()=>{try{localStorage.setItem('sigia',JSON.stringify(S))}catch{}};
-const tot=m=>{const a=DATA[m].filter(c=>!S.na[c.code]),n=a.reduce((s,c)=>s+c.regs.length,0),k=a.reduce((s,c)=>s+cnt(c),0);return{n,k,p:n?Math.round(k/n*100):0}};
-const say$=t=>{$('#st').textContent=t;clearTimeout(say$.t);say$.t=setTimeout(()=>$('#st').textContent='',5000)};
-const modOf=c=>c.startsWith('11.')?11:2;
-
-/* ═══ VISTAS ═══ */
-const clause=c=>{const na=S.na[c.code];return`<details id="c-${c.code}" class="${na?'na':''}" ${openC===c.code?'open':''}><summary><b>${c.code}</b><span>${c.title}</span><em>${na?'No aplica':c.regs.length?cnt(c)+' de '+c.regs.length:'sin registros'}</em></summary>${c.obs?`<p class="obs">${c.obs}</p>`:''}<div class="tools"><button class="mbtn" data-act="read" data-code="${c.code}">🔊 Escuchar</button><button class="mbtn" data-act="na" data-code="${c.code}">${na?'Volver a aplicar':'Marcar no aplica'}</button></div><ul>${c.regs.map((r,i)=>{const id=c.code+'#'+i,ok=have.has(id);return`<li class="${ok?'ok':''}"><span>${r}</span><span><button data-up="${id}">${ok?'Reemplazar':'Subir'}</button>${ok?`<button data-view="${id}">Ver</button>`:''}</span></li>`}).join('')||'<li class="none">La norma no define registros para esta cláusula.</li>'}</ul><div class="notes"><textarea data-note="${c.code}" id="n-${c.code}" placeholder="Notas del consultor (solo en este dispositivo)">${esc(S.notes[c.code]||'')}</textarea><button class="mbtn" data-act="dict" data-t="n-${c.code}">🎙 Dictar nota</button></div></details>`};
-const mod=m=>()=>{const t=tot(m);return`<h1>${TITLES['m'+m]}</h1><p class="sub">${t.k} de ${t.n} registros cargados · ${t.p}%</p><input id="f" type="search" placeholder="Filtrar cláusulas o registros…" aria-label="Filtrar">${DATA[m].map(clause).join('')}`};
-const views={
-  inicio(){
-    const a=tot(2),b=tot(11),n=a.n+b.n,k=a.k+b.k,p=n?Math.round(k/n*100):0;
-    const pend=ALL.filter(c=>c.regs.length&&!S.na[c.code]&&cnt(c)<c.regs.length).slice(0,6);
-    const bar=(t,x)=>`<div class="card"><h3>${t}</h3><div class="bar"><i style="width:${x.p}%"></i></div><p class="sub" style="margin:8px 0 0">${x.k} de ${x.n} registros · ${x.p}%</p></div>`;
-    return`<h1>${S.co?esc(S.co):'Avance del sistema'}</h1><p class="sub">Cumplimiento documental frente al SQF edición 10</p><input id="co" class="inp" placeholder="Nombre de la empresa" value="${esc(S.co||'')}">
-    <div class="card"><div class="big">${p}%</div><p class="sub" style="margin:6px 0 0">${k} de ${n} registros cargados</p></div>
-    <div class="grid2">${bar(TITLES.m2,a)}${bar(TITLES.m11,b)}</div>
-    <div class="card pend"><h3>Siguientes cláusulas por completar</h3>${pend.map(c=>`<p><span><b>${c.code}</b> ${c.title}</span><button class="lnk" data-go="${c.code}">Abrir</button></p>`).join('')||'<p>Todo cargado.</p>'}</div>
-    <p class="sub">Módulo 3 (logística): segunda etapa.</p>`},
-  m2:mod(2),m11:mod(11),
-  biblioteca:()=>`<h1>Biblioteca de consulta</h1><p class="sub">Resúmenes orientativos con enlace a la fuente oficial. No son texto oficial. Lo que importes también responde desde el asistente.</p><div class="card"><h3>Importar al rack</h3><p class="sub" style="margin-bottom:8px">PDF, Word, Excel, HTML o TXT. El texto se procesa en este dispositivo.</p><label class="mbtn" for="imp">Elegir documento</label><input type="file" id="imp" accept=".pdf,.docx,.xlsx,.html,.htm,.txt,.md" hidden>${IMP.map(d=>`<p class="imp">${esc(d.name)} · ${d.chunks.length} fragmentos <button class="lnk" data-act="deldoc" data-id="${d.id}">Quitar</button></p>`).join('')}</div><input id="f" type="search" placeholder="Filtrar biblioteca…">${LIB.map(([t,x,u],i)=>`<details><summary><b style="grid-column:1/4">${t}</b></summary><div style="padding:12px 14px"><p>${x}</p><div class="tools o"><button class="mbtn" data-act="lib" data-i="${i}">🔊 Escuchar</button>${u?`<a class="mbtn" href="${u}" target="_blank" rel="noopener">Fuente oficial</a>`:''}</div></div></details>`).join('')}`,
-  informe:()=>informeView(),
-  reporte:()=>`<h1>Reporte</h1><p class="sub">Dicta, pega o escanea. Se guarda solo en este dispositivo.</p><div class="tools o"><button class="mbtn" data-act="dict" data-t="rep">🎙 Dictar</button><label class="mbtn" for="ocr2">📷 Escanear (OCR)</label><input type="file" id="ocr2" accept="image/*" hidden><button class="mbtn" data-act="readrep">🔊 Escuchar</button><button class="mbtn" data-act="copy">Copiar</button><button class="mbtn" data-act="word">Descargar Word</button><button class="mbtn" data-act="clear">Limpiar</button></div><textarea id="rep" class="rep" placeholder="Escribe o dicta tu reporte…">${esc(S.rep)}</textarea>`,
-  manejo:()=>{navigator.wakeLock?.request('screen').catch(()=>{});return`<h1>Modo manejando</h1><p class="sub">Toca, pregunta y escucha sin mirar la pantalla.</p><button class="drive" data-act="mic">Preguntar</button><div class="tools o"><button class="mbtn" data-act="again">Repetir</button><button class="mbtn" data-act="stop">Parar</button>${[1,1.5,2,2.5,3].map(r=>`<button class="mbtn" data-rate="${r}">${r}x</button>`).join('')}</div><p id="bigtxt" class="big2">${esc(last)||'…'}</p>`}
-};
-function route(){
-  const h=location.hash.slice(2)||'inicio',id=views[h]?h:'inicio';
-  document.querySelectorAll('#nav a').forEach(a=>a.getAttribute('href')==='#/'+id?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
-  $('#main').innerHTML=views[id]();
-  const f=$('#f');if(f)f.oninput=()=>{const v=norm(f.value);document.querySelectorAll('details').forEach(d=>d.hidden=!norm(d.textContent).includes(v))};
-  if(openC){const e=$('#c-'+openC.replace(/\./g,'\\.'));e?.scrollIntoView({block:'start'});openC=null}
-}
-const go=code=>{openC=code;const h='#/m'+modOf(code);location.hash===h?route():location.hash=h};
-addEventListener('hashchange',route);
-
-/* ═══ SUBIR / VER ═══ */
-const fi=Object.assign(document.createElement('input'),{type:'file',accept:'.pdf,.doc,.docx,.xls,.xlsx,image/*'});let tgt;
-fi.onchange=async()=>{const f=fi.files[0];if(!f||!tgt)return;await fPut(tgt,{name:f.name,type:f.type,blob:f});have.add(tgt);fi.value='';const code=tgt.split('#')[0];openC=code;route();say$('Archivo guardado en este navegador.')};
-const load=(u,ok)=>ok()?Promise.resolve():new Promise((a,b)=>{const t=document.createElement('script');t.src=u;t.onload=a;t.onerror=b;document.head.append(t)});
-async function view(id){
-  const r=await fGet(id);if(!r)return;curId=id;curUrl=URL.createObjectURL(r.blob);$('#vt').textContent=r.name;
-  const dl=$('#vdl');dl.href=curUrl;dl.download=r.name;const n=r.name.toLowerCase(),vb=$('#vb');vb.innerHTML='<p>Abriendo…</p>';$('#v').showModal();
-  try{
-    if(r.type==='application/pdf')vb.innerHTML=`<iframe src="${curUrl}" title="${esc(r.name)}"></iframe>`;
-    else if(r.type.startsWith('image/'))vb.innerHTML=`<img src="${curUrl}" alt="${esc(r.name)}">`;
-    else if(n.endsWith('.docx')){await load(MAM,()=>window.mammoth);vb.innerHTML='<div class="doc">'+(await mammoth.convertToHtml({arrayBuffer:await r.blob.arrayBuffer()})).value+'</div>'}
-    else if(/\.xlsx?$/.test(n)){await load(XL,()=>window.XLSX);const w=XLSX.read(await r.blob.arrayBuffer());vb.innerHTML='<div class="doc">'+w.SheetNames.map(s=>`<h3>${esc(s)}</h3>`+XLSX.utils.sheet_to_html(w.Sheets[s])).join('')+'</div>'}
-    else vb.innerHTML='<p>Este formato no se puede mostrar. Usa Descargar copia.</p>';
-  }catch{vb.innerHTML='<p>No pude abrirlo aquí. Usa Descargar copia.</p>'}
-}
-$('#v').onclose=()=>{curUrl&&URL.revokeObjectURL(curUrl);$('#vb').innerHTML=''};
-$('#vx').onclick=()=>$('#v').close();
-$('#vdel').onclick=async()=>{if(!curId||!confirm('¿Eliminar este archivo?'))return;await fDel(curId);have.delete(curId);$('#v').close();route()};
-document.addEventListener('click',e=>{
-  const b=e.target.closest('[data-up],[data-view],[data-go]');if(!b)return;
-  if(b.dataset.up){tgt=b.dataset.up;fi.click()}else if(b.dataset.view)view(b.dataset.view);else go(b.dataset.go);
-});
-
-/* ═══ ASISTENTE: búsqueda en la norma ═══ */
-const STOP=new Set('de la el los las y en que un una del al se por con para es lo como me cual cuales necesito requiere pide piden clausula registros documentos norma sqf hay'.split(' '));
-let last='';
-const chunks=()=>[...ALL.map(c=>({k:'c',c,t:'SQF '+c.code+' · '+c.title,x:(c.regs.length?'Registros requeridos: '+c.regs.join('; ')+'.':'Sin registros definidos.')+(c.obs?' Observaciones: '+c.obs:'')+(c.regs.length?' Cargados '+cnt(c)+' de '+c.regs.length+'.':'')})),...LIB.map(([t,x,u])=>({k:'l',t,x,u})),...IMP.flatMap(d=>d.chunks.map(x=>({k:'d',t:'Tu documento · '+d.name,x})))];
-function ask(q){
-  q=q.trim();if(!q)return;const n=norm(q),all=chunks();let hits=[];
-  const code=n.match(/\b\d{1,2}(?:\.\d{1,2}){0,3}\b/);
-  if(code)hits=all.filter(h=>h.k==='c'?h.c.code===code[0]||h.c.code.startsWith(code[0]+'.'):h.k==='l'&&h.x.includes(code[0])).slice(0,8);
-  if(!hits.length){
-    const t=[...new Set(n.split(/\W+/).filter(w=>w.length>2&&!STOP.has(w)).map(w=>w.slice(0,5)))].slice(0,60),min=Math.min(3,t.length*3);
-    hits=all.map(h=>{const a=norm(h.t),b=norm(h.x);return{h,s:t.reduce((x,w)=>x+(a.includes(w)?3:0)+(b.includes(w)?1:0),0)}}).filter(x=>x.s>=min&&x.s>0).sort((x,y)=>y.s-x.s).slice(0,6).map(x=>x.h);
+  // ── 1. EFECTO MÁQUINA DE ESCRIBIR ──
+  const textToType = "El futuro no se espera. Se construye.";
+  const typewriterElement = document.getElementById("typewriter");
+  let i = 0;
+  function typeWriter() {
+    if (i < textToType.length) {
+      typewriterElement.innerHTML += textToType.charAt(i);
+      i++;
+      setTimeout(typeWriter, 60);
+    }
   }
-  last=hits.length?hits.map(h=>h.t+'. '+h.x).join(' '):'No encontré eso en la norma ni en la biblioteca. Prueba con un número de cláusula, por ejemplo 11.2.4, o con palabras como plagas, alérgenos o calibración.';
-  $('#ans').innerHTML=hits.length?hits.map(h=>`<div><b>${h.t}</b><br>${h.x}<br>${h.k==='c'?`<button class="btn" data-go="${h.c.code}">Abrir cláusula</button>`:h.u?`<a class="btn" style="display:inline-block;margin-top:6px;color:#fff" href="${h.u}" target="_blank" rel="noopener">Fuente oficial</a>`:''}</div>`).join(''):`<div>${last}</div>`;
-  const b=$('#bigtxt');if(b)b.textContent=last;
-  if($('#auto').checked)say(last);
-}
-$('#go').onclick=()=>ask($('#q').value);
-$('#q').onkeydown=e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey))ask(e.target.value)};
+  setTimeout(typeWriter, 500);
 
-/* ═══ VOZ: dictado y lectura ═══ */
-const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec;
-$('#mic').onclick=()=>{
-  if(!SR)return say$('Este navegador no tiene dictado. Usa Chrome, Edge o Safari.');
-  if(rec)return rec.stop();
-  rec=new SR();rec.lang='es-MX';rec.interimResults=true;
-  rec.onresult=e=>{$('#q').value=[...e.results].map(r=>r[0].transcript).join(' ')};
-  rec.onend=()=>{rec=null;$('#mic').classList.remove('on');ask($('#q').value)};
-  rec.onerror=e=>say$('No pude escuchar: '+e.error);
-  $('#mic').classList.add('on');rec.start();
-};
-function say(t){
-  if(!('speechSynthesis' in window)||!t)return;speechSynthesis.cancel();
-  const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('es')),g=[];let b='';
-  for(const p of t.match(/[^.;:!?]+[.;:!?]?\s*/g)||[t]){if((b+p).length>180&&b){g.push(b);b=''}b+=p}if(b)g.push(b);
-  g.forEach(s=>{const u=new SpeechSynthesisUtterance(s);u.lang='es-MX';u.rate=+$('#rate').value;u.volume=+$('#vol').value;if(v)u.voice=v;speechSynthesis.speak(u)});
-}
-$('#play').onclick=()=>say(last);
-$('#stop').onclick=()=>speechSynthesis.cancel();
-$('#rate').oninput=e=>{$('#ro').textContent=e.target.value+'x';if(speechSynthesis.speaking)say(last)};
-$('#vol').oninput=e=>{$('#vo').textContent=Math.round(e.target.value*100)+'%';if(speechSynthesis.speaking)say(last)};
-
-/* ═══ INFORMES ═══ */
-const ST={p:['Por evaluar','#94a3b8'],c:['Cumple','#059669'],m:['Menor','#d97706'],M:['Mayor','#dc2626'],C:['Crítica','#7f1d1d'],n:['No aplica','#64748b']};
-const SEC={dat:'Datos generales',obj:'Objetivo y alcance',res:'Resumen ejecutivo',hal:'Hallazgos y recomendaciones',plan:'Plan de acciones',con:'Conclusión',fir:'Firma'};
-let SUG=[],lastTA=null;
-document.addEventListener('focusin',e=>{if(e.target.tagName==='TEXTAREA')lastTA=e.target});
-const fmt=s=>esc(s||'').replace(/==(.+?)==/gs,'<mark>$1</mark>').replace(/\n/g,'<br>');
-const fdate=(d,en)=>d?new Date(d+'T12:00').toLocaleDateString(en?'en-US':'es-MX',{dateStyle:'long'}):'';
-const cl=code=>ALL.find(c=>c.code===code),emp=()=>S.emp.find(x=>x.id===S.inf.emp)||{};
-const mkItem=code=>{const c=cl(code),miss=c.regs.filter((_,i)=>!have.has(code+'#'+i));return{code,st:c.regs.length&&!miss.length?'c':'p',txt:c.regs.length?'Se revisó la evidencia requerida: '+c.regs.join('; ')+'.':'',rec:miss.length?'Elaborar o cargar: '+miss.join('; ')+'.':'',resp:'',lim:''}};
-const addIt=code=>{if(cl(code)&&!S.inf.it.some(i=>i.code===code))S.inf.it.push(mkItem(code))};
-const chips=l=>l.map(c=>`<button class="chip" data-act="add" data-code="${c.code}">+ ${c.code} ${c.title}</button>`).join('');
-function sugg(t){
-  const n=norm(t),cs=[...n.matchAll(/\b\d{1,2}(?:\.\d{1,2}){1,3}\b/g)].map(m=>m[0]),r=ALL.filter(c=>cs.includes(c.code));
-  const w=[...new Set(n.split(/\W+/).filter(w=>w.length>3&&!STOP.has(w)).map(w=>w.slice(0,5)))];
-  const sc=ALL.filter(c=>c.regs.length&&!r.includes(c)).map(c=>{const a=norm(c.title),b=norm(c.regs.join(' '));return{c,s:w.reduce((x,k)=>x+(a.includes(k)?3:0)+(b.includes(k)?1:0),0)}}).filter(x=>x.s>=4).sort((x,y)=>y.s-x.s).slice(0,8).map(x=>x.c);
-  return[...r,...sc].slice(0,10);
-}
-function rel(){
-  const h=new Set(S.inf.it.map(i=>i.code)),o=[];
-  S.inf.it.forEach(i=>{const p=i.code.split('.').slice(0,-1).join('.');ALL.forEach(c=>{if(!h.has(c.code)&&c.regs.length&&!o.includes(c)&&(c.code.startsWith(i.code+'.')||(p.includes('.')&&c.code.startsWith(p+'.'))))o.push(c)})});
-  return o.slice(0,8);
-}
-const LOGO=()=>$('.logo').outerHTML.replace('class="logo"','width="44" height="44" class="noword"');
-function doc(){
-  const I=S.inf;if(I.free)return I.free;
-  const e=emp(),a=S.aut,au=I.tipo==='aud',en=I.lang==='en',L=(x,y)=>en?y:x,on=k=>I.sec[k],it=I.it,n={};
-  it.forEach(x=>n[x.st]=(n[x.st]||0)+1);
-  const stl=k=>en?{p:'Pending',c:'Compliant',m:'Minor',M:'Major',C:'Critical',n:'N/A'}[k]:ST[k][0];
-  const nc=(n.m||0)+(n.M||0)+(n.C||0),f=I.showF?fdate(I.fecha,en):'';
-  const sec=(k,t,body)=>on(k)?`<h3>${t}<button class="noexp x" data-act="sec" data-k="${k}">${L('Quitar sección','Remove section')}</button></h3>${body}`:'';
-  const row=(k,v)=>v?`<tr><td style="width:32%"><b>${k}</b></td><td>${esc(v)}</td></tr>`:'';
-  const ct=(e.ct||[])[I.para===''||I.para==null?-1:+I.para],plan=it.filter(x=>['m','M','C'].includes(x.st));
-  const by=[[a.tit,a.n].filter(Boolean).join(' '),a.c,a.des].filter(Boolean).join(', ');
-  const contact=[a.dir,a.tel&&'Tel. '+a.tel,a.mail,a.web,a.cert].filter(Boolean).join(' · ');
-  const concl=au?(n.C?L('Se identificaron no conformidades críticas que comprometen la certificación y requieren atención inmediata.','Critical nonconformities were identified that jeopardize certification and require immediate attention.'):n.M?L('Se identificaron no conformidades mayores que deben corregirse y verificarse dentro del plazo que establece el código SQF vigente.','Major nonconformities were identified and must be corrected and verified within the deadline set by the current SQF code.'):n.m?L('Se identificaron no conformidades menores que deben corregirse dentro del plazo que establece el código SQF vigente.','Minor nonconformities were identified and must be corrected within the deadline set by the current SQF code.'):L('No se identificaron no conformidades en las cláusulas evaluadas.','No nonconformities were identified in the assessed clauses.')):(nc?L('Se identificaron brechas frente al código SQF edición 10. Se recomienda ejecutar el plan de acciones y programar una revisión de seguimiento.','Gaps against SQF code edition 10 were identified. It is recommended to carry out the action plan and schedule a follow-up review.'):L('No se identificaron brechas en las cláusulas evaluadas. Se recomienda mantener la evidencia actualizada.','No gaps were identified in the assessed clauses. Keep the evidence up to date.'));
-  return `<div class="phead">${LOGO()}<div><h2>${au?L('Informe de auditoría','Audit report'):L('Informe de consultoría','Consulting report')} · SQF ${L('edición','edition')} 10</h2><div>${esc(e.com||e.nom||L('Empresa sin seleccionar','No company selected'))}${I.folio?' · Folio '+esc(I.folio):''}${f?' · '+f:''}</div></div></div>`
-  +(ct||I.cc?`<p>${ct?`<b>${L('Atención','Attention')}:</b> ${esc(ct.n)}${ct.p?', '+esc(ct.p):''}${e.nom?' · '+esc(e.nom):''}`:''}${I.cc?`<br><b>${L('Con copia a','CC')}:</b> ${esc(I.cc)}`:''}</p>`:'')
-  +sec('dat',L('Datos generales','General data'),`<table>${row(L('Razón social','Legal name'),e.nom)}${row(L('Nombre comercial','Trade name'),e.com)}${row('RFC',e.rfc)}${row(L('Domicilio fiscal','Tax address'),e.domF)}${row(L('Domicilio de la planta','Plant address'),e.dir)}${row(L('Teléfono','Phone'),e.tel)}${row(L('Correo','Email'),e.mail)}${row(L('Sitio web','Website'),e.web)}${row(L('Giro','Industry'),e.giro)}${row(L('Productos','Products'),e.prod)}${row(L('Empleados','Employees'),e.num)}${row(L('Turnos','Shifts'),e.tur)}${row(L('Certificaciones','Certifications'),e.cer)}${(e.cf||[]).map(c=>row(c.k,c.v)).join('')}${row(L('Esquema','Scheme'),'SQF '+L('edición','edition')+' 10 · '+L('Módulos 2 y 11','Modules 2 and 11'))}${row(L('Elaborado por','Prepared by'),by)}${row(L('Contacto','Contact'),contact)}</table>`)
-  +sec('obj',L('Objetivo y alcance','Objective and scope'),`<p>${au?L('Evaluar el grado de cumplimiento del sistema de gestión de inocuidad frente al código SQF edición 10, Módulos 2 y 11, e identificar no conformidades menores, mayores y críticas que requieran acción correctiva.','Assess the compliance of the food safety management system against SQF code edition 10, Modules 2 and 11, and identify minor, major and critical nonconformities requiring corrective action.'):L('Diagnosticar el estado del sistema de gestión de inocuidad frente al código SQF edición 10, Módulos 2 y 11, identificar brechas y recomendar las acciones necesarias para su implementación y mantenimiento.','Diagnose the status of the food safety management system against SQF code edition 10, Modules 2 and 11, identify gaps and recommend the actions needed for implementation and maintenance.')}</p><p>${L('Metodología: revisión documental de los registros requeridos por cada cláusula, entrevistas con el personal y verificación en planta.','Methodology: documentary review of the records required by each clause, staff interviews and on-site verification.')}</p>`)
-  +sec('res',L('Resumen ejecutivo','Executive summary'),it.length?`<p>${L('Se evaluaron '+it.length+' cláusulas: ',it.length+' clauses were assessed: ')}${Object.entries(n).map(([k,v])=>v+' '+stl(k).toLowerCase()).join(', ')}.</p>`:`<p>${L('Aún no hay cláusulas agregadas.','No clauses added yet.')}</p>`)
-  +sec('hal',L('Hallazgos y recomendaciones','Findings and recommendations'),it.map(x=>{const c=cl(x.code);return`<div class="hal"><div class="hh"><b>${x.code} · ${c.title}</b><span class="bd" style="background:${ST[x.st][1]}">${stl(x.st)}</span><button class="noexp x" data-act="del" data-code="${x.code}">${L('Quitar','Remove')}</button></div>${c.regs.length?`<p><i>${L('Registros requeridos','Required records')}:</i> ${esc(c.regs.join('; '))}.</p>`:''}${x.txt?`<p>${fmt(x.txt)}</p>`:''}${x.rec?`<p><b>${L('Recomendación','Recommendation')}:</b> ${fmt(x.rec)}</p>`:''}</div>`}).join('')||`<p>${L('Agrega cláusulas desde las notas.','Add clauses from the notes.')}</p>`)
-  +(plan.length?sec('plan',L('Plan de acciones','Action plan'),`<table><tr><th>${L('Cláusula','Clause')}</th><th>${L('Acción','Action')}</th><th>${L('Responsable','Owner')}</th><th>${L('Fecha límite','Due date')}</th></tr>${plan.map(x=>`<tr><td>${x.code}</td><td>${fmt(x.rec||x.txt)}</td><td>${esc(x.resp)}</td><td>${fdate(x.lim,en)}</td></tr>`).join('')}</table>`):'')
-  +sec('con',L('Conclusión','Conclusion'),`<p>${concl}</p>`)
-  +sec('fir',L('Firma','Signature'),`<p style="margin-top:30px">${a.firma?`<img src="${a.firma}" style="max-height:60px"><br>`:''}______________________________<br><b>${esc([a.tit,a.n].filter(Boolean).join(' ')||L('Nombre','Name'))}</b><br>${esc(a.c)}${contact?'<br><small>'+esc(contact)+'</small>':''}</p><p style="font-size:11px;color:#666">${L('Guía técnica basada en el código aplicable; no sustituye el juicio de un auditor certificado.','Technical guidance based on the applicable code; it does not replace the judgment of a certified auditor.')}</p>`);
-}
-const itHTML=i=>{const c=cl(i.code),bad=['m','M','C'].includes(i.st);return`<div class="it"><div class="ith"><b>${i.code} · ${c.title}</b><span><select data-it="${i.code}" data-k="st">${Object.entries(ST).map(([k,v])=>`<option value="${k}" ${i.st===k?'selected':''}>${v[0]}</option>`).join('')}</select> <button class="mbtn" data-act="del" data-code="${i.code}">Quitar</button></span></div><textarea id="t-${i.code}" data-it="${i.code}" data-k="txt" placeholder="Hallazgo">${esc(i.txt)}</textarea><textarea data-it="${i.code}" data-k="rec" placeholder="Recomendación">${esc(i.rec)}</textarea><div class="tools o"><button class="mbtn" data-act="dict" data-t="t-${i.code}">🎙 Dictar hallazgo</button><button class="mbtn" data-act="hl">🖍 Resaltar</button></div>${bad?`<div class="two"><input data-it="${i.code}" data-k="resp" placeholder="Responsable" value="${esc(i.resp||'')}"><input type="date" data-it="${i.code}" data-k="lim" value="${i.lim||''}"></div>`:''}</div>`};
-function informeView(){
-  const I=S.inf,a=S.aut,e=emp(),au=I.tipo==='aud',rl=rel(),sg=SUG.filter(c=>!I.it.some(i=>i.code===c.code));
-  return`<h1>Informe</h1><p class="sub">Lo fijo se llena solo. Tú agregas o quitas cláusulas y secciones.</p><div class="inf"><div class="ed">
-  <div class="card"><div class="seg"><button class="mbtn" aria-pressed="${au}" data-act="tipo" data-v="aud">Auditoría</button><button class="mbtn" aria-pressed="${!au}" data-act="tipo" data-v="con">Consultoría</button></div></div>
-  <div class="card"><div class="two"><label>Idioma del documento<select data-f="inf.lang"><option value="es">Español</option><option value="en" ${I.lang==='en'?'selected':''}>English</option></select></label><label>Elabora<input value="${esc([S.aut.tit,S.aut.n].filter(Boolean).join(' '))}" placeholder="Llénalo en Ajustes" readonly></label></div></div>
-  <div class="card"><h3>Empresa</h3><label><select data-f="inf.emp"><option value="">— elegir —</option>${S.emp.map(x=>`<option value="${x.id}" ${x.id===I.emp?'selected':''}>${esc(x.nom||'Sin nombre')}</option>`).join('')}</select></label>${e.id?`<div class="two" style="margin-top:8px"><label>Dirigido a<select data-f="inf.para"><option value="">—</option>${(e.ct||[]).map((c,i)=>`<option value="${i}" ${String(I.para)===String(i)?'selected':''}>${esc(c.n||'Sin nombre')}${c.p?' · '+esc(c.p):''}</option>`).join('')}</select></label><label>Con copia a<input data-f="inf.cc" value="${esc(I.cc)}"></label></div>`:''}<div class="tools o" style="margin-top:8px"><a class="mbtn" href="#/empresas">Editar empresas y contactos</a></div></div>
-  <div class="card"><div class="two"><label>Fecha<input type="date" data-f="inf.fecha" value="${I.fecha}"></label><label>Folio<input data-f="inf.folio" value="${esc(I.folio)}" placeholder="Opcional"></label></div><label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" data-f="inf.showF" ${I.showF?'checked':''}> Mostrar fecha en el documento</label></div>
-  <div class="card"><h3>Notas de la visita</h3><textarea id="notas" data-f="inf.notas" style="min-height:110px" placeholder="Pega, dicta o escanea tus notas…">${esc(I.notas)}</textarea><div class="tools o" style="margin-top:8px"><button class="mbtn" data-act="dict" data-t="notas">🎙 Dictar</button><label class="mbtn" for="ocr3">📷 Escanear</label><input type="file" id="ocr3" accept="image/*" hidden><button class="mbtn" data-act="hl">🖍 Resaltar</button><button class="mbtn" data-act="sug">Sugerir cláusulas</button><button class="mbtn" data-act="addpend">Agregar pendientes</button></div>${sg.length?`<div style="margin-top:8px">${chips(sg)}</div>`:''}</div>
-  ${I.it.map(itHTML).join('')}
-  ${rl.length?`<div class="card"><h3>Podrían entrar también</h3>${chips(rl)}</div>`:''}
-  <div class="card"><h3>Secciones del documento</h3>${Object.entries(SEC).map(([k,v])=>`<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" data-sec="${k}" ${I.sec[k]?'checked':''}> ${v}</label>`).join('')}</div></div>
-  <div class="paper-wrap"><div class="tools o"><button class="mbtn" data-a2="docx">Descargar Word</button><button class="mbtn" data-a2="share2">Compartir</button><button class="mbtn" data-act="pdf">PDF</button><button class="mbtn" data-a2="free" aria-pressed="${!!I.free}">✏️ Editar libre</button><button class="mbtn" data-a2="newrep">Informe nuevo</button></div>${I.free?TB:''}<div id="paper" class="paper" ${I.free?'contenteditable="true"':''}>${doc()}</div></div></div>`;
-}
-document.addEventListener('input',e=>{
-  const t=e.target,d=t.dataset,I=S.inf,v=t.type==='checkbox'?(t.checked?1:0):t.value;
-  if(d.f){const[o,k]=d.f.split('.');S[o][k]=v;if(d.f==='inf.emp'){save();return route()}}
-  else if(d.e){const x=emp();if(x.id)x[d.e]=v}
-  else if(d.sec)I.sec[d.sec]=v;
-  else if(d.it){const x=I.it.find(i=>i.code===d.it);if(x){x[d.k]=v;if(d.k==='st'){save();return route()}}}
-  else return;
-  save();const p=$('#paper');if(p)p.innerHTML=doc();
-});
-document.addEventListener('click',e=>{
-  const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act,I=S.inf,c=b.dataset.code;
-  const sort=()=>I.it.sort((x,y)=>ALL.findIndex(k=>k.code===x.code)-ALL.findIndex(k=>k.code===y.code)),redo=()=>{save();route()};
-  if(a==='tipo'){I.tipo=b.dataset.v;redo()}
-  else if(a==='empnew'){const id='e'+Date.now();S.emp.push({id,nom:'',ger:'',dir:'',prod:''});I.emp=id;redo()}
-  else if(a==='empdel'){if(confirm('¿Eliminar esta empresa?')){S.emp=S.emp.filter(x=>x.id!==I.emp);I.emp='';redo()}}
-  else if(a==='sug'){SUG=sugg(I.notas);if(!SUG.length)say$('No encontré cláusulas con esas notas. Agrega más detalle o el número de cláusula.');redo()}
-  else if(a==='add'){addIt(c);sort();redo()}
-  else if(a==='addpend'){ALL.filter(k=>k.regs.length&&!S.na[k.code]&&cnt(k)<k.regs.length).forEach(k=>addIt(k.code));sort();redo()}
-  else if(a==='del'){I.it=I.it.filter(i=>i.code!==c);redo()}
-  else if(a==='sec'){I.sec[b.dataset.k]=0;redo()}
-  else if(a==='hl'){
-    const t=lastTA;if(!t||t.selectionStart===t.selectionEnd)return say$('Selecciona texto en una nota o hallazgo y toca Resaltar.');
-    const s0=t.selectionStart,s1=t.selectionEnd,v=t.value,x=v.slice(s0,s1);
-    t.value=x.length>4&&x.startsWith('==')&&x.endsWith('==')?v.slice(0,s0)+x.slice(2,-2)+v.slice(s1):v.slice(s0-2,s0)==='=='&&v.slice(s1,s1+2)==='=='?v.slice(0,s0-2)+x+v.slice(s1+2):v.slice(0,s0)+'=='+x+'=='+v.slice(s1);
-    t.dispatchEvent(new Event('input',{bubbles:true}));
+  // ── 2. SKINS ──
+  function setTheme(themeClass, btn) {
+    document.body.classList.remove('theme-contadores', 'theme-abogados');
+    if (themeClass) document.body.classList.add(themeClass);
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
   }
-  else if(a==='pdf')print();
-  else if(a==='word2'){
-    const p=$('#paper').cloneNode(true);p.querySelectorAll('.noexp,.noword').forEach(x=>x.remove());
-    const l=document.createElement('a');l.href=URL.createObjectURL(new Blob(['<html><head><meta charset="utf-8"><style>body{font-family:Calibri,Arial;font-size:11pt}h2{font-size:18pt}h3{color:#0b6b4d;border-bottom:2px solid #0b6b4d}table{border-collapse:collapse;width:100%}td,th{border:1px solid #999;padding:4px 6px}mark{background:#fde047}</style></head><body>'+p.innerHTML+'</body></html>'],{type:'application/msword'}));
-    l.download='Informe-'+(emp().nom||'SIGIA').replace(/[^\w]+/g,'_')+'.doc';l.click();
+
+  // ── 3. ACCESIBILIDAD (TAMAÑO DE LETRA) ──
+  let currentFontSize = 16;
+  function changeFontSize(direction) {
+    currentFontSize += (direction * 2); // Suma o resta 2px
+    if (currentFontSize < 12) currentFontSize = 12;
+    if (currentFontSize > 26) currentFontSize = 26;
+    document.documentElement.style.setProperty('--font-base', currentFontSize + 'px');
   }
-  else if(a==='nuevo'){if(confirm('¿Empezar un informe nuevo? Se borran las cláusulas y notas de este.')){I.it=[];I.notas='';I.folio='';SUG=[];redo()}}
-});
 
-/* ═══ DICTADO CONTINUO (notas y reporte) ═══ */
-let dr=null;
-function dict(el,btn){
-  if(dr)return dr.stop();if(!SR||!el)return say$('Este navegador no tiene dictado. Usa Chrome, Edge o Safari.');
-  dr=new SR();dr.lang='es-MX';dr.continuous=true;
-  dr.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++)if(e.results[i].isFinal){el.value+=(el.value&&!/\s$/.test(el.value)?' ':'')+e.results[i][0].transcript.trim();el.dispatchEvent(new Event('input',{bubbles:true}))}};
-  dr.onend=()=>{dr=null;btn.classList.remove('on');btn.textContent=btn.dataset.l};dr.onerror=e=>say$('No pude escuchar: '+e.error);
-  btn.dataset.l=btn.textContent;btn.classList.add('on');btn.textContent='■ Detener';dr.start();
-}
-const ocrText=async f=>{await loadOCR();return(await Tesseract.recognize(f,'spa')).data.text.trim()};
-const chunk=t=>{const o=[];let b='';for(const p of t.replace(/\s+/g,' ').split(/(?<=[.!?])\s+/)){if(b.length+p.length>500&&b){o.push(b);b=''}b+=(b?' ':'')+p}if(b)o.push(b);return o.filter(x=>x.length>20)};
-async function imp(f){
-  say$('Importando…');
-  try{
-    const n=f.name.toLowerCase();let t='';
-    if(n.endsWith('.pdf')){await load(PDF+'pdf.min.js',()=>window.pdfjsLib);pdfjsLib.GlobalWorkerOptions.workerSrc=PDF+'pdf.worker.min.js';const d=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise;for(let i=1;i<=d.numPages;i++)t+=(await(await d.getPage(i)).getTextContent()).items.map(x=>x.str).join(' ')+' '}
-    else if(n.endsWith('.docx')){await load(MAM,()=>window.mammoth);t=(await mammoth.extractRawText({arrayBuffer:await f.arrayBuffer()})).value}
-    else if(n.endsWith('.xlsx')){await load(XL,()=>window.XLSX);const w=XLSX.read(await f.arrayBuffer());t=w.SheetNames.map(s=>XLSX.utils.sheet_to_csv(w.Sheets[s])).join('. ')}
-    else if(/\.html?$/.test(n))t=new DOMParser().parseFromString(await f.text(),'text/html').body.textContent;
-    else t=await f.text();
-    const ch=chunk(t);if(!ch.length)throw 0;const d={id:'doc:'+Date.now(),name:f.name,chunks:ch};await fPut(d.id,d);IMP.push(d);route();say$('Importado: '+ch.length+' fragmentos. Ya puedes preguntarle.');
-  }catch{say$('No pude leer ese archivo. Un PDF escaneado necesita OCR primero.')}
-}
-document.addEventListener('change',async e=>{
-  const i=e.target,f=i.files?.[0];if(!f)return;
-  if(i.id==='imp')await imp(f);
-  if(i.id==='ocr2'||i.id==='ocr3'){say$('Leyendo imagen…');try{const t=await ocrText(f);const r=$(i.id==='ocr2'?'#rep':'#notas');r.value+=(r.value?'\n\n':'')+t;r.dispatchEvent(new Event('input',{bubbles:true}));say$('Texto agregado.')}catch{say$('No pude leer la imagen.')}}
-  i.value='';
-});
-document.addEventListener('input',e=>{const t=e.target;if(t.dataset.note){S.notes[t.dataset.note]=t.value;save()}else if(t.id==='rep'){S.rep=t.value;save()}else if(t.id==='co'){S.co=t.value;save()}});
-document.addEventListener('click',async e=>{
-  const b=e.target.closest('[data-act],[data-rate]');if(!b)return;const a=b.dataset.act,c=b.dataset.code;
-  if(b.dataset.rate){$('#rate').value=b.dataset.rate;$('#rate').oninput({target:$('#rate')});return}
-  if(a==='mic')$('#mic').click();
-  else if(a==='again')say(last);
-  else if(a==='stop')speechSynthesis.cancel();
-  else if(a==='read'){const k=ALL.find(x=>x.code===c);last=`Cláusula ${k.code}, ${k.title}. `+(k.regs.length?'Registros requeridos: '+k.regs.join('; ')+'.':'Sin registros definidos.')+(k.obs?' Observaciones: '+k.obs:'');say(last)}
-  else if(a==='lib'){const l=LIB[b.dataset.i];last=l[0]+'. '+l[1];say(last)}
-  else if(a==='na'){S.na[c]=S.na[c]?0:1;save();openC=c;route()}
-  else if(a==='dict')dict(document.getElementById(b.dataset.t),b);
-  else if(a==='readrep')say($('#rep').value);
-  else if(a==='copy'){try{await navigator.clipboard.writeText($('#rep').value);say$('Copiado.')}catch{say$('No pude copiar.')}}
-  else if(a==='word'){const l=document.createElement('a');l.href=URL.createObjectURL(new Blob(['<html><head><meta charset="utf-8"></head><body>'+esc($('#rep').value).replace(/\n/g,'<br>')+'</body></html>'],{type:'application/msword'}));l.download='reporte.doc';l.click()}
-  else if(a==='clear'){if(confirm('¿Borrar el reporte?')){S.rep='';save();route()}}
-  else if(a==='deldoc'){await fDel(b.dataset.id);IMP=IMP.filter(d=>d.id!==b.dataset.id);route()}
-});
+  // ── 4. ACORDEÓN ──
+  function toggleAccordion(id) {
+    const content = document.getElementById(id);
+    const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+    document.querySelectorAll('.accordion-content').forEach(el => el.style.maxHeight = '0px');
+    if (!isOpen) content.style.maxHeight = content.scrollHeight + "px";
+  }
 
-/* ═══ OCR (Tesseract.js, se carga solo al usarlo) ═══
-const loadOCR=()=>window.Tesseract?Promise.resolve():new Promise((ok,ko)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';s.onload=ok;s.onerror=ko;document.head.append(s)});
-$('#ocr').onchange=async e=>{
-  const f=e.target.files[0];if(!f)return;say$('Leyendo imagen…');
-  try{await loadOCR();const{data:{text}}=await Tesseract.recognize(f,'spa');$('#q').value=text.trim().slice(0,600);say$('Texto leído. Buscando la cláusula.');ask(text)}
-  catch{say$('No pude leer la imagen. Revisa tu conexión e inténtalo de nuevo.')}
-  e.target.value='';
-};
+  // ── 5. SIMULADORES ──
+  function calcContador() {
+    const horas = document.getElementById('horas-cont').value;
+    const sueldoHora = 500; // Estimado
+    const perdidaMes = horas * 4 * sueldoHora;
+    
+    // Actualizar gráfica (escala simple)
+    const alturaHoras = (horas / 40) * 100;
+    const alturaDinero = (perdidaMes / 80000) * 100;
+    
+    document.getElementById('bar-horas').style.height = alturaHoras + '%';
+    document.getElementById('bar-dinero').style.height = Math.min(alturaDinero, 100) + '%';
+    
+    document.getElementById('res-cont').innerHTML = `Estás perdiendo <span style="color:#ff4757">${horas} hrs/mes</span> y ~$${perdidaMes.toLocaleString('es-MX')} MXN.`;
+  }
+  
+  function calcAbogado() {
+    const dias = document.getElementById('dias-abo').value;
+    const costoDia = 3500; // Costo de oportunidad estimado
+    const perdida = dias * costoDia;
+    document.getElementById('res-abo').innerHTML = `Estás regalando <strong>${dias} días</strong> de trabajo facturable.<br>Equivale a ~$${perdida.toLocaleString('es-MX')} MXN perdidos.`;
+  }
+  calcContador(); calcAbogado();
 
-/* ═══ ARRANQUE ═══ */
+  // ── 6. LECTOR DE VOZ CON CONTROLES ──
+  let utterance = null;
+  let isPaused = false;
 
-/* ═══ V3: PERSISTENCIA, PAPELERA, EMPRESAS, DOCUMENTOS, VOZ, IDIOMAS, AJUSTES ═══ */
-const NAVS=[['inicio','Inicio'],['empresas','Empresas'],['informe','Informe'],['docs','Documentos'],['m2','Calidad (M2)'],['m11','Producción (M11)'],['biblioteca','Biblioteca'],['reporte','Reporte'],['manejo','Manejando'],['simulacro','Simulacro'],['ajustes','Ajustes']];
-$('#nav').innerHTML=NAVS.map(([k,l])=>`<a href="#/${k}">${l}</a>`).join('');
-$('#nav').insertAdjacentHTML('beforebegin','<div id="ctl3"><button class="btn" data-a2="fs-" aria-label="Letra más chica">A−</button><button class="btn" data-a2="fs+" aria-label="Letra más grande">A+</button><button class="btn" data-a2="theme">🌓</button><button class="btn" data-a2="help">? Ayuda</button><button class="btn" data-a2="readscr">🔊 Pantalla</button><button class="btn" data-a2="vcmd">🎤 Comando</button></div>');
-const LANGS2=[['es-MX','Español (México)'],['es-ES','Español (España)'],['en-US','English (US)'],['en-GB','English (UK)'],['pt-BR','Português'],['fr-FR','Français'],['de-DE','Deutsch'],['it-IT','Italiano']];
-const EN=Object.fromEntries(('Inicio=Home|Empresas=Companies|Informe=Report|Documentos=Documents|Calidad (M2)=Quality (M2)|Producción (M11)=Production (M11)|Biblioteca=Library|Reporte=Notes|Manejando=Driving|Simulacro=Drill|Ajustes=Settings|Pregunta a la norma=Ask the standard|Preguntar=Ask|Dictar=Dictate|Escanear (OCR)=Scan (OCR)|▶ Escuchar=▶ Listen|■ Parar=■ Stop|Leer solo=Auto-read|Velocidad=Speed|Volumen=Volume|Avance del sistema=System progress|Subir=Upload|Ver=View|Reemplazar=Replace|Quitar=Remove|Cerrar=Close|Eliminar=Delete|Descargar copia=Download copy|Marcar no aplica=Mark not applicable|Volver a aplicar=Apply again|🔊 Escuchar=🔊 Listen|🎙 Dictar nota=🎙 Dictate note|Auditoría=Audit|Consultoría=Consulting|Empresa=Company|Notas de la visita=Visit notes|Sugerir cláusulas=Suggest clauses|Agregar pendientes=Add pending|Descargar Word=Download Word|Compartir=Share|Secciones del documento=Document sections|Fecha=Date|Dirigido a=Addressed to|Con copia a=CC|Podrían entrar también=Could also apply|Biblioteca de consulta=Reference library|Importar al rack=Import to rack|Fuente oficial=Official source|Modo manejando=Driving mode|Repetir=Repeat|Papelera=Trash|Restaurar=Restore|Apariencia=Appearance|Mi perfil=My profile|+ Nueva empresa=+ New company|Contactos=Contacts|Campos personalizados=Custom fields|Voz=Voice|Pendientes=Pending|Datos y respaldo=Data and backup|Ajustes=Settings|Siguientes cláusulas por completar=Next clauses to complete|Informe nuevo=New report|✏️ Editar libre=✏️ Free edit|Respaldo completo (.zip)=Full backup (.zip)|Restaurar respaldo=Restore backup|Proteger mis datos=Protect my data|Sí=Yes|Iniciar (8 preguntas)=Start (8 questions)|Tamaño de letra=Font size|Letra más grande=Larger text').split('|').map(x=>x.split('=')));
-function trDOM(){
-  if(S.ui!=='en')return;
-  const w=document.createTreeWalker($('.app'),NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement.closest('#paper')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});let n;
-  while(n=w.nextNode()){const t=n.nodeValue.trim();if(EN[t])n.nodeValue=n.nodeValue.replace(t,EN[t])}
-  document.querySelectorAll('[placeholder]').forEach(e=>{const p=e.getAttribute('placeholder');if(EN[p])e.setAttribute('placeholder',EN[p])});
-}
-const HELP={inicio:['Aquí ves el avance y lo pendiente. Usa el menú de arriba para ir a cada parte.','Here you see progress and pending items. Use the top menu to move around.'],empresas:['Guarda una vez los datos de cada cliente y sus contactos. Lo que dejes vacío no aparece en los documentos.','Save each client and their contacts once. Empty fields never appear in documents.'],informe:['Elige empresa y a quién va dirigido, dicta tus notas y toca Sugerir cláusulas. Agrega o quita cláusulas y exporta a Word o PDF.','Pick the company and recipient, dictate notes and tap Suggest clauses. Add or remove clauses and export to Word or PDF.'],docs:['Tus informes se guardan solos. Desde aquí los abres, compartes o mandas a la papelera.','Your reports save automatically. Open, share or move them to trash from here.'],m2:['Cada cláusula muestra los registros que pide. Sube la evidencia, anota o dicta tus notas.','Each clause lists the records it requires. Upload evidence and take or dictate notes.'],m11:['Igual que el módulo 2, pero para el control de producción.','Same as module 2, but for production control.'],biblioteca:['Consulta resúmenes de normas y agrega tus propios documentos para buscarlos.','Browse standard summaries and add your own documents to search them.'],reporte:['Un cuaderno libre: dicta, pega o escanea y descárgalo en Word.','A free notebook: dictate, paste or scan and download as Word.'],manejo:['Toca el botón grande, haz tu pregunta y escucha la respuesta sin mirar.','Tap the big button, ask, and listen without looking.'],simulacro:['El sistema te pregunta por voz si existe cada registro. Sirve para practicar una auditoría.','The system asks by voice if each record exists. Use it to practice an audit.'],ajustes:['Aquí pones tu nombre y título, el tamaño de letra, el tema, el idioma y los respaldos.','Set your name and title, font size, theme, language and backups here.']};
-function applyUI(){const r=document.documentElement;r.style.zoom=S.fs||1;r.style.colorScheme=S.theme&&S.theme!=='auto'?S.theme:'light dark';r.dataset.skin=S.skin||'';document.body.classList.toggle('help-on',!!S.help);r.lang=S.ui||'es'}
-applyUI();navigator.storage?.persist?.();
-/* idioma de lectura */
-function say(t){
-  if(!('speechSynthesis' in window)||!t)return;speechSynthesis.cancel();
-  const vs=speechSynthesis.getVoices(),lg=S.rl||'es-MX',v=vs.find(x=>x.name===S.voice)||vs.find(x=>x.lang===lg)||vs.find(x=>x.lang.startsWith(lg.slice(0,2))),g=[];let b='';
-  for(const p of t.match(/[^.;:!?]+[.;:!?]?\s*/g)||[t]){if((b+p).length>180&&b){g.push(b);b=''}b+=p}if(b)g.push(b);
-  g.forEach(x=>{const u=new SpeechSynthesisUtterance(x);u.lang=lg;u.rate=+$('#rate').value;u.volume=+$('#vol').value;if(v)u.voice=v;speechSynthesis.speak(u)});
-}
-if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=()=>{if(location.hash==='#/ajustes')route()};
-/* comandos de voz */
-const sortIt=()=>S.inf.it.sort((x,y)=>ALL.findIndex(k=>k.code===x.code)-ALL.findIndex(k=>k.code===y.code));
-function cmd(t){
-  const n=norm(t).trim();let m;
-  if(m=n.match(/^(?:ve a|ir a|abre|abrir|ve al|ir al)\s+(?:la |el |los |las )?(inicio|empresas?|informe|documentos?|calidad|produccion|biblioteca|reporte|manejando|manejo|simulacro|ajustes|papelera)/)){location.hash='#/'+({empresa:'empresas',documento:'docs',documentos:'docs',calidad:'m2',produccion:'m11',manejando:'manejo'}[m[1]]||m[1]);return 1}
-  if(/letra (mas )?grande|aumenta(r)? (la )?letra/.test(n)){S.fs=Math.min(2,(S.fs||1)+.1);save();applyUI();return 1}
-  if(/letra (mas )?(chica|pequena)|reduce(r)? (la )?letra/.test(n)){S.fs=Math.max(.8,(S.fs||1)-.1);save();applyUI();return 1}
-  if(/modo oscuro/.test(n)){S.theme='dark';save();applyUI();return 1}
-  if(/modo claro/.test(n)){S.theme='light';save();applyUI();return 1}
-  if(/^(lee|leer|escucha|escuchar) (la )?(pantalla|todo)/.test(n)){say($('#main').innerText);return 1}
-  if(/^(para|parar|detener|silencio|alto)$/.test(n)){speechSynthesis.cancel();return 1}
-  if(m=n.match(/^(?:hallazgo|clausula)\s+(\d{1,2}(?:\.\d{1,3}){0,3})\s*(cumple|menor|mayor|critica|no aplica)?\s*(.*)$/)){
-    if(!cl(m[1])){say$('No existe la cláusula '+m[1]);return 1}
-    addIt(m[1]);const x=S.inf.it.find(i=>i.code===m[1]);if(m[2])x.st={cumple:'c',menor:'m',mayor:'M',critica:'C','no aplica':'n'}[m[2]];
-    const rest=t.trim().slice(t.trim().length-m[3].length);if(rest)x.txt=(x.txt?x.txt+' ':'')+rest;sortIt();save();say$('Hallazgo agregado a '+m[1]);location.hash==='#/informe'?route():location.hash='#/informe';return 1}
-  return 0;
-}
-const _ask=ask;ask=function(q){if(typeof q==='string'&&cmd(q))return;return _ask(q)};
-function listenCmd(){if(!SR)return say$('Este navegador no tiene dictado.');const r=new SR();r.lang=S.ui==='en'?'en-US':'es-MX';r.onresult=e=>{const t=e.results[0][0].transcript;say$('🎤 '+t);if(!cmd(t))ask(t)};r.start();say$('Escuchando… di, por ejemplo: «ve a informe» o «hallazgo 11.2.4 menor falta el contrato»')}
-/* papelera */
-async function toTrash(k){const v=await fGet(k);if(!v)return;await fPut('trash:'+Date.now()+':'+k,{...v,kind:k.startsWith('rep:')?'rep':'file',key:k,at:Date.now()});await fDel(k)}
-$('#vdel').onclick=async()=>{if(!curId||!confirm('¿Mover a la papelera? Podrás recuperarlo.'))return;await toTrash(curId);have.delete(curId);$('#v').close();route()};
-views.papelera=()=>`<h1>Papelera</h1><p class="sub">Nada se borra definitivamente hasta que tú lo decidas.</p><div id="tl">Cargando…</div>`;
-async function listTrash(){
-  const ks=(await fKeys()).filter(k=>String(k).startsWith('trash:')).sort().reverse(),el=$('#tl');if(!el)return;
-  const rs=await Promise.all(ks.map(async k=>({k,...await fGet(k)})));
-  el.innerHTML=rs.length?`<div class="tools o"><button class="mbtn" data-a2="trempty">Vaciar papelera</button></div>`+rs.map(r=>`<div class="card"><b>${esc(r.kind==='emp'?'Empresa: '+(r.emp.nom||'sin nombre'):r.kind==='rep'?r.title:r.name)}</b><br><span class="sub">${new Date(r.at).toLocaleString()}</span><div class="tools o"><button class="mbtn" data-a2="trrest" data-id="${r.k}">Restaurar</button><button class="mbtn" data-a2="trdel" data-id="${r.k}">Eliminar definitivamente</button></div></div>`).join(''):'<p class="sub">La papelera está vacía.</p>';
-}
-/* empresas y contactos */
-const fld=(k,l)=>`<label>${l}<input data-e="${k}" value="${esc(emp()[k])}"></label>`;
-views.empresas=()=>{const e=emp();return`<h1>Empresas</h1><p class="sub">Guarda todo lo que quieras de cada cliente. Lo que dejes vacío no aparece en los documentos.</p>
-<div class="card ed"><div class="two"><label>Empresa activa<select data-f="inf.emp"><option value="">— elegir —</option>${S.emp.map(x=>`<option value="${x.id}" ${x.id===S.inf.emp?'selected':''}>${esc(x.nom||'Sin nombre')}</option>`).join('')}</select></label><div class="tools o" style="align-items:end"><button class="mbtn" data-act="empnew">+ Nueva empresa</button></div></div></div>
-${e.id?`<div class="card ed"><h3>Datos</h3><div class="two">${[['nom','Razón social'],['com','Nombre comercial'],['rfc','RFC'],['domF','Domicilio fiscal'],['dir','Domicilio de la planta'],['tel','Teléfono'],['mail','Correo'],['web','Sitio web'],['giro','Giro'],['prod','Productos'],['num','Número de empleados'],['tur','Turnos'],['cer','Certificaciones / esquema']].map(([k,l])=>fld(k,l)).join('')}</div></div>
-<div class="card ed"><h3>Contactos</h3><p class="sub">Gerente, subgerente, recursos humanos, calidad… Al hacer un informe eliges a quién va dirigido.</p><div class="rows">${(e.ct||[]).map((c,i)=>`<div class="four">${['n:Nombre','p:Puesto','m:Correo','t:Teléfono'].map(x=>{const[k,l]=x.split(':');return`<input data-ct="${i}|${k}" placeholder="${l}" value="${esc(c[k])}">`}).join('')}<button class="mbtn" data-a2="ctdel" data-id="${i}">✕</button></div>`).join('')}</div><div class="tools o" style="margin-top:8px"><button class="mbtn" data-a2="ctadd">+ Agregar contacto</button></div></div>
-<div class="card ed"><h3>Campos personalizados</h3><div class="rows">${(e.cf||[]).map((c,i)=>`<div class="two" style="grid-template-columns:1fr 2fr auto"><input data-cf="${i}|k" placeholder="Nombre del campo" value="${esc(c.k)}"><input data-cf="${i}|v" placeholder="Valor" value="${esc(c.v)}"><button class="mbtn" data-a2="cfdel" data-id="${i}">✕</button></div>`).join('')}</div><div class="tools o" style="margin-top:8px"><button class="mbtn" data-a2="cfadd">+ Agregar campo</button><button class="mbtn" data-a2="empdel2">Mover empresa a la papelera</button></div></div>`:''}`};
-/* documentos guardados */
-let lastJ='';setInterval(()=>{const j=JSON.stringify(S.inf);if(j!==lastJ){lastJ=j;autosave()}},4000);
-let ast;function autosave(){clearTimeout(ast);ast=setTimeout(async()=>{const I=S.inf;if(!I.it.length&&!I.notas&&!I.free)return;if(!I.rid){I.rid='rep:'+Date.now();save()}await fPut(I.rid,{kind:'rep',title:(I.tipo==='aud'?'Auditoría':'Consultoría')+' · '+(emp().nom||'sin empresa'),at:Date.now(),inf:JSON.parse(JSON.stringify(I)),html:doc()})},900)}
-views.docs=()=>`<h1>Documentos</h1><p class="sub">Tus informes se guardan solos en este dispositivo.</p><div id="dl">Cargando…</div>`;
-async function listDocs(){
-  const ks=(await fKeys()).filter(k=>String(k).startsWith('rep:')).sort().reverse(),el=$('#dl');if(!el)return;
-  const rs=await Promise.all(ks.map(async k=>({k,...await fGet(k)})));
-  el.innerHTML=rs.length?rs.map(r=>`<div class="card"><b>${esc(r.title)}</b><br><span class="sub">${new Date(r.at).toLocaleString()}</span><div class="tools o"><button class="mbtn" data-a2="docopen" data-id="${r.k}">Abrir</button><button class="mbtn" data-a2="docshare" data-id="${r.k}">Compartir</button><button class="mbtn" data-a2="docdel" data-id="${r.k}">Eliminar</button></div></div>`).join(''):'<p class="sub">Aún no hay documentos.</p>';
-}
-/* exportar: Word real, compartir, zip */
-const TB='<div class="fmt">'+[['bold','<b>B</b>'],['italic','<i>I</i>'],['underline','<u>U</u>'],['hiliteColor','🖍','#fde047'],['hiliteColor','⌫','transparent'],['foreColor','A','#dc2626'],['fontSize','A+','5'],['fontSize','A−','2'],['justifyLeft','⬅'],['justifyFull','≡'],['insertUnorderedList','•'],['insertOrderedList','1.'],['insertHTML','▦','<table border="1" style="border-collapse:collapse;width:100%"><tr><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr></table><p></p>'],['undo','↶'],['redo','↷'],['removeFormat','✧']].map(([c,l,v])=>`<button data-a2="cmd|${c}|${esc(v||'')}">${l}</button>`).join('')+'</div>';
-document.addEventListener('mousedown',e=>{if(e.target.closest('.fmt button'))e.preventDefault()});
-const CSSD='body{font-family:Calibri,Arial;font-size:11pt}h2{font-size:18pt}h3{color:#0b6b4d;border-bottom:2px solid #0b6b4d}table{border-collapse:collapse;width:100%}td,th{border:1px solid #999;padding:4px 6px}mark{background:#fde047}';
-const clean=h=>{const d=document.createElement('div');d.innerHTML=h;d.querySelectorAll('.noexp,.noword').forEach(x=>x.remove());return d.innerHTML};
-const paperHTML=()=>clean($('#paper').innerHTML);
-const saveAs=(b,fn)=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),5000)};
-async function shareFile(b,fn){const f=new File([b],fn,{type:b.type});if(navigator.canShare?.({files:[f]})){try{await navigator.share({files:[f],title:fn});return}catch(e){if(e.name==='AbortError')return}}saveAs(b,fn);say$('Compartir no está disponible aquí; se descargó el archivo.')}
-async function outDoc(html,nm_,share){
-  const full='<!DOCTYPE html><html><head><meta charset="utf-8"><style>'+CSSD+'</style></head><body>'+html+'</body></html>';let b,fn;
-  try{await load('https://cdn.jsdelivr.net/npm/html-docx-js@0.3.1/dist/html-docx.js',()=>window.htmlDocx);b=htmlDocx.asBlob(full);fn=nm_+'.docx'}
-  catch{b=new Blob([full],{type:'application/msword'});fn=nm_+'.doc';say$('Sin internet para crear .docx; se generó .doc compatible con Word.')}
-  share?shareFile(b,fn):saveAs(b,fn);
-}
-const repName=()=>'Informe-'+(emp().nom||'SIGIA').replace(/[^\w]+/g,'_');
-const JSZ='https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';
-async function expZip(share){
-  await load(JSZ,()=>window.JSZip);const z=new JSZip(),man=[];let i=0;
-  for(const k of await fKeys()){const v=await fGet(k);if(v&&v.blob){z.file('blobs/'+i,v.blob);man.push({k,v:{...v,blob:'blobs/'+i}});i++}else man.push({k,v})}
-  z.file('sigia.json',JSON.stringify({v:2,at:Date.now(),S,man,mon:localStorage.getItem('sigia_mon')}));
-  const b=await z.generateAsync({type:'blob'}),fn='SIGIA_respaldo_'+new Date().toLocaleDateString('sv-SE')+'.zip';S.lastBak=Date.now();save();share?shareFile(b,fn):saveAs(b,fn);say$('Respaldo listo.');
-}
-async function impZip(f){
-  await load(JSZ,()=>window.JSZip);const z=await JSZip.loadAsync(f),j=JSON.parse(await z.file('sigia.json').async('string'));
-  for(const{k,v}of j.man){if(typeof v.blob==='string')v.blob=new Blob([await z.file(v.blob).async('arraybuffer')],{type:v.type||''});await fPut(k,v)}
-  Object.assign(S,j.S);save();location.reload();
-}
-/* simulacro */
-let SIM=null;const pick=a=>a[Math.floor(Math.random()*a.length)];
-views.simulacro=()=>`<h1>Simulacro de auditoría</h1><p class="sub">El sistema pregunta por voz si existe cada registro. Responde Sí o No.</p><div class="card" id="sim"><button class="mbtn" data-a2="simgo">Iniciar (8 preguntas)</button></div>`;
-function simQ(){const c=pick(ALL.filter(x=>x.regs.length)),r=pick(c.regs),q=`Cláusula ${c.code}, ${c.title}. ¿Cuenta con ${r}?`;SIM.cur={c,r};$('#sim').innerHTML=`<p><b>${SIM.n+1} / 8</b></p><p style="font-size:1.2em">${esc(q)}</p><div class="tools o"><button class="mbtn" data-a2="simy">Sí</button><button class="mbtn" data-a2="simn">No</button><button class="mbtn" data-a2="simr">🔊 Repetir</button></div>`;say(q)}
-function simEnd(){const g=[...new Set(SIM.gaps.map(x=>x.c.code))];$('#sim').innerHTML=`<h3>${SIM.si} de 8 con evidencia</h3>${SIM.gaps.map(x=>`<p>• ${x.c.code} · ${esc(x.r)}</p>`).join('')||'<p>Sin pendientes.</p>'}<div class="tools o">${g.length?'<button class="mbtn" data-a2="simadd">Agregar pendientes al informe</button>':''}<button class="mbtn" data-a2="simgo">Otra ronda</button></div>`;say(`Resultado: ${SIM.si} de 8 con evidencia.`)}
-/* ajustes */
-views.ajustes=()=>{const a=S.aut,vs=('speechSynthesis' in window?speechSynthesis.getVoices():[]).filter(v=>v.lang.startsWith((S.rl||'es-MX').slice(0,2))),au=(k,l,ph='')=>`<label>${l}<input data-au="${k}" value="${esc(a[k])}" placeholder="${ph}"></label>`;
-return`<h1>Ajustes</h1><p class="sub">Todo se guarda en este dispositivo.</p><div class="ed">
-<div class="card"><h3>Mi perfil</h3><p class="sub">Escribe tu nombre y título como quieras que salgan. Lo que dejes vacío no aparece en los documentos.</p><div class="two">${au('tit','Título o tratamiento','Ing., Lic., Auditor…')}${au('n','Nombre completo')}${au('c','Cargo')}${au('des','Despacho o empresa')}${au('dir','Dirección')}${au('tel','Teléfono')}${au('mail','Correo electrónico')}${au('web','Sitio web')}${au('cert','Certificaciones o registro')}</div><div class="tools o" style="margin-top:8px"><label class="mbtn" for="firma">🖊 Subir firma</label><input type="file" id="firma" accept="image/*" hidden>${a.firma?`<img src="${a.firma}" style="max-height:50px;background:#fff"><button class="mbtn" data-a2="firmadel">Quitar firma</button>`:''}</div></div>
-<div class="card"><h3>Apariencia</h3><label>Tamaño de letra: ${Math.round((S.fs||1)*100)}%<input type="range" min=".8" max="2" step=".1" value="${S.fs||1}" data-s="fs"></label><div class="two"><label>Tema<select data-s="theme">${[['auto','Automático'],['light','Claro'],['dark','Oscuro']].map(([k,l])=>`<option value="${k}" ${(S.theme||'auto')===k?'selected':''}>${l}</option>`).join('')}</select></label><label>Idioma de la pantalla<select data-s="ui"><option value="es">Español</option><option value="en" ${S.ui==='en'?'selected':''}>English</option></select></label></div><div style="margin-top:8px">${[['','Bosque'],['azul','Azul'],['vino','Vino'],['grafito','Grafito'],['ambar','Ámbar'],['alto','Alto contraste']].map(([k,l])=>`<button class="chip" data-a2="skin:${k}" ${(S.skin||'')===k?'style="background:var(--acc);color:var(--on-acc)"':''}>${l}</button>`).join('')}</div><label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" data-s="help" ${S.help?'checked':''}> Modo principiante (explica cada pantalla)</label></div>
-<div class="card"><h3>Voz</h3><div class="two"><label>Idioma de lectura<select data-s="rl">${LANGS2.map(([k,l])=>`<option value="${k}" ${(S.rl||'es-MX')===k?'selected':''}>${l}</option>`).join('')}</select></label><label>Voz<select data-s="voice"><option value="">Automática</option>${vs.map(v=>`<option ${S.voice===v.name?'selected':''}>${esc(v.name)}</option>`).join('')}</select></label></div><p class="sub">Las voces disponibles dependen de tu dispositivo.</p></div>
-<div class="card"><h3>Datos y respaldo</h3><p id="pst" class="sub"></p><div class="tools o"><button class="mbtn" data-a2="protect">🛡 Proteger mis datos</button><button class="mbtn" data-a2="zip">Respaldo completo (.zip)</button><button class="mbtn" data-a2="zips">Compartir respaldo</button><label class="mbtn" for="zipin">Restaurar respaldo</label><input type="file" id="zipin" accept=".zip" hidden><a class="mbtn" href="#/papelera">Papelera</a></div><p class="sub">Último respaldo: ${S.lastBak?new Date(S.lastBak).toLocaleString():'nunca'}</p></div></div>`};
-/* inicio: pendientes y respaldo */
-const _ini=views.inicio;
-views.inicio=()=>{
-  const hoy=new Date().toLocaleDateString('sv-SE'),p=S.inf.it.filter(x=>x.lim&&['m','M','C'].includes(x.st)).map(x=>({...x,d:Math.round((new Date(x.lim)-new Date(hoy))/864e5)})).filter(x=>x.d<=14).sort((a,b)=>a.d-b.d),bak=!S.lastBak||Date.now()-S.lastBak>6048e5;
-  return _ini()+`<div class="card"><h3>Pendientes</h3>${bak?'<p>⚠️ Hace más de 7 días sin respaldo. <button class="lnk" data-a2="zip">Respaldar ahora</button></p>':''}${p.length?p.map(x=>`<p>${x.d<0?'🔴 Vencida':'🟡 Por vencer'} · ${x.code} · ${esc(x.rec||x.txt).slice(0,90)} (${fdate(x.lim)})</p>`).join('')+'<button class="mbtn" data-a2="readvenc">🔊 Leer pendientes</button>':'<p>No hay acciones por vencer.</p>'}</div>`;
-};
-/* route con ayuda, listas asíncronas e idioma */
-removeEventListener('hashchange',route);
-const _route=route;
-route=function(){
-  _route();const id=location.hash.slice(2)||'inicio',m=$('#main');
-  if(HELP[id])m.insertAdjacentHTML('afterbegin',`<div class="help"><b>${S.ui==='en'?'How this works':'Cómo funciona'}:</b> ${HELP[id][S.ui==='en'?1:0]} <button class="mbtn" data-a2="readhelp">🔊</button></div>`);
-  if(id==='docs')listDocs();if(id==='papelera')listTrash();
-  if(id==='ajustes')navigator.storage?.persisted?.().then(p=>{const el=$('#pst');if(el)el.textContent=p?'🛡 Almacenamiento protegido por el navegador.':'⚠️ El navegador aún no protege tus datos. Toca «Proteger», instala la app en la pantalla de inicio y haz respaldos.'});
-  trDOM();
-};
-addEventListener('hashchange',()=>route());
-/* eventos */
-document.addEventListener('change',async e=>{
-  const i=e.target,f=i.files&&i.files[0];if(!f)return;
-  if(i.id==='firma'){const im=new Image();im.onload=()=>{const k=Math.min(1,400/im.width),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);S.aut.firma=c.toDataURL('image/png');save();route()};im.src=URL.createObjectURL(f)}
-  if(i.id==='zipin'){if(confirm('Se combinará el respaldo con los datos actuales y se reiniciará la pantalla. ¿Continuar?'))impZip(f).catch(()=>say$('No pude leer ese respaldo.'))}
-},true);
-document.addEventListener('input',e=>{
-  const t=e.target,d=t.dataset;
-  if(d.au!==undefined){S.aut[d.au]=t.value;save()}
-  else if(d.ct){const[i,k]=d.ct.split('|'),x=emp();if(x.ct&&x.ct[i]){x.ct[i][k]=t.value;save()}}
-  else if(d.cf){const[i,k]=d.cf.split('|'),x=emp();if(x.cf&&x.cf[i]){x.cf[i][k]=t.value;save()}}
-  else if(d.s){S[d.s]=d.s==='fs'?+t.value:t.type==='checkbox'?(t.checked?1:0):t.value;save();if(d.s==='ui')return location.reload();if(d.s==='rl')return route();applyUI()}
-  else if(t.id==='paper'&&S.inf.free){S.inf.free=t.innerHTML;save()}
-});
-document.addEventListener('click',async e=>{
-  const b=e.target.closest('[data-a2]');if(!b)return;const a=b.dataset.a2,id=b.dataset.id,I=S.inf,x=emp();
-  if(a.startsWith('cmd|')){const[,c,v]=a.split('|');document.execCommand(c,false,v||null);return}
-  if(a.startsWith('skin:')){S.skin=a.slice(5);save();applyUI();return route()}
-  const A={
-    'fs-':()=>{S.fs=Math.max(.8,(S.fs||1)-.1);save();applyUI()},'fs+':()=>{S.fs=Math.min(2,(S.fs||1)+.1);save();applyUI()},
-    theme:()=>{S.theme={auto:'dark',dark:'light',light:'auto'}[S.theme||'auto'];save();applyUI();say$('Tema: '+S.theme)},
-    help:()=>{S.help=S.help?0:1;save();applyUI()},readscr:()=>say($('#main').innerText),vcmd:listenCmd,
-    readhelp:()=>say(b.closest('.help').innerText),readvenc:()=>say(b.closest('.card').innerText),
-    ctadd:()=>{(x.ct=x.ct||[]).push({n:'',p:'',m:'',t:''});save();route()},ctdel:()=>{x.ct.splice(+id,1);save();route()},
-    cfadd:()=>{(x.cf=x.cf||[]).push({k:'',v:''});save();route()},cfdel:()=>{x.cf.splice(+id,1);save();route()},
-    empdel2:async()=>{if(!confirm('¿Mover esta empresa a la papelera?'))return;await fPut('trash:'+Date.now()+':emp',{kind:'emp',emp:x,at:Date.now()});S.emp=S.emp.filter(y=>y.id!==x.id);I.emp='';save();route()},
-    docopen:async()=>{const r=await fGet(id);S.inf=r.inf;S.inf.rid=id;save();location.hash='#/informe'},
-    docshare:async()=>outDoc(clean((await fGet(id)).html),'Informe-SIGIA',true),
-    docdel:async()=>{if(confirm('¿Mover a la papelera?')){await toTrash(id);route()}},
-    trrest:async()=>{const v=await fGet(id);if(v.kind==='emp')S.emp.push(v.emp),save();else{const{kind,key,at,...r}=v;await fPut(key,r);if(kind==='file')have.add(key)}await fDel(id);route()},
-    trdel:async()=>{if(confirm('Se eliminará para siempre. ¿Continuar?')){await fDel(id);route()}},
-    trempty:async()=>{if(!confirm('Se vaciará la papelera para siempre. ¿Continuar?'))return;for(const k of await fKeys())if(String(k).startsWith('trash:'))await fDel(k);route()},
-    docx:()=>outDoc(paperHTML(),repName(),false),share2:()=>outDoc(paperHTML(),repName(),true),
-    free:()=>{if(I.free){if(!confirm('Volver al modo automático borra tus ediciones libres. ¿Continuar?'))return;I.free=''}else I.free=paperHTML();save();route()},
-    newrep:()=>{if(!confirm('¿Empezar un informe nuevo? El actual queda guardado en Documentos.'))return;Object.assign(I,{it:[],notas:'',folio:'',para:'',cc:'',free:'',rid:''});SUG=[];save();route()},
-    zip:()=>expZip(false),zips:()=>expZip(true),
-    protect:async()=>{if(!navigator.storage?.persist)return say$('Este navegador no permite proteger el almacenamiento.');const ok=await navigator.storage.persist();say$(ok?'Almacenamiento protegido ✓':'El navegador no lo concedió. Instala la app (añadir a pantalla de inicio) y haz respaldos.');route()},
-    firmadel:()=>{S.aut.firma='';save();route()},
-    simgo:()=>{SIM={n:0,si:0,gaps:[]};simQ()},simr:()=>say(`Cláusula ${SIM.cur.c.code}, ${SIM.cur.c.title}. ¿Cuenta con ${SIM.cur.r}?`),
-    simy:()=>{SIM.si++;SIM.n++;SIM.n>=8?simEnd():simQ()},simn:()=>{SIM.gaps.push(SIM.cur);SIM.n++;SIM.n>=8?simEnd():simQ()},
-    simadd:()=>{SIM.gaps.forEach(g=>addIt(g.c.code));sortIt();save();location.hash='#/informe'}
-  };
-  if(A[a])A[a]();
-});
-fKeys().then(async k=>{const d=x=>String(x).startsWith('doc:');have=new Set(k.filter(x=>!d(x)));for(const x of k.filter(d))IMP.push(await fGet(x));route()}).catch(route);
+  function togglePlay(containerId, btnId) {
+    const btn = document.getElementById(btnId);
+    
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+      window.speechSynthesis.pause();
+      btn.innerHTML = '▶';
+      return;
+    }
+    
+    if (window.speechSynthesis.paused) {
+      window.speechSynthesis.resume();
+      btn.innerHTML = '⏸';
+      return;
+    }
+
+    // Si no está hablando, iniciar
+    const container = document.getElementById(containerId);
+    const text = Array.from(container.querySelectorAll('p')).map(p => p.innerText).join('. ');
+    
+    utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'es-MX';
+    
+    utterance.onend = function() {
+      btn.innerHTML = '▶';
+    };
+
+    window.speechSynthesis.speak(utterance);
+    btn.innerHTML = '⏸';
+  }
+
+  function pauseAudio() {
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.pause();
+      document.querySelectorAll('.btn-audio-ctrl.play').forEach(b => b.innerHTML = '▶');
+    }
+  }
+
+  function changeSpeed(rate, btn) {
+    if (utterance) {
+      utterance.rate = rate;
+      // Actualizar indicador visual
+      btn.parentElement.querySelector('.speed-indicator').innerText = rate + 'x';
+    }
+  }
 </script>
+
 </body>
 </html>
